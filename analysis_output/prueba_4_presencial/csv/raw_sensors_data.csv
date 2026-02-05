@@ -1,0 +1,5 @@
+﻿experiment_id,mode,failed,timestamp,sensor_id,distance_cm,time_s
+sim_presential_18_1769464103095,presential,False,2026-01-26 09:27:23.095303,1,0.0,0.0
+sim_presential_18_1769464103095,presential,False,2026-01-26 09:27:23.095303,2,50.0,1.3023
+sim_presential_18_1769464103095,presential,False,2026-01-26 09:27:23.095303,3,100.0,1.8309
+sim_presential_18_1769464103095,presential,False,2026-01-26 09:27:23.095303,4,150.0,2.3143

@@ -1,0 +1,4 @@
+﻿experiment_id,mode,sensor_from,sensor_to,position_cm,velocity_ms,time_interval_s,acceleration_ms2
+sim_remote_32_1769461081030,remote,2.0,3.0,,,,1.7958882854430525
+sim_remote_32_1769461081030,remote,3.0,4.0,,,,0.8523369631588131
+sim_remote_32_1769461081030,remote,,,,,,1.3241126243009327

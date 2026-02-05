@@ -1,0 +1,5 @@
+﻿experiment_id,mode,failed,timestamp,sensor_id,distance_cm,time_s
+sim_remote_21_1769461081030,remote,False,2026-01-25 11:41:01.029999,1,0.0,0.0
+sim_remote_21_1769461081030,remote,False,2026-01-25 11:41:01.029999,2,50.0,1.0424
+sim_remote_21_1769461081030,remote,False,2026-01-25 11:41:01.029999,3,100.0,1.4888
+sim_remote_21_1769461081030,remote,False,2026-01-25 11:41:01.029999,4,150.0,1.8492
