@@ -1,4 +1,2 @@
-﻿experiment_id,mode,sensor_from,sensor_to,position_cm,velocity_ms,time_interval_s,acceleration_ms2
-sim_presential_32_1769461081030,presential,2.0,3.0,,,,1.5112511973402016
-sim_presential_32_1769461081030,presential,3.0,4.0,,,,1.301269912560843
-sim_presential_32_1769461081030,presential,,,,,,1.4062605549505223
+experiment_id,mode,sensor_from,sensor_to,acceleration_ms2
+sim_presential_9,presential,,,1.5696

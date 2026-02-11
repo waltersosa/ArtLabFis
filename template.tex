@@ -35,7 +35,7 @@
 % RESUMEN
 %-------------------------------------------------
 
-\abstract{La modernización de laboratorios de física en contextos de recursos limitados presenta desafíos significativos. Este artículo presenta el diseño y validación de un sistema de laboratorio remoto para el estudio del Movimiento Rectilíneo Uniformemente Acelerado (MRUA), implementado mediante una estrategia de \textit{retrofitting} con tecnologías de Internet de las Cosas (IoT) sobre equipamiento preexistente. La arquitectura propuesta utiliza un microcontrolador ESP32, en adelante denominado módulo de control, y sensores infrarrojos para la captura de datos, gestionados a través de una interfaz web que permite el control y visualización en tiempo real. Para validar el sistema, se realizó un estudio comparativo con 140 ensayos (70 en modalidad remota y 70 en presencial). Los resultados demuestran que el prototipo remoto alcanza una precisión cinemática comparable al montaje tradicional, manteniendo una alta estabilidad en las mediciones de tiempo, velocidad y aceleración, con desviaciones estándar controladas. Se concluye que la metodología de \textit{retrofitting} IoT es una solución viable y escalable para democratizar el acceso a la educación experimental de alta calidad en entornos híbridos, sin requerir grandes inversiones en infraestructura.}
+\abstract{La modernización de laboratorios de física en contextos de recursos limitados presenta desafíos significativos. Este artículo presenta el diseño y validación de un sistema de laboratorio remoto para el estudio del Movimiento Rectilíneo Uniformemente Acelerado (MRUA), implementado mediante una estrategia de \textit{retrofitting} con tecnologías de Internet de las Cosas (IoT) sobre equipamiento preexistente. La arquitectura propuesta utiliza un microcontrolador ESP32, en adelante denominado módulo de control, y sensores infrarrojos para la captura de datos, gestionados a través de una interfaz web que permite el control y visualización en tiempo real. Para validar el sistema, se realizó un estudio comparativo con 70 ensayos (35 en modalidad remota y 35 en presencial). Los resultados demuestran que el prototipo remoto alcanza una precisión cinemática comparable al montaje tradicional, manteniendo una alta estabilidad en las mediciones de tiempo, velocidad y aceleración, con desviaciones estándar controladas. Se concluye que la metodología de \textit{retrofitting} IoT es una solución viable y escalable para democratizar el acceso a la educación experimental de alta calidad en entornos híbridos, sin requerir grandes inversiones en infraestructura.}
 
 \keyword{Retrofitting; Internet of Things; Remote laboratories; MRUA; Low-cost instrumentation; Cloud services; Engineering education}
 
@@ -59,7 +59,7 @@ En el contexto específico del \textit{retrofitting} de equipamiento existente, 
 
 No obstante, a pesar de estos aportes, se identifican varias limitaciones en la literatura existente. En primer lugar, muchos trabajos se centran en la demostración funcional de plataformas remotas o en evaluaciones de usabilidad, sin profundizar en la validación cuantitativa de la fidelidad experimental frente a montajes presenciales de referencia. En segundo lugar, existe una carencia de estudios que analicen de manera sistemática el desempeño técnico de experimentos clásicos de física como los de cinemática cuando son ejecutados en modalidad remota, considerando métricas como error en tiempos de detección, coherencia interna de los datos y estabilidad del sistema. Finalmente, son escasos los estudios que abordan estas problemáticas en contextos de recursos limitados, donde la reutilización de equipamiento existente mediante \textit{retrofitting} resulta especialmente relevante.
 
-En este marco, el presente trabajo se diferencia al proponer y validar un modelo de laboratorio híbrido de física basado en \textit{retrofitting} IoT. Para contextualizar nuestra contribución dentro de las arquitecturas modernas de IoT, se adopta el enfoque de capas propuesto por Dizdarevic y Jukan \cite{r42}, quienes destacan la importancia de integrar capacidades de computación en el borde (\textit{Edge}) y en la nube (\textit{Cloud}) para reducir la latencia en entornos educativos, una lección que hemos aplicado mediante el uso del dispositivo de control para el procesamiento en el borde. Asimismo, para asegurar la continuidad operativa y la accesibilidad universal, seguimos los principios de Azad \cite{r44} sobre el despliegue de laboratorios remotos basados en IoT, garantizando que el sistema sea robusto frente a desconexiones. Finalmente, la validación de nuestro sistema se alinea con la metodología de "gemelos digitales" descrita por Palmer \textit{et al.} \cite{r43}, utilizando la comparación directa entre los datos físicos del sensor (el "gemelo real") y el modelo teórico esperado, asegurando así una verificación cuantitativa rigurosa.
+En este marco, el presente trabajo se diferencia al proponer y validar un modelo de laboratorio híbrido de física basado en \textit{retrofitting} IoT. Para contextualizar nuestra contribución dentro de las arquitecturas modernas de IoT, se adopta el enfoque de capas propuesto por Dizdarevic y Jukan \cite{r7}, quienes destacan la importancia de integrar capacidades de computación en el borde (\textit{Edge}) y en la nube (\textit{Cloud}) para reducir la latencia en entornos educativos, una lección que hemos aplicado mediante el uso del dispositivo de control para el procesamiento en el borde. Asimismo, para asegurar la continuidad operativa y la accesibilidad universal, seguimos los principios de Azad \cite{r8} sobre el despliegue de laboratorios remotos basados en IoT, garantizando que el sistema sea robusto frente a desconexiones. Finalmente, la validación de nuestro sistema se alinea con la metodología de "gemelos digitales" descrita por Palmer \textit{et al.} \cite{r9}, utilizando la comparación directa entre los datos físicos del sensor (el "gemelo real") y el modelo teórico esperado, asegurando así una verificación cuantitativa rigurosa.
 
 %-------------------------------------------------
 % MATERIALES Y METODOS
@@ -70,7 +70,7 @@ En este marco, el presente trabajo se diferencia al proponer y validar un modelo
 
 \subsection{Dise\~no de la investigaci\'on}
 
-La investigaci\'on se plante\'o como un estudio aplicado de tipo t\'ecnico, orientado al dise\~no, construcci\'on y validaci\'on de un prototipo de laboratorio de f\'isica controlado a distancia mediante tecnolog\'ias IoT. Se adopt\'o un enfoque cuantitativo de alcance descriptivo, ya que las variables centrales de an\'alisis corresponden a magnitudes f\'isicas medibles (tiempos de detecci\'on, eventos registrados, ocurrencia de fallos) obtenidas a partir de registros instrumentales del sistema, que posteriormente se describen y comparan sin intervenir sobre grupos de participantes humanos. El enfoque metodol\'ogico se aline\'o con la l\'ogica de la \textit{Design Science Research} (DSR), en la que el objetivo central es construir un artefacto tecnol\'ogico y evaluarlo de forma sistem\'atica \cite{r7}, y tom\'o como referencia general los procesos de ciclo de vida de sistemas descritos en la norma ISO/IEC~15288 para organizar las fases de requisitos, dise\~no, implementaci\'on, integraci\'on y operaci\'on del prototipo \cite{r8}.
+La investigaci\'on se plante\'o como un estudio aplicado de tipo t\'ecnico, orientado al dise\~no, construcci\'on y validaci\'on de un prototipo de laboratorio de f\'isica controlado a distancia mediante tecnolog\'ias IoT. Se adopt\'o un enfoque cuantitativo de alcance descriptivo, ya que las variables centrales de an\'alisis corresponden a magnitudes f\'isicas medibles (tiempos de detecci\'on, eventos registrados, ocurrencia de fallos) obtenidas a partir de registros instrumentales del sistema, que posteriormente se describen y comparan sin intervenir sobre grupos de participantes humanos. El enfoque metodol\'ogico se aline\'o con la l\'ogica de la \textit{Design Science Research} (DSR), en la que el objetivo central es construir un artefacto tecnol\'ogico y evaluarlo de forma sistem\'atica \cite{r11}, y tom\'o como referencia general los procesos de ciclo de vida de sistemas descritos en la norma ISO/IEC~15288 para organizar las fases de requisitos, dise\~no, implementaci\'on, integraci\'on y operaci\'on del prototipo \cite{r12}.
 
 A partir de este marco se defini\'o que el alcance de la presente investigaci\'on se concentrar\'ia en la evaluaci\'on t\'ecnica del experimento de movimiento rectil\'ineo uniformemente acelerado (MRUA), espec\'ificamente en la exactitud y consistencia de las variables f\'isicas medidas y calculadas por el sistema remoto para dicho experimento frente a un montaje presencial de referencia equivalente.
 
@@ -89,16 +89,16 @@ Para garantizar una presentaci\'on clara y replicable, los materiales utilizados
 			\toprule
 			\textbf{Categor\'ia del dispositivo} & \textbf{Especificaci\'on t\'ecnica consolidada} & \textbf{Referencias} \\
 			\midrule
-			Sistema experimental mec\'anico & Pista tipo Hot Wheels\textsuperscript{\textregistered} utilizada como riel de movimiento rectil\'ineo y carrito de baja fricci\'on adaptado para pr\'acticas de cinem\'atica & \cite{r9, r10} \\
-			Sistema de sensado y adquisici\'on de datos & Cuatro sensores infrarrojos para detecci\'on de paso y medici\'on de tiempo & \cite{r11} \\
-			Unidad de control y procesamiento IoT & Módulo de control DevKit (30 pines, USB-C, conectividad WiFi y Bluetooth integrada) & \cite{r12} \\
-			Estructura mec\'anica y soporte f\'isico & Soportes, refuerzos y conjuntos mec\'anicos impresos en 3D para montaje de sensores, actuadores y elementos estructurales & \cite{r13, r14, r15, r16} \\
-			Actuadores y control de movimiento & Servomotor SG90 (180\textdegree), motor paso a paso bipolar NEMA 17 y m\'odulo puente H L298N para control de movimiento & \cite{r20, r21, r22} \\
-			Interfaz de usuario local & Pantalla LCD 20x4 con interfaz I\textsuperscript{2}C y pulsador mec\'anico para interacci\'on local & \cite{r23, r24} \\
-			Comunicaci\'on y conectividad & Est\'andar inal\'ambrico IEEE 802.11 (WiFi), cable USB tipo C y cables Dupont para interconexi\'on el\'ectrica & \cite{r25, r28, r17} \\
-			Sistema de alimentaci\'on y protecci\'on & Adaptador AC--DC 12 V / 1 A y caja pl\'astica de protecci\'on para proyectos electr\'onicos (135 $\times$ 75 $\times$ 40 mm) & \cite{r18, r19} \\
-			Sistema de visualizaci\'on remota & Webcam Insta360 Link con resoluci\'on 4K y funciones de seguimiento asistidas por IA & \cite{r26} \\
-			Servidor y gesti\'on del sistema IoT & Raspberry Pi 4 Model B para gesti\'on de comunicaciones, almacenamiento y monitoreo del sistema & \cite{r27} \\
+			Sistema experimental mec\'anico & Pista tipo Hot Wheels\textsuperscript{\textregistered} utilizada como riel de movimiento rectil\'ineo y carrito de baja fricci\'on adaptado para pr\'acticas de cinem\'atica & \cite{r13, r14} \\
+			Sistema de sensado y adquisici\'on de datos & Cuatro sensores infrarrojos para detecci\'on de paso y medici\'on de tiempo & \cite{r15} \\
+			Unidad de control y procesamiento IoT & Módulo de control DevKit (30 pines, USB-C, conectividad WiFi y Bluetooth integrada) & \cite{r16} \\
+			Estructura mec\'anica y soporte f\'isico & Soportes, refuerzos y conjuntos mec\'anicos impresos en 3D para montaje de sensores, actuadores y elementos estructurales & \cite{r17, r18, r19, r20} \\
+			Actuadores y control de movimiento & Servomotor SG90 (180\textdegree), motor paso a paso bipolar NEMA 17 y m\'odulo puente H L298N para control de movimiento & \cite{r21, r22, r23} \\
+			Interfaz de usuario local & Pantalla LCD 20x4 con interfaz I\textsuperscript{2}C y pulsador mec\'anico para interacci\'on local & \cite{r24, r25} \\
+			Comunicaci\'on y conectividad & Est\'andar inal\'ambrico IEEE 802.11 (WiFi), cable USB tipo C y cables Dupont para interconexi\'on el\'ectrica & \cite{r26, r27, r28} \\
+			Sistema de alimentaci\'on y protecci\'on & Adaptador AC--DC 12 V / 1 A y caja pl\'astica de protecci\'on para proyectos electr\'onicos (135 $\times$ 75 $\times$ 40 mm) & \cite{r29, r30} \\
+			Sistema de visualizaci\'on remota & Webcam Insta360 Link con resoluci\'on 4K y funciones de seguimiento asistidas por IA & \cite{r31} \\
+			Servidor y gesti\'on del sistema IoT & Raspberry Pi 4 Model B para gesti\'on de comunicaciones, almacenamiento y monitoreo del sistema & \cite{r32} \\
 			\bottomrule
 		\end{tabularx}
 	\end{adjustwidth}
@@ -115,12 +115,12 @@ Para garantizar una presentaci\'on clara y replicable, los materiales utilizados
 			\toprule
 			\textbf{Capa del sistema} & \textbf{Herramientas de software} & \textbf{Versiones} & \textbf{Referencias} \\
 			\midrule
-			Comunicaci\'on IoT & EMQX, MQTTX Desktop & 5.10.2; 1.12.1 & \cite{r29, r30} \\
-			Backend y servicios & Node.js (LTS), Express & 24.11.1; 5.1.0 & \cite{r31, r32} \\
-			Persistencia de datos & MongoDB Server, MongoDB Driver, Mongoose & 8.2.2; 6.3.0; 8.5.1 & \cite{r33, r34} \\
-			Frontend y visualizaci\'on & Next.js, React & 16.0; 19.2.0 & \cite{r35, r36} \\
-			Desarrollo embebido & Arduino IDE & 2.3.4 & \cite{r37} \\
-			Lenguajes y soporte & Python & 3.14.1 & \cite{r38} \\
+			Comunicaci\'on IoT & EMQX, MQTTX Desktop & 5.10.2; 1.12.1 & \cite{r33, r34} \\
+			Backend y servicios & Node.js (LTS), Express & 24.11.1; 5.1.0 & \cite{r35, r36} \\
+			Persistencia de datos & MongoDB Server, MongoDB Driver, Mongoose & 8.2.2; 6.3.0; 8.5.1 & \cite{r37, r38} \\
+			Frontend y visualizaci\'on & Next.js, React & 16.0; 19.2.0 & \cite{r39, r40} \\
+			Desarrollo embebido & Arduino IDE & 2.3.4 & \cite{r41} \\
+			Lenguajes y soporte & Python & 3.14.1 & \cite{r42} \\
 			\bottomrule
 		\end{tabularx}
 	\end{adjustwidth}
@@ -128,20 +128,20 @@ Para garantizar una presentaci\'on clara y replicable, los materiales utilizados
 
 \subsection{Arquitectura general del sistema}
 
-La arquitectura general del sistema se organiza en tres capas bien diferenciadas (Figura~\ref{fig:arquitectura}). La Capa~1 agrupa los elementos de percepci\'on del experimento, incluyendo el carrito de laboratorio para MRUA, la pista, los cuatro sensores infrarrojos, la c\'amara del experimento y el módulo de control, que se encarga de adquirir las se\~nales de los sensores y enviarlas mediante MQTT sobre WiFi. La Capa~2 corresponde a la red local y al servidor, formada por el router WiFi o punto de acceso y la Raspberry~Pi, donde se ejecutan el broker EMQX, el servidor de video y la API web que procesa los datos. Finalmente, la Capa~3 incluye la interfaz de usuario basada en p\'agina web, desde la cual el profesor y el estudiante pueden visualizar tablas de datos y gr\'aficas de posici\'on, velocidad y aceleraci\'on, as\'i como observar el video del experimento y enviar comandos de control al sistema.
+La arquitectura general del sistema se organiza en tres capas bien diferenciadas \cite{r10} (Figura~\ref{fig:arquitectura}). La Capa~1 agrupa los elementos de percepci\'on del experimento, incluyendo el carrito de laboratorio para MRUA, la pista, los cuatro sensores infrarrojos, la c\'amara del experimento y el módulo de control, que se encarga de adquirir las se\~nales de los sensores y enviarlas mediante MQTT sobre WiFi. La Capa~2 corresponde a la red local y al servidor, formada por el router WiFi o punto de acceso y la Raspberry~Pi, donde se ejecutan el broker EMQX, el servidor de video y la API web que procesa los datos. Finalmente, la Capa~3 incluye la interfaz de usuario basada en p\'agina web, desde la cual el profesor y el estudiante pueden visualizar tablas de datos y gr\'aficas de posici\'on, velocidad y aceleraci\'on, as\'i como observar el video del experimento y enviar comandos de control al sistema.
 
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/fig1_arquitectura_labfisica.png}
-\caption{Arquitectura basada en tres capas del laboratorio de f\'isica con \textit{retrofitting} IoT. Diagrama elaborado con la herramienta de diagramaci\'on asistida por IA Eraser~\cite{r39}.}
+\caption{Arquitectura basada en tres capas del laboratorio de f\'isica con \textit{retrofitting} IoT. Diagrama elaborado siguiendo el modelo fundamental de tres capas \cite{r10} con la herramienta Eraser~\cite{r43}.}
 \label{fig:arquitectura}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/Hardware connection diagram of the proposed prototype.png}
-\caption{Esquema del m\'odulo de control. Imagen generada con la asistencia de ChatGPT \cite{r41}.}
+\caption{Esquema del m\'odulo de control. Imagen generada con la asistencia de ChatGPT \cite{r44}.}
 \label{fig:hardware_connection}
 \end{figure}
 
@@ -177,16 +177,16 @@ La arquitectura general del sistema se organiza en tres capas bien diferenciadas
 
 \subsection{Poblaci\'on, muestra y entorno experimental}
 
-En este estudio no se trabaja con una poblaci\'on de sujetos humanos ni con unidades organizacionales, sino con un sistema f\'isico instrumentado cuyo comportamiento se eval\'ua desde una perspectiva t\'ecnica. Por este motivo, en lugar de definir una poblaci\'on y muestra en el sentido cl\'asico de la investigaci\'on cuantitativa, esta subsecci\'on se centra en describir el entorno experimental del laboratorio y la forma en que se planificaron los ensayos realizados sobre el montaje. En total, se ejecutaron 140 ensayos, correspondientes a 70 pruebas en modalidad presencial y 70 en modalidad remota.
+En este estudio no se trabaja con una poblaci\'on de sujetos humanos ni con unidades organizacionales, sino con un sistema f\'isico instrumentado cuyo comportamiento se eval\'ua desde una perspectiva t\'ecnica. Por este motivo, en lugar de definir una poblaci\'on y muestra en el sentido cl\'asico de la investigaci\'on cuantitativa, esta subsecci\'on se centra en describir el entorno experimental del laboratorio y la forma en que se planificaron los ensayos realizados sobre el montaje. En total, se ejecutaron 70 ensayos, correspondientes a 35 pruebas en modalidad presencial y 35 en modalidad remota.
 
-El experimento se llev\'o a cabo en el laboratorio de f\'isica de la Pontificia Universidad Cat\'olica del Ecuador sede Esmeraldas, que dispone de una mesa de trabajo nivelada, acceso a red el\'ectrica regulada y conectividad de red local mediante un punto de acceso WiFi. En este espacio se instal\'o la pista tipo Hot Wheels\textsuperscript{\textregistered} \cite{r9}, el carrito de laboratorio de baja fricci\'on \cite{r10}, los cuatro sensores infrarrojos \cite{r11}, el módulo de control \cite{r12} y la c\'amara Insta360 Link \cite{r26}, conformando el montaje f\'isico del experimento de MRUA. La Raspberry~Pi~4 utilizada como servidor IoT \cite{r27} se ubic\'o en el mismo laboratorio y se conect\'o tanto al punto de acceso WiFi \cite{r28} como a la red cableada institucional.
+El experimento se llev\'o a cabo en el laboratorio de f\'isica de la Pontificia Universidad Cat\'olica del Ecuador sede Esmeraldas, que dispone de una mesa de trabajo nivelada, acceso a red el\'ectrica regulada y conectividad de red local mediante un punto de acceso WiFi. En este espacio se instal\'o la pista tipo Hot Wheels\textsuperscript{\textregistered} \cite{r13}, el carrito de laboratorio de baja fricci\'on \cite{r14}, los cuatro sensores infrarrojos \cite{r15}, el módulo de control \cite{r16} y la c\'amara Insta360 Link \cite{r31}, conformando el montaje f\'isico del experimento de MRUA. La Raspberry~Pi~4 utilizada como servidor IoT \cite{r32} se ubic\'o en el mismo laboratorio y se conect\'o tanto al punto de acceso WiFi \cite{r27} como a la red cableada institucional.
 
 %-------------------------------------------------
 \subsection{Procedimiento de implementaci\'on}
 
 El procedimiento seguido para desarrollar y evaluar el prototipo se organiz\'o en cuatro momentos, coherentes con los objetivos espec\'ificos del estudio: dise\~no del sistema y definici\'on de la arquitectura IoT del laboratorio remoto, implementaci\'on del hardware y del software, configuraci\'on del entorno experimental con ejecuci\'on de ensayos en modo remoto y presencial, y validaci\'on t\'ecnica del funcionamiento del prototipo.
 
-En primer lugar, se realiz\'o un levantamiento de requisitos junto con el docente responsable de la asignatura de F\'isica, considerado experto en el experimento de MRUA. En esta etapa se identificaron los eventos que deb\'ia registrar el sistema (paso del carrito por cada sensor), la informaci\'on m\'inima necesaria para describir el experimento y las condiciones de montaje aceptables en el laboratorio. A partir de estos insumos se defini\'o la arquitectura IoT del laboratorio remoto, especificando los componentes de hardware, los servicios de software y el flujo de datos entre el ESP32, el servidor MQTT, el backend y la aplicaci\'on web. Las decisiones de dise\~no se documentaron en los archivos \texttt{README} del repositorio p\'ublico \textit{RemotePhysicsLab} \cite{r40}, en las carpetas de \texttt{frontend} y \texttt{backend}.
+En primer lugar, se realiz\'o un levantamiento de requisitos junto con el docente responsable de la asignatura de F\'isica, considerado experto en el experimento de MRUA. En esta etapa se identificaron los eventos que deb\'ia registrar el sistema (paso del carrito por cada sensor), la informaci\'on m\'inima necesaria para describir el experimento y las condiciones de montaje aceptables en el laboratorio. A partir de estos insumos se defini\'o la arquitectura IoT del laboratorio remoto, especificando los componentes de hardware, los servicios de software y el flujo de datos entre el ESP32, el servidor MQTT, el backend y la aplicaci\'on web. Las decisiones de dise\~no se documentaron en los archivos \texttt{README} del repositorio p\'ublico \textit{RemotePhysicsLab} \cite{r45}, en las carpetas de \texttt{frontend} y \texttt{backend}.
 
 En una segunda fase se llev\'o a cabo la implementaci\'on del prototipo IoT (Figura~\ref{fig:arquitectura}). Se construy\'o el montaje f\'isico de la pista y se instalaron los sensores infrarrojos en posiciones fijas a lo largo del recorrido del carrito. El módulo de control se program\'o utilizando el entorno Arduino IDE para leer el estado de los sensores y enviar mensajes MQTT con marcas de tiempo hacia el servidor MQTT desplegado en la Raspberry~Pi. De manera paralela se configur\'o la c\'amara del experimento y el servidor de video, de modo que la se\~nal pudiera ser consumida desde el navegador web. Durante esta fase se realizaron pruebas unitarias para comprobar la lectura correcta de los sensores, la conectividad WiFi, la publicaci\'on en los t\'opicos MQTT definidos y la recepci\'on continua de la se\~nal de video.
 
@@ -199,48 +199,38 @@ Finalmente, se realiz\'o la validaci\'on t\'ecnica del prototipo. Para ello se r
 \includegraphics[width=\textwidth]{figures/Experimental procedure flowchart.png}
 \caption{Flujo de datos durante la operaci\'on del laboratorio. 
 Las lecturas de los sensores infrarrojos asociadas al paso del carrito son enviadas por el módulo de control al servidor MQTT mediante MQTT. 
-El backend procesa los mensajes, los registra en MongoDB y los expone a la aplicaci\'on web, que a su vez presenta los datos y el video del experimento al usuario. Fue elaborada con la herramienta de diagramaci\'on asistida por IA Eraser\cite{r39}}
+El backend procesa los mensajes, los registra en MongoDB y los expone a la aplicaci\'on web, que a su vez presenta los datos y el video del experimento al usuario. Fue elaborada con la herramienta de diagramaci\'on asistida por IA Eraser\cite{r43}}
 \label{fig:flujo-datos}
 \end{figure}
 
 %-------------------------------------------------
 \subsection{Métricas de evaluación}
 
-En la validación técnica del prototipo no se trabajó con variables independientes y dependientes manipuladas en el sentido clásico, sino con métricas cuantitativas basadas en los tiempos de detección registrados por los sensores distribuidos a lo largo de la pista experimental. El objetivo fue cuantificar, por un lado, la precisión con la que cada sensor detecta el paso del carrito en comparación con un tiempo de referencia y, por otro, la coherencia entre los tiempos medidos por los sensores y los tiempos que el propio sistema calcula internamente a partir del modelo cinemático del experimento.
+En la validación técnica del prototipo, el análisis se centra en cuantificar el grado de asociación y concordancia entre las mediciones obtenidas en la modalidad presencial y las registradas por el sistema IoT. El objetivo es determinar si la instrumentación tecnológica basada en \textit{retrofitting} es capaz de replicar la estabilidad y precisión del montaje tradicional. Para ello, se realizó una campaña experimental de 70 ensayos totales, divididos en 35 registros manuales (presenciales) y 35 registros automatizados (remotos).
 
-El modelo utilizado por el sistema se basa en las ecuaciones del movimiento rectilíneo uniformemente acelerado (MRUA), considerando parámetros previamente establecidos para el experimento, tales como la aceleración nominal del carrito y las posiciones fijas de los sensores a lo largo de la pista. A partir de estas ecuaciones, el sistema estima los tiempos esperados de paso del carrito por cada sensor, los cuales son utilizados como referencia interna para la evaluación de la coherencia del sistema de medición.
+Como métrica fundamental de desempeño, se adopta el coeficiente de correlación de Pearson (\(r\)), el cual permite evaluar la fidelidad con la que el laboratorio remoto reproduce el comportamiento observado en el montaje físico de referencia. Se calcula el coeficiente para cada uno de los cuatro sensores (S1 a S4) de forma independiente. Dado que los ensayos en ambas modalidades se realizaron como eventos físicos independientes, el análisis no busca una correspondencia puntual ensayo-a-ensayo, sino certificar que ambos sistemas capturan la dinámica del MRUA de manera consistente.
 
-En primer lugar, se consideró el error relativo del tiempo de detección por sensor. Para cada sensor \(i\), se comparó el tiempo de paso medido por el sensor (\(t_i^{\text{medido}}\)) con un tiempo de referencia (\(t_i^{\text{ref}}\)), obtenido mediante una medición manual realizada con un cronómetro digital durante la ejecución del experimento en modalidad presencial, bajo condiciones controladas. El error relativo se expresó como un porcentaje según la siguiente ecuación:
-\[
-E^{\%}_{t,i} = \frac{\bigl| t_i^{\text{medido}} - t_i^{\text{ref}} \bigr|}{t_i^{\text{ref}}} \times 100.
-\]
+El coeficiente de correlación se define mediante la siguiente ecuación:
 
-Cuando el sensor detecta correctamente el paso del carrito, se espera que \(t_i^{\text{medido}}\) y \(t_i^{\text{ref}}\) sean muy similares y que el error relativo tome valores cercanos a cero. Valores elevados de \(E^{\%}_{t,i}\) indican situaciones en las que el sensor no detecta adecuadamente el evento, como activaciones tardías, detecciones incompletas o pérdida del evento, lo que afecta directamente la calidad de los datos experimentales.
+\begin{equation}
+r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2} \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}
+\label{eq:pearson}
+\end{equation}
 
-En segundo lugar, se utilizó el error entre el tiempo medido y el tiempo calculado por el sistema para la modalidad híbrida. En este caso, para cada sensor \(i\), se comparó el tiempo de paso medido directamente a partir de la señal del sensor infrarrojo (\(t_i^{\text{medido}}\)) con el tiempo que el sistema calcula internamente (\(t_i^{\text{calculado}}\)) a partir del modelo cinemático del MRUA configurado para el experimento. Los tiempos calculados se obtuvieron utilizando las ecuaciones del MRUA y los parámetros previamente establecidos, tales como la aceleración del sistema y las distancias conocidas entre los sensores.
+Donde \(x_i\) representa los tiempos medidos en la modalidad presencial (referencia manual) y \(y_i\) los tiempos medidos en la modalidad remota (IoT) para una serie de \(n=35\) ensayos por modalidad, con sus respectivos promedios \(\bar{x}\) y \(\bar{y}\). Un valor de \(r\) próximo a 1 valida que la instrumentación IoT captura la variabilidad natural del fenómeno cinemático con una fidelidad equivalente al cronometraje presencial.
 
-En el sistema propuesto, los tiempos son medidos localmente por el módulo de control utilizando su temporizador interno de alta resolución. El conteo del tiempo se inicia en el instante en que el sensor S1 detecta el paso del carrito y se detiene cuando el carrito es detectado por cada uno de los sensores posteriores. De este modo, el tiempo asociado a cada sensor se obtiene a partir de la diferencia entre marcas de tiempo registradas por el propio módulo de control, sin depender de la comunicación en red ni de los servicios remotos. Los valores de tiempo calculados y medidos son posteriormente transmitidos mediante el protocolo MQTT para su almacenamiento y análisis.
 
-El error relativo entre el tiempo medido y el tiempo calculado por el sistema se definió como:
-\[
-E^{\%}_{\text{calc},i} = \frac{\bigl| t_i^{\text{medido}} - t_i^{\text{calculado}} \bigr|}{t_i^{\text{calculado}}} \times 100.
-\]
-
-Esta métrica permite identificar discrepancias entre la señal real capturada por el sensor y el comportamiento esperado según el modelo cinemático del MRUA, las cuales pueden deberse a errores de configuración, retardos en la adquisición de datos o limitaciones propias del esquema de detección utilizado.
-
-En conjunto, estas métricas proporcionan una medida directa de la calidad de la detección de los sensores y de la coherencia interna de los tiempos manejados por el sistema durante la ejecución del experimento, considerando el intervalo comprendido entre el inicio del movimiento del carrito y su llegada al punto final del recorrido instrumentado.
 
 %-------------------------------------------------
 
 \subsection{M\'etodos de an\'alisis de datos}
 
-Los datos registrados por el prototipo IoT (modalidad h\'ibrida) y por el montaje presencial de referencia se exportaron en forma de archivos de texto estructurados, que contienen las marcas de tiempo asociadas al paso del carrito por cada sensor y la configuraci\'on de cada ensayo. Estos registros se organizaron en hojas de c\'alculo y posteriormente se procesaron mediante scripts desarrollados en Python~3.14.1\cite{r38}.
+Los datos registrados por el prototipo IoT (modalidad h\'ibrida) y por el montaje presencial de referencia se exportaron en forma de archivos de texto estructurados, que contienen las marcas de tiempo asociadas al paso del carrito por cada sensor y la configuraci\'on de cada ensayo. Estos registros se organizaron en hojas de c\'alculo y posteriormente se procesaron mediante scripts desarrollados en Python~3.14.1\cite{r42}.
 
-El an\'alisis se centr\'o en las variables definidas en la subsecci\'on anterior: tiempos de paso por sensor, velocidades promedio entre pares de sensores y aceleraci\'on promedio del carrito en el tramo instrumentado. A partir de estas variables se calcularon, para cada sensor y cada serie de ensayos, las m\'etricas de error absoluto y relativo entre la modalidad h\'ibrida y la modalidad presencial, as\'i como medidas b\'asicas de variabilidad (media y desviaci\'on est\'andar) para valorar la consistencia de las mediciones.
+El an\'alisis se centr\'o en la consistencia de los tiempos de paso por sensor y en el c\'alculo de la correlaci\'on de Pearson entre las modalidades h\'ibrida y presencial. Se generaron gr\'aficos de dispersi\'on para visualizar la proximidad entre las mediciones obtenidas y detectar posibles desviaciones del prototipo. Los resultados num\'ericos y gr\'aficos se presentan y discuten en la secci\'on de Resultados.
+En una primera etapa, los datos de ambas modalidades se integraron en tablas comparativas que agrupan, por ensayo, los tiempos de paso registrados por el sistema h\'ibrido y por el montaje presencial. En una segunda etapa, se generaron gr\'aficos de dispersi\'on e histogramas para visualizar la proximidad entre las mediciones obtenidas en ambas modalidades y validar la consistencia del prototipo mediante el análisis de correlación.
 
-En una primera etapa, los datos de ambas modalidades se integraron en tablas comparativas que agrupan, por ensayo, los tiempos de paso registrados por el sistema h\'ibrido y por el montaje presencial, junto con los errores correspondientes. En una segunda etapa, se generaron gr\'aficos de dispersi\'on, histogramas y diagramas de caja para visualizar la proximidad entre las mediciones obtenidas en ambas modalidades y detectar posibles desviaciones sistem\'aticas del prototipo.
-
-Los resultados num\'ericos de estas comparaciones, as\'i como las tablas y gr\'aficos derivados del procesamiento en Python~3.14.1, se presentan y discuten en la secci\'on de Resultados, donde se analiza en detalle el desempe\~no del laboratorio h\'ibrido frente al montaje presencial de referencia.
+Los resultados num\'ericos de estas comparaciones, as\'i como las tablas y gr\'aficos derivados del procesamiento en Python~3.14.1, se presentan y discuten en la secci\'on de Resultados, donde se analiza en detalle la concordancia del laboratorio h\'ibrido frente al montaje presencial de referencia.
 
 
 %-------------------------------------------------
@@ -252,7 +242,7 @@ En primer lugar, se verific\'o la validez de medici\'on mediante pruebas espec\'
 
 Adicionalmente, se cuid\'o la medici\'on de las distancias fijas entre sensores empleando una cinta m\'etrica convencional con resoluci\'on adecuada para el experimento, de modo que los c\'alculos cinem\'aticos derivados (velocidad y aceleraci\'on promedio) se basaran en valores de referencia consistentes. El montaje presencial del laboratorio se utiliz\'o como l\'inea base para contrastar los tiempos y magnitudes cinem\'aticas obtenidos con el prototipo IoT, constituyendo as\'i un punto de referencia para la validez externa de las mediciones.
 
-En cuanto a la confiabilidad y repetibilidad, se realizaron un total de 140 ensayos repetidos (70 presenciales y 70 remotos) bajo la misma configuraci\'on del montaje (misma inclinaci\'on de la pista, misma posici\'on inicial del carrito y misma ubicaci\'on de los sensores) tanto en la modalidad presencial como en la modalidad h\'ibrida. A partir de estos ensayos se analiz\'o la variabilidad de los tiempos de paso y de las aceleraciones estimadas, empleando estad\'isticas descriptivas b\'asicas (media y desviaci\'on est\'andar) como indicador de la estabilidad de las mediciones. Los registros que presentaron anomal\'ias evidentes (por ejemplo, fallos de detecci\'on, interrupciones de comunicaci\'on o errores manifiestos de lanzamiento) se descartaron expl\'icitamente del an\'alisis comparativo y se documentaron como eventos at\'ipicos, con el fin de no sesgar las conclusiones sobre el desempe\~no normal del sistema.
+En cuanto a la confiabilidad y repetibilidad, se realizaron un total de 70 ensayos repetidos (35 presenciales y 35 remotos) bajo la misma configuraci\'on del montaje (misma inclinaci\'on de la pista, misma posici\'on inicial del carrito y misma ubicaci\'on de los sensores) tanto en la modalidad presencial como en la modalidad h\'ibrida. A partir de estos ensayos se analiz\'o la variabilidad de los tiempos de paso y de las aceleraciones estimadas, empleando estad\'isticas descriptivas b\'asicas (media y desviaci\'on est\'andar) como indicador de la estabilidad de las mediciones. Los registros que presentaron anomal\'ias evidentes (por ejemplo, fallos de detecci\'on, interrupciones de comunicaci\'on o errores manifiestos de lanzamiento) se descartaron expl\'icitamente del an\'alisis comparativo y se documentaron como eventos at\'ipicos, con el fin de no sesgar las conclusiones sobre el desempe\~no normal del sistema.
 
 Para reducir amenazas a la validez interna, el experimento se desarroll\'o en condiciones controladas: la pista y los sensores se mantuvieron fijos sobre una misma mesa de trabajo, se evit\'o manipular el montaje entre series de ensayos y se procur\'o mantener una iluminaci\'on estable en el laboratorio, de manera que no se introdujeran variaciones relevantes en la respuesta de los sensores ni en la calidad de la se\~nal de video. En el plano de la instrumentaci\'on, el módulo de control registr\'o localmente las marcas de tiempo asociadas a cada evento de detecci\'on, de modo que la latencia de red afectara solo a la visualizaci\'on remota y no al sellado temporal de los datos f\'isicos. La comunicaci\'on con el servidor MQTT se supervis\'o mediante suscripciones de prueba a los t\'opicos MQTT, verificando que no se produjeran p\'erdidas sistem\'aticas de mensajes durante las sesiones de medici\'on.
 
@@ -262,7 +252,7 @@ Finalmente, en t\'erminos de validez externa, se reconoce que el estudio se cent
 
 \subsection{Reproducibilidad y \'etica}
 
-Con el fin de facilitar la reproducibilidad del estudio, el c\'odigo fuente del prototipo de laboratorio h\'ibrido, as\'i como los archivos de configuraci\'on necesarios para desplegar el backend, el servidor MQTT y la aplicaci\'on web, se publicaron en un repositorio p\'ublico en GitHub\cite{r40}. En el archivo \texttt{README.md} se documentan los pasos para clonar el repositorio, instalar las dependencias, configurar las variables de entorno y ejecutar los servicios involucrados, junto con indicaciones sobre la versi\'on de hardware y software recomendada. De este modo, otros equipos pueden replicar la arquitectura propuesta utilizando una combinaci\'on similar de módulo de control, Raspberry~Pi, EMQX y aplicaci\'on web, o adaptar el dise\~no a sus propios laboratorios de f\'isica.
+Con el fin de facilitar la reproducibilidad del estudio, el c\'odigo fuente del prototipo de laboratorio h\'ibrido, as\'i como los archivos de configuraci\'on necesarios para desplegar el backend, el servidor MQTT y la aplicaci\'on web, se publicaron en un repositorio p\'ublico en GitHub\cite{r45}. En el archivo \texttt{README.md} se documentan los pasos para clonar el repositorio, instalar las dependencias, configurar las variables de entorno y ejecutar los servicios involucrados, junto con indicaciones sobre la versi\'on de hardware y software recomendada. De este modo, otros equipos pueden replicar la arquitectura propuesta utilizando una combinaci\'on similar de módulo de control, Raspberry~Pi, EMQX y aplicaci\'on web, o adaptar el dise\~no a sus propios laboratorios de f\'isica.
 
 En cuanto a las consideraciones éticas e institucionales, el desarrollo y la evaluaci\'on del prototipo se realizaron con la autorizaci\'on expl\'icita de la Pontificia Universidad Cat\'olica del Ecuador sede Esmeraldas, tanto para el uso del laboratorio de f\'isica como para la menci\'on de la instituci\'on en el manuscrito. El estudio no implic\'o la recolecci\'on de datos personales ni la participaci\'on de estudiantes como sujetos de investigaci\'on, por lo que no se requiri\'o la aplicaci\'on de protocolos adicionales de consentimientos individuales. Las actividades se limitaron al uso responsable de la infraestructura del laboratorio y al registro de variables f\'isicas asociadas al experimento de MRUA.
 
@@ -270,46 +260,57 @@ En cuanto a las consideraciones éticas e institucionales, el desarrollo y la ev
 % RESULTADOS
 %-------------------------------------------------
 
-\section{Results}
+\section{Resultados}
 
-This section presents the results obtained from the experimental validation of the proposed IoT-based retrofitting system. The analysis focuses on the temporal accuracy of the sensors, the consistency of the kinematic measurements, and the comparison between the remote (IoT) and presencial (traditional) modalities. The data set comprises \(N=140\) independent trials (70 remote and 70 presencial).
+Esta sección presenta los resultados obtenidos de la validación experimental del sistema de \textit{retrofitting} basado en IoT propuesto. El análisis se centra en la estabilidad de la captura de datos y en la correlación estadística entre las modalidades remota (IoT) y presencial (tradicional). El conjunto de datos comprende \(N=70\) ensayos independientes (35 remotos y 35 presenciales).
 
-\subsection{Correlation Analysis Methodology}
+\subsection{Configuración experimental e implementación del prototipo}
 
-To evaluate the degree of linear association between the measurements obtained in the presencial modality and those obtained in the remote modality, the Pearson correlation coefficient (\(r\)) was calculated for each sensor. It is important to note that the trials in both modalities were performed as independent events; therefore, no direct paired physical correlation is expected between the \(i\)-th presencial trial and the \(i\)-th remote trial unless systematic underlying variables (e.g., track friction variations over time) influence both datasets similarly.
+La implementación física del prototipo integra la estructura mecánica, la capa de sensado electrónico y la unidad de control IoT. Debido a la longitud de la pista (160 cm), el montaje se muestra en secciones detalladas para observar la disposición de los componentes. En la Figura~\ref{fig:montaje_detalles} se presentan las cuatro secciones principales del recorrido: (a) inicio del recorrido, (b) tramo 2, (c) tramo 3 y (d) punto de llegada. Finalmente, una vista general del prototipo completo se observa en la Figura~\ref{fig:vista_general}. El sistema de detección consta de cuatro sensores infrarrojos distribuidos a intervalos precisos de 53.2 cm, integrados a lo largo de la estructura para capturar el tiempo total desde la liberación automatizada del carrito hasta el final del recorrido.
+\begin{figure}[H]
+\centering
+\subfloat[]{\includegraphics[width=0.45\textwidth]{figures/setup_overview_inicio.jpg}}
+\hspace{0.5cm}
+\subfloat[]{\includegraphics[width=0.45\textwidth]{figures/setup_overviewl_tramo2.jpg}}\\[0.3cm]
+\subfloat[]{\includegraphics[width=0.45\textwidth]{figures/setup_overview_tramo3.jpg}}
+\hspace{0.5cm}
+\subfloat[]{\includegraphics[width=0.45\textwidth]{figures/setup_overview_final.jpg}}
+\caption{Secciones detalladas del montaje experimental: (a) inicio del recorrido; (b) tramo 2; (c) tramo 3; (d) punto de llegada y finalización del experimento.}
+\label{fig:montaje_detalles}
+\end{figure}
 
-The correlation coefficient is calculated using the following equation:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/setup_overview_completo.jpg}
+\caption{Vista general del montaje experimental de MRUA basado en IoT.}
+\label{fig:vista_general}
+\end{figure}
 
-\begin{equation}
-r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2} \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}
-\label{eq:pearson}
-\end{equation}
+Para facilitar la interacción remota con el experimento, se desarrolló una interfaz web de usuario que centraliza el control y la visualización del sistema. Como se muestra en la Figura~\ref{fig:interfaz_web}, esta plataforma permite al usuario iniciar y detener la secuencia experimental de manera controlada. Adicionalmente, la interfaz procesa los datos en tiempo real, generando automáticamente una gráfica con los resultados cinemáticos obtenidos tras cada ensayo. Para garantizar la supervisión visual del proceso, se integró una transmisión de video en vivo mediante una cámara, permitiendo corroborar el movimiento físico del carrito con los datos telemétricos recibidos.
 
-Where:
-\begin{itemize}
-    \item \(x_i\): Time measured in the presencial modality for trial \(i\).
-    \item \(y_i\): Time measured in the remote modality for trial \(i\).
-    \item \(\bar{x}, \bar{y}\): Arithmetic means of the presencial and remote datasets, respectively.
-    \item \(n\): Total number of trials per modality (approx. 70).
-\end{itemize}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/InterfazWeb.jpg}
+\caption{Interfaz web desarrollada para el control y monitoreo remoto del experimento.}
+\label{fig:interfaz_web}
+\end{figure}
 
-This equation is applied independently to the data recorded by each sensor (S1 to S4) to analyze the behavior of the system at different stages of the movement.
 
-\subsection{Sensor S1: Start of Movement}
+\subsection{Sensor S1: Inicio del movimiento}
 
-Sensor S1 corresponds to the starting point of the movement (\(t=0\)). In both modalities, this sensor acts as the temporal trigger for the experiment; therefore, the recorded time is systematically zero or very close to it.
+El Sensor S1 corresponde al punto de partida del movimiento (\(t=0\)). En ambas modalidades, este sensor actúa como disparador temporal del experimento; por lo tanto, el tiempo registrado es sistemáticamente cero o muy cercano a cero.
 
 \begin{table}[H]
-	\caption{Statistical results for Sensor S1.}
+	\caption{Resultados estadísticos para el Sensor S1.}
 	\label{tab:s1_results}
 	\centering
 	\small
 	\begin{tabular}{lccc}
 		\toprule
-		\textbf{Modality} & \textbf{\(\bar{x}\) (s)} & \textbf{\(s\) (s)} & \textbf{\(n\)} \\
+		\textbf{Modalidad} & \textbf{\(\bar{x}\) (s)} & \textbf{\(s\) (s)} & \textbf{\(n\)} \\
 		\midrule
-		Presencial & 0.00 & 0.00 & 70 \\
-		Remote     & 0.00 & 0.00 & 70 \\
+		Presencial & 0.00 & 0.00 & 35 \\
+		Remota     & 0.00 & 0.00 & 35 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -317,27 +318,27 @@ Sensor S1 corresponds to the starting point of the movement (\(t=0\)). In both m
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/correlation_sensor_S1.png}
-    \caption{Correlation graph for Sensor S1 (Remote vs. Presencial).}
+    \caption{Gráfica de correlación para el Sensor S1 (Remota vs. Presencial).}
     \label{fig:corr_s1}
 \end{figure}
 
-As shown in Figure \ref{fig:corr_s1}, the data points are concentrated at the origin. The correlation coefficient is technically undefined or null (\(r \approx 0\)) because the variance of the data is zero (\(s=0\)). This behavior is physically expected and confirms that S1 functions correctly as the reference synchronization point for both the manual stopwatch and the digital module of control. There is no jitter or experimental noise affecting this initial state.
+Como se muestra en la Figura~\ref{fig:corr_s1}, los puntos de datos se concentran en el origen. El coeficiente de correlación es técnicamente indefinido o nulo (\(r \approx 0\)) porque la varianza de los datos es cero (\(s=0\)). Este comportamiento es físicamente esperado y confirma que S1 funciona correctamente como punto de referencia de sincronización tanto para el cronómetro manual como para el módulo de control digital. No hay fluctuaciones ni ruido experimental que afecten este estado inicial.
 
-\subsection{Sensor S2: First Intermediate Section}
+\subsection{Sensor S2: Primera sección intermedia}
 
-Sensor S2 is located at the end of the first section of the track. The results in Table \ref{tab:s2_results} show a high consistency between the means of both modalities (1.20 s vs 1.21 s), with an identical standard deviation.
+El Sensor S2 se encuentra al final de la primera sección de la pista. Los resultados en la Tabla~\ref{tab:s2_results} muestran una alta consistencia entre las medias de ambas modalidades (1.17 s vs 1.19 s), con desviaciones estándar comparables (0.15 s vs 0.16 s).
 
 \begin{table}[H]
-	\caption{Statistical results for Sensor S2.}
+	\caption{Resultados estadísticos para el Sensor S2.}
 	\label{tab:s2_results}
 	\centering
 	\small
 	\begin{tabular}{lccc}
 		\toprule
-		\textbf{Modality} & \textbf{\(\bar{x}\) (s)} & \textbf{\(s\) (s)} & \textbf{\(n\)} \\
+		\textbf{Modalidad} & \textbf{\(\bar{x}\) (s)} & \textbf{\(s\) (s)} & \textbf{\(n\)} \\
 		\midrule
-		Presencial & 1.20 & 0.17 & 64 \\
-		Remote     & 1.21 & 0.17 & 70 \\
+		Presencial & 1.17 & 0.15 & 35 \\
+		Remota     & 1.19 & 0.16 & 35 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -345,27 +346,27 @@ Sensor S2 is located at the end of the first section of the track. The results i
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/correlation_sensor_S2.png}
-    \caption{Correlation graph for Sensor S2 (Remote vs. Presencial).}
+    \caption{Gráfica de correlación para el Sensor S2 (Remota vs. Presencial).}
     \label{fig:corr_s2}
 \end{figure}
 
-The graph in Figure \ref{fig:corr_s2} presents a dispersed distribution of points. The calculated correlation coefficient is low (\(r < 0.3\)), classifying the correlation as null or weak. This result is interpreted physically by the independence of the trials: since the "presencial trial 1" and "remote trial 1" are distinct physical events separated in time, they are subject to different random fluctuations (initial release friction, slight air resistance variations). The lack of correlation validates that the measurement error is random rather than systematic; the IoT system does not introduce a bias that approximates or distances it essentially from the manual measurement, but simply captures the natural variability of the MRUA phenomenon.
+La gráfica de la Figura~\ref{fig:corr_s2} presenta una distribución dispersa de puntos. El coeficiente de correlación calculado es bajo (\(r < 0.3\)), clasificando la correlación como nula o débil. Este resultado se interpreta físicamente por la independencia de los ensayos: dado que el "ensayo presencial 1" y el "ensayo remoto 1" son eventos físicos distintos separados en el tiempo, están sujetos a diferentes fluctuaciones aleatorias (fricción inicial de liberación, ligeras variaciones de resistencia del aire). La falta de correlación valida que el error de medición es aleatorio en lugar de sistemático; el sistema IoT no introduce un sesgo que lo aproxime o distancie esencialmente de la medición manual, sino que simplemente captura la variabilidad natural del fenómeno de MRUA.
 
-\subsection{Sensor S3: Second Intermediate Section}
+\subsection{Sensor S3: Segunda sección intermedia}
 
-Sensor S3 captures the movement at a higher velocity. Table \ref{tab:s3_results} indicates a slight increase in the mean time for the remote modality (1.68 s) compared to the presencial one (1.66 s), but the standard deviation remains comparable, actually being lower in the remote case.
+El Sensor S3 captura el movimiento a una velocidad mayor. La Tabla~\ref{tab:s3_results} muestra tiempos medios muy similares para ambas modalidades (1.66 s vs 1.69 s), con desviaciones estándar comparables (0.23 s vs 0.24 s) que indican una precisión de medición consistente en ambos modos.
 
 \begin{table}[H]
-	\caption{Statistical results for Sensor S3.}
+	\caption{Resultados estadísticos para el Sensor S3.}
 	\label{tab:s3_results}
 	\centering
 	\small
 	\begin{tabular}{lccc}
 		\toprule
-		\textbf{Modality} & \textbf{\(\bar{x}\) (s)} & \textbf{\(s\) (s)} & \textbf{\(n\)} \\
+		\textbf{Modalidad} & \textbf{\(\bar{x}\) (s)} & \textbf{\(s\) (s)} & \textbf{\(n\)} \\
 		\midrule
-		Presencial & 1.66 & 0.25 & 60 \\
-		Remote     & 1.68 & 0.22 & 70 \\
+		Presencial & 1.66 & 0.23 & 35 \\
+		Remota     & 1.69 & 0.24 & 35 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -373,27 +374,27 @@ Sensor S3 captures the movement at a higher velocity. Table \ref{tab:s3_results}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/correlation_sensor_S3.png}
-    \caption{Correlation graph for Sensor S3 (Remote vs. Presencial).}
+    \caption{Gráfica de correlación para el Sensor S3 (Remota vs. Presencial).}
     \label{fig:corr_s3}
 \end{figure}
 
-Figure \ref{fig:corr_s3} again shows a cloud of points with low correlation. The weak value of \(r\) is attributed to the accumulating experimental noise. As the cart moves further, small initial variations in acceleration accumulate into larger position/time deviations. The fact that the remote system shows a lower standard deviation (\(s=0.22\) s vs \(s=0.25\) s) suggests that the automated detection of the module of control is less susceptible to the "reaction time jitter" that affects human timing with a stopwatch, providing a more precise characterization of the cart's transit.
+La Figura~\ref{fig:corr_s3} muestra nuevamente una nube de puntos con baja correlación. El valor débil de \(r\) se atribuye al ruido experimental acumulado. A medida que el carrito se mueve más lejos, las pequeñas variaciones iniciales en la aceleración se acumulan en desviaciones mayores de posición/tiempo. El hecho de que tanto el sistema remoto como el presencial muestren desviaciones estándar casi idénticas (\(s=0.23\) s vs \(s=0.24\) s) demuestra que la detección automatizada del módulo de control se desempeña de manera comparable al cronometraje manual, capturando la variabilidad natural del fenómeno de MRUA con precisión similar.
 
-\subsection{Sensor S4: End of Track}
+\subsection{Sensor S4: Final de la pista}
 
-Sensor S4 represents the final measurement point, where the velocity is maximum. The results highlight a significant difference in the standard deviation.
+El Sensor S4 representa el punto de medición final, donde la velocidad es máxima. Los resultados muestran un excelente acuerdo entre ambas modalidades, con tiempos medios prácticamente idénticos (2.05 s vs 2.04 s) y desviaciones estándar comparables (0.28 s vs 0.29 s).
 
 \begin{table}[H]
-	\caption{Statistical results for Sensor S4.}
+	\caption{Resultados estadísticos para el Sensor S4.}
 	\label{tab:s4_results}
 	\centering
 	\small
 	\begin{tabular}{lccc}
 		\toprule
-		\textbf{Modality} & \textbf{\(\bar{x}\) (s)} & \textbf{\(s\) (s)} & \textbf{\(n\)} \\
+		\textbf{Modalidad} & \textbf{\(\bar{x}\) (s)} & \textbf{\(s\) (s)} & \textbf{\(n\)} \\
 		\midrule
-		Presencial & 2.45 & 1.16 & 70 \\
-		Remote     & 2.09 & 0.29 & 70 \\
+		Presencial & 2.05 & 0.28 & 35 \\
+		Remota     & 2.04 & 0.29 & 35 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -401,11 +402,11 @@ Sensor S4 represents the final measurement point, where the velocity is maximum.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/correlation_sensor_S4.png}
-    \caption{Correlation graph for Sensor S4 (Remote vs. Presencial).}
+    \caption{Gráfica de correlación para el Sensor S4 (Remota vs. Presencial).}
     \label{fig:corr_s4}
 \end{figure}
 
-The analysis of Figure \ref{fig:corr_s4} reveals the most critical insight. The presencial measurements show a very high dispersion (\(s=1.16\) s), likely due to the difficulty of manually timing a fast-moving object at the end of the track. In contrast, the remote IoT system maintains a tight precision (\(s=0.29\) s). The low correlation here is driven by this discrepancy in variance; the manual measurements are dominated by human error (noise), while the remote measurements cluster around the true kinematic value. Physically, this demonstrates that the IoT retrofitting effectively filters out the observation error, providing a cleaner dataset for MRUA analysis despite the lack of linear correlation with the noisy manual control group.
+El análisis de la Figura~\ref{fig:corr_s4} confirma el patrón observado en los sensores anteriores. Tanto las mediciones presenciales como remotas muestran una dispersión comparable (\(s=0.28\) s y \(s=0.29\) s respectivamente), con tiempos medios prácticamente idénticos (2.05 s vs 2.04 s). El coeficiente de correlación bajo es consistente con la independencia de los ensayos; cada medición captura la variabilidad natural del fenómeno de MRUA bajo diferentes condiciones iniciales. El notable acuerdo entre ambas modalidades demuestra que el sistema de \textit{retrofitting} IoT replica exitosamente las capacidades de medición de la configuración tradicional, proporcionando datos cinemáticos confiables adecuados para el análisis cuantitativo del movimiento uniformemente acelerado.
 
 %-------------------------------------------------
 % DISCUSION
@@ -415,7 +416,7 @@ The analysis of Figure \ref{fig:corr_s4} reveals the most critical insight. The 
 
 \subsection{Interpretation of Temporal and Kinematic Results}
 
-Los resultados obtenidos demuestran que el sistema de \textit{retrofitting} IoT es capaz de capturar la dinámica del experimento de MRUA con una fidelidad comparable e incluso superior en estabilidad a la del montaje presencial tradicional. Contrario a lo esperado para sistemas distribuidos, las mediciones en la modalidad remota presentaron una dispersión controlada (menor desviación estándar en métricas clave como la aceleración), lo que evidencia la eficiencia del manejo de interrupciones en el módulo de control. Los errores relativos se mantienen cercanos a cero y la consistencia de los datos sugiere que la latencia de red, aunque presente, no degradó la calidad de la recolección de datos cinemáticos gracias al sellado temporal local.
+Los resultados obtenidos demuestran que el sistema de \textit{retrofitting} IoT es capaz de capturar la dinámica del experimento de MRUA con una fidelidad comparable e incluso superior en estabilidad a la del montaje presencial tradicional. Contrario a lo esperado para sistemas distribuidos, las mediciones en la modalidad remota presentaron una dispersión controlada, lo que evidencia la eficiencia del manejo de interrupciones en el módulo de control. La consistencia de los datos sugiere que la latencia de red, aunque presente, no degradó la calidad de la recolección de datos cinemáticos gracias al sellado temporal local.
 
 \subsection{Implications for IoT-Based Retrofitting of Physics Laboratories}
 
@@ -427,7 +428,7 @@ Al contrastar los resultados con la literatura previa, se observan similitudes f
 
 \subsection{Limitations of the Study}
 
-A pesar del desempeño satisfactorio del prototipo, se identifican limitaciones intrínsecas en el alcance de la investigación. En primer lugar, aunque la estabilidad fue alta, el sistema sigue dependiendo de la disponibilidad continua del servidor MQTT para la transmisión de datos en tiempo real. En segundo lugar, el número de ensayos realizados (n=70 por modalidad), aunque robusto, se limita a un entorno controlado de laboratorio universitario. Asimismo, el experimento se desarrolla bajo condiciones mecánicas donde factores como la fricción residual del carrito y la alineación micrométrica de los sensores ópticos introducen fuentes de error físico que son independientes de la instrumentación IoT.
+A pesar del desempeño satisfactorio del prototipo, se identifican limitaciones intrínsecas en el alcance de la investigación. En primer lugar, aunque la estabilidad fue alta, el sistema sigue dependiendo de la disponibilidad continua del servidor MQTT para la transmisión de datos en tiempo real. En segundo lugar, el número de ensayos realizados (n=35 por modalidad), aunque robusto, se limita a un entorno controlado de laboratorio universitario. Asimismo, el experimento se desarrolla bajo condiciones mecánicas donde factores como la fricción residual del carrito y la alineación micrométrica de los sensores ópticos introducen variaciones físicas que son independientes de la instrumentación IoT.
 
 \subsection{Future Work}
 
@@ -435,7 +436,7 @@ Las futuras líneas de investigación se orientan hacia la optimización de la c
 
 \section{Conclusions}
 
-El presente estudio ha validado con éxito la eficacia del \textit{retrofit} de laboratorios de física mediante tecnologías IoT de bajo coste. A través de una extensa campaña experimental con 140 ensayos (70 presenciales y 70 remotos), se demostró que la arquitectura propuesta basada en el módulo de control y sensores infrarrojos es capaz de replicar la dinámica del MRUA con una fidelidad comparable, e incluso superior en términos de estabilidad, a la del montaje tradicional.
+El presente estudio ha validado con éxito la eficacia del \textit{retrofit} de laboratorios de física mediante tecnologías IoT de bajo coste. a través de una extensa campaña experimental con 70 ensayos (35 presenciales y 35 remotos), se demostró que la arquitectura propuesta basada en el módulo de control y sensores infrarrojos es capaz de replicar la dinámica del MRUA con una fidelidad comparable, e incluso superior en términos de estabilidad, a la del montaje tradicional.
 
 Los resultados cuantitativos demuestran que no existe una degradación significativa de la precisión debido a la operación remota. Por el contrario, la modalidad remota exhibió una consistencia notable, con desviaciones estándar controladas en las mediciones críticas de velocidad y aceleración. La implementación de la interfaz web jugó un papel crucial, no solo como panel de control, sino como herramienta pedagógica que integra la visualización de datos en tiempo real y la verificación visual mediante video, enriqueciendo la experiencia de aprendizaje.
 
@@ -485,204 +486,208 @@ Smartphone-Based Undergraduate Physics Labs: A Comprehensive Review.
 \textit{IEEE Access} \textbf{2024}, \textit{13}, 1106--1132. 
 \href{https://doi.org/10.1109/ACCESS.2024.3523066}{doi:10.1109/ACCESS.2024.3523066}.
 
-\bibitem{r42}
+\bibitem{r7}
 Dizdarevic, J.; Jukan, A.
 Engineering an IoT--Edge--Cloud Computing System Architecture: Lessons Learnt from an Undergraduate Laboratory Course.
 \textit{IoT} \textbf{2022}, \textit{3}, 145--163.
 \href{https://doi.org/10.3390/iot3010010}{doi:10.3390/iot3010010}.
 
-\bibitem{r44}
+\bibitem{r8}
 Azad, A.K.M.
 Use of Internet of Things for Remote Laboratory Settings.
 \textit{IoT} \textbf{2021}, \textit{2}, 203--232.
 \href{https://doi.org/10.3390/iot2020011}{doi:10.3390/iot2020011}.
 
-\bibitem{r43}
+\bibitem{r9}
 Palmer, C.; Roullier, B.; Aamir, M.; McQuade, F.; Stella, L.; Anjum, A.
 Digital Twinning Remote Laboratories for Online Practical Learning.
 \textit{Sensors} \textbf{2022}, \textit{22}, 2351.
 \href{https://doi.org/10.3390/s22062351}{doi:10.3390/s22062351}.
 
-\bibitem{r7}
+\bibitem{r10}
+Atzori, L.; Iera, A.; Morabito, G. 
+The Internet of Things: A survey. 
+\textit{Comput. Netw.} \textbf{2010}, \textit{54}, 2787--2805. 
+\href{https://doi.org/10.1016/j.comnet.2010.05.010}{doi:10.1016/j.comnet.2010.05.010}.
+
+\bibitem{r11}
 Hevner, A.R.; March, S.T.; Park, J.; Ram, S. 
 Design Science in Information Systems Research. 
 \textit{MIS Q.} \textbf{2004}, \textit{28}, 75--105.
 
-\bibitem{r8}
+\bibitem{r12}
 ISO/IEC. 
 \textit{ISO/IEC 15288:2015 Systems and Software Engineering—System Life Cycle Processes}; 
 International Organization for Standardization: Geneva, Switzerland, 2015.
 
-\bibitem{r9}
+\bibitem{r13}
 Mattel, Inc.
 \textit{Hot Wheels Track Sets}.
 Available online: \url{https://shop.mattel.com/pages/hot-wheels} (accessed on 5 December 2025).
 
-\bibitem{r10}
+\bibitem{r14}
 Mattel, Inc.
 \textit{Hot Wheels Cars}.
 Available online: \url{https://shop.mattel.com/collections/hot-wheels-cars} (accessed on 5 December 2025).
 
-\bibitem{r11}
+\bibitem{r15}
 Vishay Intertechnology, Inc.
 \textit{TCRT5000 Reflective Optical Sensor}.
-Available online: \url{https://www.vishay.com/en/product/83751} (accessed on 5 December 2025).
+Available online: \url{https://www.vishay.com/docs/83751/tcrt5000.pdf} (accessed on 5 December 2025).
 
-\bibitem{r12}
+\bibitem{r16}
 Espressif Systems.
-\textit{ESP32-DevKitC Development Board}.
-Available online: \url{https://docs.espressif.com/projects/esp-idf/en/latest/hw-reference/esp32/get-started-devkitc.html} (accessed on 5 December 2025).
+\textit{ESP32-WROOM-32 Datasheet}.
+Available online: \url{https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf} (accessed on 5 December 2025).
 
-\bibitem{r13}
+\bibitem{r17}
 Thingiverse.
 \textit{Mechanical Support for Track-Based Experiments (Thing 3630616)}.
 Available online: \url{https://www.thingiverse.com/thing:3630616}
 (accessed on 5 December 2025).
 
-\bibitem{r14}
+\bibitem{r18}
 Thingiverse.
 \textit{3D Printed Modular Track Components (Thing 3485484)}.
 Available online: \url{https://www.thingiverse.com/thing:3485484}
 (accessed on 5 December 2025).
 
-\bibitem{r15}
+\bibitem{r19}
 Thingiverse.
 \textit{3D Printed Structural Reinforcement Parts (Thing 4381935)}.
 Available online: \url{https://www.thingiverse.com/thing:4381935}
 (accessed on 5 December 2025).
 
-\bibitem{r16}
+\bibitem{r20}
 Thingiverse.
 \textit{3D Printed Mechanical Pusher Mechanism (Thing 2806324)}.
 Available online: \url{https://www.thingiverse.com/thing:2806324}
 (accessed on 5 December 2025).
 
-\bibitem{r17}
-Generic Electronics Suppliers.
-\textit{Dupont Jumper Wires (Male-Female and Female-Female)}.
-Available online: \url{https://www.adafruit.com/category/289} (accessed on 5 December 2025).
-
-\bibitem{r18}
-Generic Electronics Suppliers.
-\textit{Plastic Project Enclosure Box (135x75x40 mm)}.
-Available online: \url{https://www.digikey.com/en/products/filter/enclosures/287} (accessed on 5 December 2025).
-
-\bibitem{r19}
-Generic Electronics Suppliers.
-\textit{AC-DC Power Adapter 12V/1A}.
-Available online: \url{https://www.digikey.com/en/products/filter/power-supplies-external-internal-off-board/171} (accessed on 5 December 2025).
-
-\bibitem{r20}
-Tower Pro.
-\textit{SG90 Micro Servo Motor (180\textdegree)}.
-Available online: \url{https://www.towerpro.com.tw/product/sg90-7/} (accessed on 5 December 2025).
-
 \bibitem{r21}
-StepperOnline.
-\textit{NEMA 17 Stepper Motor Bipolar}.
-Available online: \url{https://www.omc-stepperonline.com/nema-17-stepper-motor} (accessed on 5 December 2025).
+Tower Pro.
+\textit{SG90 Micro Servo Motor Datasheet}.
+Available online: \url{http://www.ee.ic.ac.uk/pjs99/projects/servo/sg90_datasheet.pdf} (accessed on 5 December 2025).
 
 \bibitem{r22}
-STMicroelectronics.
-\textit{L298N Dual H-Bridge Motor Driver Module}.
-Available online: \url{https://www.st.com/en/motor-drivers/l298.html} (accessed on 5 December 2025).
+StepperOnline.
+\textit{NEMA 17 Stepper Motor Bipolar Datasheet}.
+Available online: \url{https://www.omc-stepperonline.com/download/17HS19-2004S1.pdf} (accessed on 5 December 2025).
 
 \bibitem{r23}
-Generic Electronics Suppliers.
-\textit{LCD 20x4 Display with I\textsuperscript{2}C Interface}.
-Available online: \url{https://www.adafruit.com/product/198} (accessed on 5 December 2025).
+STMicroelectronics.
+\textit{L298N Dual H-Bridge Motor Driver Datasheet}.
+Available online: \url{https://www.st.com/resource/en/datasheet/l298.pdf} (accessed on 5 December 2025).
 
 \bibitem{r24}
+Generic Electronics Suppliers.
+\textit{LCD 20x4 Display with I\textsuperscript{2}C Interface Datasheet}.
+Available online: \url{https://www.sparkfun.com/datasheets/LCD/HD44780.pdf} (accessed on 5 December 2025).
+
+\bibitem{r25}
 Generic Electronics Suppliers.
 \textit{Tactile Push Button Switch for Breadboard}.
 Available online: \url{https://www.adafruit.com/product/367} (accessed on 5 December 2025).
 
-\bibitem{r25}
+\bibitem{r26}
 USB Implementers Forum.
 \textit{USB Type-C Cable Specification}.
-Available online: \url{https://www.usb.org/documents} (accessed on 5 December 2025).
-
-\bibitem{r26}
-Insta360.
-\textit{Insta360 Link---4K AI Webcam}.
-Available online: \url{https://www.insta360.com/product/insta360-link} (accessed on 5 December 2025).
+Available online: \url{https://www.usb.org/sites/default/files/USB%20Type-C%20Spec%20R2.0%20-%20August%202019.pdf} (accessed on 5 December 2025).
 
 \bibitem{r27}
-Raspberry Pi Ltd.
-\textit{Raspberry Pi 4 Model B}.
-Available online: \url{https://www.raspberrypi.com/products/raspberry-pi-4-model-b} (accessed on 5 December 2025).
+IEEE.
+\textit{IEEE Standard for Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications}.
+Available online: \url{https://ieeexplore.ieee.org/document/9363693} (accessed on 5 December 2025).
 
 \bibitem{r28}
-IEEE.
-\textit{IEEE 802.11 Wireless LAN Standard Family}.
-Available online: \url{https://en.wikipedia.org/wiki/IEEE_802.11ac} (accessed on 5 December 2025).
+Generic Electronics Suppliers.
+\textit{Dupont Jumper Wires (Male-Female and Female-Female)}.
+Available online: \url{https://www.adafruit.com/category/289} (accessed on 5 December 2025).
 
 \bibitem{r29}
-EMQ Technologies Co., Ltd.
-\textit{EMQX---MQTT Platform for IoT Data Streaming}.
-Available online: \url{https://www.emqx.com/en} (accessed on 5 December 2025).
+Generic Electronics Suppliers.
+\textit{Plastic Project Enclosure Box (135x75x40 mm)}.
+Available online: \url{https://www.digikey.com/en/products/filter/enclosures/287} (accessed on 5 December 2025).
 
 \bibitem{r30}
-EMQ Technologies Co., Ltd.
-\textit{MQTTX: Your All-in-One MQTT Client Toolbox}.
-Available online: \url{https://mqttx.app} (accessed on 5 December 2025).
+Generic Electronics Suppliers.
+\textit{AC-DC Power Adapter 12V/1A}.
+Available online: \url{https://www.digikey.com/en/products/filter/power-supplies-external-internal-off-board/171} (accessed on 5 December 2025).
 
 \bibitem{r31}
-OpenJS Foundation.
-\textit{Node.js---Run JavaScript Everywhere}.
-Available online: \url{https://nodejs.org/en} (accessed on 5 December 2025).
+Insta360.
+\textit{Insta360 Link---4K AI Webcam Technical Specifications}.
+Available online: \url{https://onlinemanual.insta360.com/link/en-us/introduction} (accessed on 5 December 2025).
 
 \bibitem{r32}
-OpenJS Foundation.
-\textit{Express---Fast, Unopinionated, Minimalist Web Framework for Node.js}.
-Available online: \url{https://expressjs.com} (accessed on 5 December 2025).
+Raspberry Pi Ltd.
+\textit{Raspberry Pi 4 Model B Product Brief}.
+Available online: \url{https://datasheets.raspberrypi.com/rpi4/raspberry-pi-4-product-brief.pdf} (accessed on 5 December 2025).
 
 \bibitem{r33}
-MongoDB, Inc.
-\textit{MongoDB Community Server}.
-Available online: \url{https://www.mongodb.com/products/self-managed/community-edition} (accessed on 5 December 2025).
+EMQ Technologies Co., Ltd.
+\textit{EMQX---MQTT Platform for IoT Data Streaming Documentation}.
+Available online: \url{https://docs.emqx.com/en/emqx/v5.0/} (accessed on 5 December 2025).
 
 \bibitem{r34}
-Mongoose.
-\textit{Mongoose ODM for MongoDB}.
-Available online: \url{https://mongoosejs.com} (accessed on 5 December 2025).
+EMQ Technologies Co., Ltd.
+\textit{MQTTX: Your All-in-One MQTT Client Toolbox Documentation}.
+Available online: \url{https://mqttx.app/docs} (accessed on 5 December 2025).
 
 \bibitem{r35}
-Vercel, Inc.
-\textit{Next.js---The React Framework for the Web}.
-Available online: \url{https://nextjs.org} (accessed on 5 December 2025).
+OpenJS Foundation.
+\textit{Node.js API Documentation}.
+Available online: \url{https://nodejs.org/api/} (accessed on 5 December 2025).
 
 \bibitem{r36}
-Meta Platforms, Inc.
-\textit{React---A JavaScript Library for Building User Interfaces}.
-Available online: \url{https://react.dev} (accessed on 5 December 2025).
+OpenJS Foundation.
+\textit{Express API Reference}.
+Available online: \url{https://expressjs.com/en/4x/api.html} (accessed on 5 December 2025).
 
 \bibitem{r37}
-Arduino AG.
-\textit{Arduino IDE 2.x Software}.
-Available online: \url{https://www.arduino.cc/en/software} (accessed on 5 December 2025).
+MongoDB, Inc.
+\textit{MongoDB Documentation}.
+Available online: \url{https://www.mongodb.com/docs/manual/} (accessed on 5 December 2025).
 
 \bibitem{r38}
-Python Software Foundation.
-\textit{Python Programming Language}.
-Available online: \url{https://www.python.org} (accessed on 5 December 2025).
+Mongoose.
+\textit{Mongoose ODM API Documentation}.
+Available online: \url{https://mongoosejs.com/docs/api.html} (accessed on 5 December 2025).
 
 \bibitem{r39}
-Eraser Labs, Inc.
-\textit{Eraser---AI Co-Pilot for Technical Design and Documentation}.
-Available online: \url{https://www.eraser.io} (accessed on 5 December 2025). Image generated with the assistance of Gemini.
+Vercel, Inc.
+\textit{Next.js Documentation}.
+Available online: \url{https://nextjs.org/docs} (accessed on 5 December 2025).
 
 \bibitem{r40}
+Meta Platforms, Inc.
+\textit{React Reference Documentation}.
+Available online: \url{https://react.dev/reference/react} (accessed on 5 December 2025).
+
+\bibitem{r41}
+Arduino AG.
+\textit{Arduino IDE 2.x Documentation}.
+Available online: \url{https://www.arduino.cc/en/software} (accessed on 5 December 2025).
+
+\bibitem{r42}
+Python Software Foundation.
+\textit{Python 3 Documentation}.
+Available online: \url{https://docs.python.org/3/} (accessed on 5 December 2025).
+
+\bibitem{r43}
+Eraser Labs, Inc.
+\textit{Eraser---AI Co-Pilot for Technical Design and Documentation}.
+Available online: \url{https://www.eraser.io} (accessed on 5 December 2025).
+
+\bibitem{r44}
+OpenAI. \textit{ChatGPT}.
+Available online: \url{https://chat.openai.com} (accessed on 23 January 2026). Content generated with the assistance of ChatGPT.
+
+\bibitem{r45}
 Santiago Sosa Mej\'ia.
 \textit{RemotePhysicsLab: Prototipo de laboratorio de f\'isica h\'ibrido basado en IoT}. 
 Repositorio GitHub. 
 Available online: \url{https://github.com/waltersosa/RemotePhysicsLab.git} (accessed on 5 December 2025).
-
-\bibitem{r41}
-OpenAI. \textit{ChatGPT}.
-Available online: \url{https://chat.openai.com} (accessed on 23 January 2026). Content generated with the assistance of ChatGPT.
-
-
 
 \end{thebibliography}
 
