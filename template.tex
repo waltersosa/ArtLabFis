@@ -45,13 +45,13 @@
 % INTRODUCCION
 %-------------------------------------------------
 
-\section{Introduction}
+\section{Introducci\'on}
 
 Los laboratorios de f\'isica siguen siendo el espacio donde los modelos te\'oricos se contrastan con evidencia medible, y por ello conservan un papel central en la formaci\'on de ingenier\'ia. No obstante, buena parte de estos entornos fue dise\~nada para una operaci\'on estrictamente presencial: instrumentaci\'on local, registro manual y baja trazabilidad de datos. En paralelo, la digitalizaci\'on de la infraestructura cient\'ifica y las arquitecturas ciberf\'isicas han abierto la posibilidad de operar experimentos reales de forma remota, con supervisi\'on y captura de datos en l\'inea \cite{r1}. La experiencia acumulada tras la pandemia de COVID-19 hizo m\'as visible esta necesidad y aceler\'o la adopci\'on de laboratorios conectados a servicios en la nube \cite{r2}.
 
 En Am\'erica Latina, esta transici\'on suele tropezar con una limitaci\'on concreta: los laboratorios funcionan con equipamiento que a\'un es "\'util", pero que no fue concebido para automatizaci\'on ni acceso remoto. El caso de la Pontificia Universidad Cat\'olica del Ecuador, sede Esmeraldas, refleja esa realidad: existen montajes funcionales para cinem\'atica (pista y carrito de baja fricci\'on), aunque sin una capa digital que permita controlar, registrar y compartir el experimento a distancia. Frente a este escenario, el \textit{retrofitting} con tecnolog\'ias IoT de bajo coste no se plantea como reemplazo total del laboratorio, sino como una estrategia de modernizaci\'on progresiva y viable \cite{r3,r4}.
 
-\subsection{Related Work and Research Gap}
+\subsection{Trabajo relacionado y brecha de investigaci\'on}
 
 La literatura reciente evidencia avances significativos en la modernización de laboratorios de física mediante tecnologías digitales, particularmente a través de laboratorios remotos, híbridos y estrategias de \textit{retrofitting} basadas en IoT. Estudios como los de Lahme \textit{et al.} \cite{r1} documentan el incremento en el uso de microcontroladores, sensores y plataformas digitales en cursos de laboratorio, destacando tanto su potencial como las barreras técnicas asociadas a su adopción. De manera complementaria, trabajos orientados al control remoto de sistemas físicos, como los presentados por Guerrero-Osuna \textit{et al.} \cite{r4} y Fuertes \textit{et al.} \cite{r3}, demuestran la viabilidad de integrar hardware embebido, servicios en la nube e interfaces web para operar experimentos reales con tiempos de respuesta adecuados.
 
@@ -65,7 +65,7 @@ En este marco, el presente trabajo se diferencia al proponer y validar un modelo
 % MATERIALES Y METODOS
 %-------------------------------------------------
 
-\section{Materials and Methods}
+\section{Materiales y m\'etodos}
 \label{sec:metodos}
 
 \subsection{Dise\~no de la investigaci\'on}
@@ -161,11 +161,11 @@ La arquitectura general del sistema se organiza en tres capas bien diferenciadas
 			4  & Sensor S4      & Detecci\'on final del recorrido           & GPIO 13 & Entrada digital (PULLUP) & 5 V / GND    \\
 			5  & Bot\'on manual   & Inicio / cancelaci\'on del experimento    & GPIO 18 & Entrada digital (PULLUP) & GND          \\
 			6  & Servo motor    & Empuje / liberaci\'on inicial del carrito & GPIO 5  & PWM                            & 5 V / GND    \\
-			7  & L298N – ENA    & Control de aceleraci\'on del motor (NRUA) & GPIO 14 & PWM                            & 5 V / GND    \\
+			7  & L298N – ENA    & Control de aceleraci\'on del motor (MRUA) & GPIO 14 & PWM                            & 5 V / GND    \\
 			8  & L298N – IN1    & Direcci\'on del motor DC                  & GPIO 27 & Salida digital                 & —            \\
 			9  & L298N – IN2    & Direcci\'on del motor DC                  & GPIO 26 & Salida digital                 & —            \\
-			10 & LCD 16$\times$2 – SDA & Comunicaci\'on I2C (datos)                & GPIO 21 & I2C                            & 5 V / GND    \\
-			11 & LCD 16$\times$2 – SCL & Comunicaci\'on I2C (reloj)                & GPIO 22 & I2C                            & 5 V / GND    \\
+			10 & LCD 20$\times$4 – SDA & Comunicaci\'on I2C (datos)                & GPIO 21 & I2C                            & 5 V / GND    \\
+			11 & LCD 20$\times$4 – SCL & Comunicaci\'on I2C (reloj)                & GPIO 22 & I2C                            & 5 V / GND    \\
 			12 & Motor DC       & Generaci\'on del movimiento acelerado     & L298N   & Potencia                       & 11–12 V  \\
 			13 & Tierra com\'un   & Referencia el\'ectrica del sistema        & GND     & —                              & Com\'un        \\
 			\bottomrule
@@ -204,20 +204,30 @@ El backend procesa los mensajes, los registra en MongoDB y los expone a la aplic
 \end{figure}
 
 %-------------------------------------------------
-\subsection{Métricas de evaluación}
+\subsection{M\'etricas de an\'alisis y comparaci\'on}
 
-En la validación técnica del prototipo, el análisis se centra en cuantificar el grado de asociación y concordancia entre las mediciones obtenidas en la modalidad presencial y las registradas por el sistema IoT. El objetivo es determinar si la instrumentación tecnológica basada en \textit{retrofitting} es capaz de replicar la estabilidad y precisión del montaje tradicional. Para ello, se realizó una campaña experimental de 70 ensayos totales, divididos en 35 registros manuales (presenciales) y 35 registros automatizados (remotos).
+En la validaci\'on t\'ecnica del prototipo, el an\'alisis se orient\'o a comparar la proximidad entre modalidades en t\'erminos de tendencia central y dispersi\'on para cada sensor (S1--S4). Dado que los ensayos presenciales y remotos fueron ejecuciones f\'isicas independientes, no se emple\'o correlaci\'on ensayo-a-ensayo como criterio principal de desempe\~no.
 
-Como métrica fundamental de desempeño, se adopta el coeficiente de correlación de Pearson (\(r\)), el cual permite evaluar la fidelidad con la que el laboratorio remoto reproduce el comportamiento observado en el montaje físico de referencia. Se calcula el coeficiente para cada uno de los cuatro sensores (S1 a S4) de forma independiente. Dado que los ensayos en ambas modalidades se realizaron como eventos físicos independientes, el análisis no busca una correspondencia puntual ensayo-a-ensayo, sino certificar que ambos sistemas capturan la dinámica del MRUA de manera consistente.
+Como criterio de comparaci\'on entre modalidades, se utilizaron tres indicadores descriptivos: diferencia de medias, error relativo porcentual y diferencia de desviaciones est\'andar.
 
-El coeficiente de correlación se define mediante la siguiente ecuación:
+Los indicadores se definen mediante las siguientes ecuaciones:
 
 \begin{equation}
-r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2} \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}
-\label{eq:pearson}
+\Delta \bar{t} = \bar{t}_{\mathrm{rem}} - \bar{t}_{\mathrm{pres}}
+\label{eq:delta_media}
 \end{equation}
 
-Donde \(x_i\) representa los tiempos medidos en la modalidad presencial (referencia manual) y \(y_i\) los tiempos medidos en la modalidad remota (IoT) para una serie de \(n=35\) ensayos por modalidad, con sus respectivos promedios \(\bar{x}\) y \(\bar{y}\). Un valor de \(r\) próximo a 1 valida que la instrumentación IoT captura la variabilidad natural del fenómeno cinemático con una fidelidad equivalente al cronometraje presencial.
+\begin{equation}
+E_{\%} = \frac{|\bar{t}_{\mathrm{rem}} - \bar{t}_{\mathrm{pres}}|}{\bar{t}_{\mathrm{pres}}}\times 100
+\label{eq:error_relativo}
+\end{equation}
+
+\begin{equation}
+\Delta s = s_{\mathrm{rem}} - s_{\mathrm{pres}}
+\label{eq:delta_sd}
+\end{equation}
+
+donde \(\bar{t}_{\mathrm{pres}}\) y \(\bar{t}_{\mathrm{rem}}\) son las medias de tiempo en modalidad presencial y remota, y \(s_{\mathrm{pres}}\), \(s_{\mathrm{rem}}\) sus respectivas desviaciones est\'andar.
 
 
 
@@ -227,8 +237,7 @@ Donde \(x_i\) representa los tiempos medidos en la modalidad presencial (referen
 
 Los datos registrados por el prototipo IoT (modalidad h\'ibrida) y por el montaje presencial de referencia se exportaron en forma de archivos de texto estructurados, que contienen las marcas de tiempo asociadas al paso del carrito por cada sensor y la configuraci\'on de cada ensayo. Estos registros se organizaron en hojas de c\'alculo y posteriormente se procesaron mediante scripts desarrollados en Python~3.14.1\cite{r42}.
 
-El an\'alisis se centr\'o en la consistencia de los tiempos de paso por sensor y en el c\'alculo de la correlaci\'on de Pearson entre las modalidades h\'ibrida y presencial. Se generaron gr\'aficos de dispersi\'on para visualizar la proximidad entre las mediciones obtenidas y detectar posibles desviaciones del prototipo. Los resultados num\'ericos y gr\'aficos se presentan y discuten en la secci\'on de Resultados.
-En una primera etapa, los datos de ambas modalidades se integraron en tablas comparativas que agrupan, por ensayo, los tiempos de paso registrados por el sistema h\'ibrido y por el montaje presencial. En una segunda etapa, se generaron gr\'aficos de dispersi\'on e histogramas para visualizar la proximidad entre las mediciones obtenidas en ambas modalidades y validar la consistencia del prototipo mediante el análisis de correlación.
+En una primera etapa, los datos de ambas modalidades se integraron en tablas comparativas para cada sensor. En una segunda etapa, se calcularon estad\'isticos descriptivos (media y desviaci\'on est\'andar) y los indicadores \(\Delta \bar{t}\), \(E_{\%}\) y \(\Delta s\). Finalmente, se generaron gr\'aficos de dispersi\'on e histogramas con fines descriptivos para visualizar la proximidad global entre mediciones y detectar posibles desviaciones del prototipo.
 
 Los resultados num\'ericos de estas comparaciones, as\'i como las tablas y gr\'aficos derivados del procesamiento en Python~3.14.1, se presentan y discuten en la secci\'on de Resultados, donde se analiza en detalle la concordancia del laboratorio h\'ibrido frente al montaje presencial de referencia.
 
@@ -242,7 +251,7 @@ En primer lugar, se verific\'o la validez de medici\'on mediante pruebas espec\'
 
 Adicionalmente, se cuid\'o la medici\'on de las distancias fijas entre sensores empleando una cinta m\'etrica convencional con resoluci\'on adecuada para el experimento, de modo que los c\'alculos cinem\'aticos derivados (velocidad y aceleraci\'on promedio) se basaran en valores de referencia consistentes. El montaje presencial del laboratorio se utiliz\'o como l\'inea base para contrastar los tiempos y magnitudes cinem\'aticas obtenidos con el prototipo IoT, constituyendo as\'i un punto de referencia para la validez externa de las mediciones.
 
-En cuanto a la confiabilidad y repetibilidad, se realizaron un total de 70 ensayos repetidos (35 presenciales y 35 remotos) bajo la misma configuraci\'on del montaje (misma inclinaci\'on de la pista, misma posici\'on inicial del carrito y misma ubicaci\'on de los sensores) tanto en la modalidad presencial como en la modalidad h\'ibrida. A partir de estos ensayos se analiz\'o la variabilidad de los tiempos de paso y de las aceleraciones estimadas, empleando estad\'isticas descriptivas b\'asicas (media y desviaci\'on est\'andar) como indicador de la estabilidad de las mediciones. Los registros que presentaron anomal\'ias evidentes (por ejemplo, fallos de detecci\'on, interrupciones de comunicaci\'on o errores manifiestos de lanzamiento) se descartaron expl\'icitamente del an\'alisis comparativo y se documentaron como eventos at\'ipicos, con el fin de no sesgar las conclusiones sobre el desempe\~no normal del sistema.
+En cuanto a la confiabilidad y repetibilidad, se realizaron un total de 70 ensayos repetidos (35 presenciales y 35 remotos) bajo la misma configuraci\'on del montaje (misma inclinaci\'on de la pista, misma posici\'on inicial del carrito y misma ubicaci\'on de los sensores) tanto en la modalidad presencial como en la modalidad h\'ibrida. A partir de estos ensayos se analiz\'o la variabilidad de los tiempos de paso y de las aceleraciones estimadas, empleando estad\'isticas descriptivas b\'asicas (media y desviaci\'on est\'andar) como indicador de la estabilidad de las mediciones. Los eventos an\'omalos observados durante la ejecuci\'on (por ejemplo, fallos de detecci\'on, interrupciones de comunicaci\'on o errores de lanzamiento) se documentaron en bit\'acora t\'ecnica para el an\'alisis de estabilidad operativa del sistema.
 
 Para reducir amenazas a la validez interna, el experimento se desarroll\'o en condiciones controladas: la pista y los sensores se mantuvieron fijos sobre una misma mesa de trabajo, se evit\'o manipular el montaje entre series de ensayos y se procur\'o mantener una iluminaci\'on estable en el laboratorio, de manera que no se introdujeran variaciones relevantes en la respuesta de los sensores ni en la calidad de la se\~nal de video. En el plano de la instrumentaci\'on, el módulo de control registr\'o localmente las marcas de tiempo asociadas a cada evento de detecci\'on, de modo que la latencia de red afectara solo a la visualizaci\'on remota y no al sellado temporal de los datos f\'isicos. La comunicaci\'on con el servidor MQTT se supervis\'o mediante suscripciones de prueba a los t\'opicos MQTT, verificando que no se produjeran p\'erdidas sistem\'aticas de mensajes durante las sesiones de medici\'on.
 
@@ -262,7 +271,7 @@ En cuanto a las consideraciones éticas e institucionales, el desarrollo y la ev
 
 \section{Resultados}
 
-Esta sección presenta los resultados obtenidos de la validación experimental del sistema de \textit{retrofitting} basado en IoT propuesto. El análisis se centra en la estabilidad de la captura de datos y en la correlación estadística entre las modalidades remota (IoT) y presencial (tradicional). El conjunto de datos comprende \(N=70\) ensayos independientes (35 remotos y 35 presenciales).
+Esta sección presenta los resultados obtenidos de la validación experimental del sistema de \textit{retrofitting} basado en IoT propuesto. El análisis se centra en la estabilidad de la captura de datos y en la concordancia descriptiva entre las modalidades remota (IoT) y presencial (tradicional). El conjunto de datos comprende \(N=70\) ensayos independientes (35 remotos y 35 presenciales).
 
 \subsection{Configuración experimental e implementación del prototipo}
 
@@ -318,11 +327,11 @@ El Sensor S1 corresponde al punto de partida del movimiento (\(t=0\)). En ambas 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/correlation_sensor_S1.png}
-    \caption{Gráfica de correlación para el Sensor S1 (Remota vs. Presencial).}
+    \caption{Comparaci\'on descriptiva de tiempos para el Sensor S1 (Remota vs. Presencial).}
     \label{fig:corr_s1}
 \end{figure}
 
-Como se muestra en la Figura~\ref{fig:corr_s1}, los puntos de datos se concentran en el origen. El coeficiente de correlación es técnicamente indefinido o nulo (\(r \approx 0\)) porque la varianza de los datos es cero (\(s=0\)). Este comportamiento es físicamente esperado y confirma que S1 funciona correctamente como punto de referencia de sincronización tanto para el cronómetro manual como para el módulo de control digital. No hay fluctuaciones ni ruido experimental que afecten este estado inicial.
+Como se muestra en la Figura~\ref{fig:corr_s1}, los puntos de datos se concentran en el origen. En ambas modalidades, la media y la desviaci\'on est\'andar son \(0.00\) s, por lo que la diferencia entre modalidades es nula (\(\Delta \bar{t}=0.00\) s; \(\Delta s=0.00\) s). Este comportamiento es f\'isicamente esperado y confirma que S1 funciona correctamente como punto de referencia de sincronizaci\'on para el cronometraje manual y para el m\'odulo de control digital.
 
 \subsection{Sensor S2: Primera sección intermedia}
 
@@ -346,11 +355,11 @@ El Sensor S2 se encuentra al final de la primera sección de la pista. Los resul
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/correlation_sensor_S2.png}
-    \caption{Gráfica de correlación para el Sensor S2 (Remota vs. Presencial).}
+    \caption{Comparaci\'on descriptiva de tiempos para el Sensor S2 (Remota vs. Presencial).}
     \label{fig:corr_s2}
 \end{figure}
 
-La gráfica de la Figura~\ref{fig:corr_s2} presenta una distribución dispersa de puntos. El coeficiente de correlación calculado es bajo (\(r < 0.3\)), clasificando la correlación como nula o débil. Este resultado se interpreta físicamente por la independencia de los ensayos: dado que el "ensayo presencial 1" y el "ensayo remoto 1" son eventos físicos distintos separados en el tiempo, están sujetos a diferentes fluctuaciones aleatorias (fricción inicial de liberación, ligeras variaciones de resistencia del aire). La falta de correlación valida que el error de medición es aleatorio en lugar de sistemático; el sistema IoT no introduce un sesgo que lo aproxime o distancie esencialmente de la medición manual, sino que simplemente captura la variabilidad natural del fenómeno de MRUA.
+La Figura~\ref{fig:corr_s2} muestra una dispersi\'on coherente con ensayos independientes. La comparaci\'on descriptiva reporta \(\Delta \bar{t}=0.02\) s (1.71\% respecto a presencial) y \(\Delta s=0.01\) s, lo que indica proximidad entre modalidades tanto en tendencia central como en variabilidad para este tramo de la pista.
 
 \subsection{Sensor S3: Segunda sección intermedia}
 
@@ -374,11 +383,11 @@ El Sensor S3 captura el movimiento a una velocidad mayor. La Tabla~\ref{tab:s3_r
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/correlation_sensor_S3.png}
-    \caption{Gráfica de correlación para el Sensor S3 (Remota vs. Presencial).}
+    \caption{Comparaci\'on descriptiva de tiempos para el Sensor S3 (Remota vs. Presencial).}
     \label{fig:corr_s3}
 \end{figure}
 
-La Figura~\ref{fig:corr_s3} muestra nuevamente una nube de puntos con baja correlación. El valor débil de \(r\) se atribuye al ruido experimental acumulado. A medida que el carrito se mueve más lejos, las pequeñas variaciones iniciales en la aceleración se acumulan en desviaciones mayores de posición/tiempo. El hecho de que tanto el sistema remoto como el presencial muestren desviaciones estándar casi idénticas (\(s=0.23\) s vs \(s=0.24\) s) demuestra que la detección automatizada del módulo de control se desempeña de manera comparable al cronometraje manual, capturando la variabilidad natural del fenómeno de MRUA con precisión similar.
+La Figura~\ref{fig:corr_s3} mantiene el patr\'on de proximidad entre modalidades. Para este sensor se obtiene \(\Delta \bar{t}=0.03\) s (1.81\%) y \(\Delta s=0.01\) s. Aunque la dispersi\'on aumenta respecto a S2 por acumulaci\'on de variaciones mec\'anicas a lo largo del recorrido, la similitud de medias y desviaciones est\'andar respalda un desempe\~no comparable entre el registro remoto y el presencial.
 
 \subsection{Sensor S4: Final de la pista}
 
@@ -402,39 +411,39 @@ El Sensor S4 representa el punto de medición final, donde la velocidad es máxi
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/correlation_sensor_S4.png}
-    \caption{Gráfica de correlación para el Sensor S4 (Remota vs. Presencial).}
+    \caption{Comparaci\'on descriptiva de tiempos para el Sensor S4 (Remota vs. Presencial).}
     \label{fig:corr_s4}
 \end{figure}
 
-El análisis de la Figura~\ref{fig:corr_s4} confirma el patrón observado en los sensores anteriores. Tanto las mediciones presenciales como remotas muestran una dispersión comparable (\(s=0.28\) s y \(s=0.29\) s respectivamente), con tiempos medios prácticamente idénticos (2.05 s vs 2.04 s). El coeficiente de correlación bajo es consistente con la independencia de los ensayos; cada medición captura la variabilidad natural del fenómeno de MRUA bajo diferentes condiciones iniciales. El notable acuerdo entre ambas modalidades demuestra que el sistema de \textit{retrofitting} IoT replica exitosamente las capacidades de medición de la configuración tradicional, proporcionando datos cinemáticos confiables adecuados para el análisis cuantitativo del movimiento uniformemente acelerado.
+El an\'alisis de la Figura~\ref{fig:corr_s4} confirma el patr\'on observado en los sensores anteriores. Las mediciones presenciales y remotas muestran dispersi\'on comparable (\(s=0.28\) s y \(s=0.29\) s) y tiempos medios pr\'acticamente id\'enticos (2.05 s vs 2.04 s), con \(\Delta \bar{t}=-0.01\) s (0.49\%) y \(\Delta s=0.01\) s. Este acuerdo al final del recorrido respalda que el sistema de \textit{retrofitting} IoT reproduce la medici\'on temporal del montaje tradicional con estabilidad adecuada para uso acad\'emico.
 
 %-------------------------------------------------
 % DISCUSION
 %-------------------------------------------------
 
-\section{Discussion}
+\section{Discusi\'on}
 
-\subsection{Interpretation of Temporal and Kinematic Results}
+\subsection{Interpretaci\'on de resultados temporales y cinem\'aticos}
 
-Los resultados obtenidos demuestran que el sistema de \textit{retrofitting} IoT es capaz de capturar la dinámica del experimento de MRUA con una fidelidad comparable e incluso superior en estabilidad a la del montaje presencial tradicional. Contrario a lo esperado para sistemas distribuidos, las mediciones en la modalidad remota presentaron una dispersión controlada, lo que evidencia la eficiencia del manejo de interrupciones en el módulo de control. La consistencia de los datos sugiere que la latencia de red, aunque presente, no degradó la calidad de la recolección de datos cinemáticos gracias al sellado temporal local.
+Los resultados obtenidos demuestran que el sistema de \textit{retrofitting} IoT es capaz de capturar la din\'amica del experimento de MRUA con fidelidad comparable al montaje presencial tradicional. En los sensores S2--S4, las diferencias de medias entre modalidades se mantienen entre 0.01 s y 0.03 s, y las diferencias de dispersi\'on en torno a 0.01 s. Estos valores indican que la modalidad remota conserva estabilidad de medici\'on similar a la referencia presencial. Adem\'as, el sellado temporal local en el m\'odulo de control reduce el impacto de la latencia de red sobre el registro de eventos f\'isicos.
 
-\subsection{Implications for IoT-Based Retrofitting of Physics Laboratories}
+\subsection{Implicaciones para el \textit{retrofitting} IoT en laboratorios de f\'isica}
 
 La viabilidad técnica del modelo propuesto tiene implicaciones directas para la modernización de infraestructuras educativas con recursos limitados. El enfoque de \textit{retrofitting} demuestra que es posible transformar equipamiento clásico en activos digitales conectados sin necesidad de sustituir la instrumentación original. La arquitectura modular adoptada permite una escalabilidad eficiente, donde la capa de sensórica y control se desacopla de los servicios de visualización y almacenamiento. Los resultados validan que las soluciones de bajo coste basadas en hardware masivo pueden alcanzar niveles de precisión adecuados para fines académicos, facilitando la transición hacia entornos de aprendizaje híbridos que no dependen exclusivamente de la presencia física en el laboratorio.
 
-\subsection{Comparison with Related Works}
+\subsection{Comparaci\'on con trabajos relacionados}
 
 Al contrastar los resultados con la literatura previa, se observan similitudes fundamentales con los trabajos de Viswanadh \textit{et al.} \cite{r2} y Lustig \textit{et al.} \cite{r5} en cuanto a la efectividad de las arquitecturas modulares para experimentos remotos. Sin embargo, el presente estudio aporta una validación cuantitativa específica para el caso del MRUA, extendiendo las propuestas de Guerrero-Osuna \textit{et al.} \cite{r4} y Fuertes \textit{et al.} \cite{r3}, quienes se centraron primordialmente en el control de motores. A diferencia de las soluciones basadas en SmartIPLs revisadas por Zhao \cite{r6}, que dependen de sensores internos de teléfonos inteligentes, el sistema implementado ofrece una infraestructura fija y dedicada que garantiza una mayor repetibilidad en las condiciones de ensayo, manteniendo la accesibilidad económica del montaje.
 
-\subsection{Limitations of the Study}
+\subsection{Limitaciones del estudio}
 
 A pesar del desempeño satisfactorio del prototipo, se identifican limitaciones intrínsecas en el alcance de la investigación. En primer lugar, aunque la estabilidad fue alta, el sistema sigue dependiendo de la disponibilidad continua del servidor MQTT para la transmisión de datos en tiempo real. En segundo lugar, el número de ensayos realizados (n=35 por modalidad), aunque robusto, se limita a un entorno controlado de laboratorio universitario. Asimismo, el experimento se desarrolla bajo condiciones mecánicas donde factores como la fricción residual del carrito y la alineación micrométrica de los sensores ópticos introducen variaciones físicas que son independientes de la instrumentación IoT.
 
-\subsection{Future Work}
+\subsection{Trabajo futuro}
 
 Las futuras líneas de investigación se orientan hacia la optimización de la capa de percepción y la robustez del sistema. Se propone la integración de sensores de mayor resolución temporal y el uso de protocolos de comunicación con priorización de tráfico para minimizar el impacto de la latencia de red. Asimismo, resulta pertinente incrementar el volumen de ensayos para robustecer el análisis estadístico y realizar mediciones explícitas de la latencia en cada etapa de la cadena de datos. Desde una perspectiva funcional, el sistema puede expandirse para instrumentar otros experimentos de dinámica y energía, integrando los flujos de datos con plataformas educativas de gestión de aprendizaje (LMS) para automatizar la evaluación de las prácticas experimentales.
 
-\section{Conclusions}
+\section{Conclusiones}
 
 Este estudio permitió comprobar, en condiciones de laboratorio reales, que un enfoque de \textit{retrofitting} IoT puede modernizar un experimento clásico de MRUA sin desmantelar la infraestructura existente. A partir de 70 ensayos independientes (35 presenciales y 35 remotos), la arquitectura implementada con módulo de control, sensores infrarrojos e interfaz web mostró un comportamiento consistente y técnicamente comparable al del montaje de referencia.
 
@@ -483,8 +492,8 @@ Open Modular Hardware and Software Kit for Creations of Remote Experiments Acces
 \bibitem{r6}
 Zhao, Y. 
 Smartphone-Based Undergraduate Physics Labs: A Comprehensive Review. 
-\textit{IEEE Access} \textbf{2024}, \textit{13}, 1106--1132. 
-\href{https://doi.org/10.1109/ACCESS.2024.3523066}{doi:10.1109/ACCESS.2024.3523066}.
+\textit{arXiv} \textbf{2025}, arXiv:2504.11363. 
+\href{https://arxiv.org/abs/2504.11363}{arXiv:2504.11363}.
 
 \bibitem{r7}
 Dizdarevic, J.; Jukan, A.
