@@ -1,0 +1,661 @@
+Received:
+Accepted:
+Published:
+Citation:Sosa Mejía, W.S. .Journal
+Not Specified2025,1, 0.
+https://www.mdpi.com/journal/iot
+Copyright:© 2026 by the author.
+Submitted toJournal Not Specifiedfor
+possible open access publication under
+the terms and conditions of the
+Creative Commons Attri- bution (CC
+BY) license (https://creativecommons.
+org/licenses/by/4.0/).
+Article
+Implementación de laboratorio de física para ingeniería
+mediante retrofitting con tecnologías IoT en un entorno de
+aprendizaje híbrido.
+Walter Santiago Sosa Mejía
+Pontificia Universidad Católica del Ecuador, Sede Esmeraldas; wssosa@pucese.edu.ec
+Abstract 1
+La modernización de laboratorios de física en contextos de recursos limitados presenta 2
+desafíos significativos. Este artículo presenta el diseño y validación de un sistema de 3
+laboratorio remoto para el estudio del Movimiento Rectilíneo Uniformemente Acelerado 4
+(MRUA), implementado mediante una estrategia deretrofittingcon tecnologías de Internet 5
+de las Cosas (IoT) sobre equipamiento preexistente. La arquitectura propuesta utiliza un 6
+microcontrolador ESP32, en adelante denominado módulo de control, y sensores infrarrojos 7
+para la captura de datos, gestionados a través de una interfaz web que permite el control y 8
+visualización en tiempo real. Para validar el sistema, se realizó un estudio comparativo con 9
+70 ensayos (35 en modalidad remota y 35 en presencial). Los resultados demuestran que 10
+el prototipo remoto alcanza una precisión cinemática comparable al montaje tradicional, 11
+manteniendo una alta estabilidad en las mediciones de tiempo, velocidad y aceleración, 12
+con desviaciones estándar controladas. Se concluye que la metodología deretrofittingIoT 13
+es una solución viable y escalable para democratizar el acceso a la educación experimental 14
+de alta calidad en entornos híbridos, sin requerir grandes inversiones en infraestructura.15
+Keywords:Retrofitting; Internet of Things; Remote laboratories; MRUA; Low-cost instru- 16
+mentation; Cloud services; Engineering education 17
+1. Introduction 18
+Los laboratorios de física constituyen un componente esencial para la verificación 19
+experimental de leyes y modelos, así como para la validación de sistemas de medición y 20
+control. Tradicionalmente, estos entornos han operado de forma estrictamente presencial, 21
+con instrumentación analógica o digital que requiere la presencia física del usuario en 22
+el laboratorio. Sin embargo, la creciente digitalización de la infraestructura científica y 23
+el desarrollo de arquitecturas ciberfísicas han impulsado el diseño de plataformas que 24
+permiten operar, monitorear y automatizar experimentos de manera remota y distribuida25
+[1]. La pandemia de COVID-19 reforzó esta tendencia al mostrar las limitaciones de los 26
+montajes dependientes exclusivamente de la presencia local, acelerando la adopción de 27
+laboratorios remotos y sistemas de instrumentación conectados a la nube [2].28
+En este contexto, se hace evidente un problema recurrente: muchos laboratorios de 29
+física continúan dependiendo de montajes centrados en la operación presencial, con escaso 30
+nivel de automatización, sin mecanismos de acceso remoto y con dificultades para registrar 31
+y gestionar datos de manera sistemática. Esta situación es particularmente notoria en 32
+América Latina, donde numerosos laboratorios operan con instrumentación en servicio 33
+Version February 11, 2026 submitted toJournal Not Specifiedhttps://doi.org/10.3390/1010000
+Version February 11, 2026 submitted toJournal Not Specified 2 of 18
+desde hace varios años y con recursos limitados para renovar equipos o incorporar solu- 34
+ciones de conectividad avanzadas [ 3,4]. El laboratorio de física de la Pontificia Universidad 35
+Católica del Ecuador sede Esmeraldas, constituye un ejemplo representativo: dispone de 36
+pistas tipo juguete, carritos de baja fricción y elementos de medición convencionales para 37
+experimentos de cinemática y dinámica, pero carece de capacidades de automatización 38
+y de acceso remoto. En este escenario, diseñar arquitecturas que permitanretrofittingde 39
+montajes existentes con tecnologías IoT de bajo coste se vuelve una necesidad técnica y 40
+operativa. 41
+1.1. Related Work and Research Gap 42
+La literatura reciente evidencia avances significativos en la modernización de labo- 43
+ratorios de física mediante tecnologías digitales, particularmente a través de laboratorios 44
+remotos, híbridos y estrategias deretrofittingbasadas en IoT. Estudios como los de Lahmeet 45
+al.[1] documentan el incremento en el uso de microcontroladores, sensores y plataformas46
+digitales en cursos de laboratorio, destacando tanto su potencial como las barreras técnicas 47
+asociadas a su adopción. De manera complementaria, trabajos orientados al control remoto 48
+de sistemas físicos, como los presentados por Guerrero-Osunaet al.[ 4] y Fuerteset al.[ 3], 49
+demuestran la viabilidad de integrar hardware embebido, servicios en la nube e interfaces 50
+web para operar experimentos reales con tiempos de respuesta adecuados.51
+En el contexto específico delretrofittingde equipamiento existente, Viswanadhet al.[ 2] 52
+proponen arquitecturas de bajo coste que permiten instrumentar montajes de laboratorio 53
+preexistentes sin modificaciones estructurales, mientras que Lustiget al.[ 5] introducen 54
+plataformas modulares que desacoplan el hardware experimental de los servicios de acceso 55
+y visualización. Por su parte, Zhao [ 6] revisa extensivamente soluciones basadas en sensores 56
+de uso masivo y análisis de video, mostrando que es posible obtener mediciones de calidad 57
+razonable empleando dispositivos accesibles y ampliamente disponibles.58
+No obstante, a pesar de estos aportes, se identifican varias limitaciones en la literatura 59
+existente. En primer lugar, muchos trabajos se centran en la demostración funcional de 60
+plataformas remotas o en evaluaciones de usabilidad, sin profundizar en la validación 61
+cuantitativa de la fidelidad experimental frente a montajes presenciales de referencia. En 62
+segundo lugar, existe una carencia de estudios que analicen de manera sistemática el 63
+desempeño técnico de experimentos clásicos de física como los de cinemática cuando 64
+son ejecutados en modalidad remota, considerando métricas como error en tiempos de 65
+detección, coherencia interna de los datos y estabilidad del sistema. Finalmente, son 66
+escasos los estudios que abordan estas problemáticas en contextos de recursos limitados, 67
+donde la reutilización de equipamiento existente medianteretrofittingresulta especialmente 68
+relevante. 69
+En este marco, el presente trabajo se diferencia al proponer y validar un modelo de 70
+laboratorio híbrido de física basado enretrofittingIoT. Para contextualizar nuestra contribu- 71
+ción dentro de las arquitecturas modernas de IoT, se adopta el enfoque de capas propuesto 72
+por Dizdarevic y Jukan [ 7], quienes destacan la importancia de integrar capacidades de 73
+computación en el borde (Edge) y en la nube (Cloud) para reducir la latencia en entornos 74
+educativos, una lección que hemos aplicado mediante el uso del dispositivo de control 75
+para el procesamiento en el borde. Asimismo, para asegurar la continuidad operativa 76
+y la accesibilidad universal, seguimos los principios de Azad [ 8] sobre el despliegue de 77
+laboratorios remotos basados en IoT, garantizando que el sistema sea robusto frente a 78
+desconexiones. Finalmente, la validación de nuestro sistema se alinea con la metodología 79
+de "gemelos digitales" descrita por Palmeret al.[ 9], utilizando la comparación directa entre 80
+los datos físicos del sensor (el "gemelo real") y el modelo teórico esperado, asegurando así 81
+una verificación cuantitativa rigurosa. 82
+Version February 11, 2026 submitted toJournal Not Specified 3 of 18
+2. Materials and Methods 83
+2.1. Diseño de la investigación 84
+La investigación se planteó como un estudio aplicado de tipo técnico, orientado al 85
+diseño, construcción y validación de un prototipo de laboratorio de física controlado a 86
+distancia mediante tecnologías IoT. Se adoptó un enfoque cuantitativo de alcance descrip- 87
+tivo, ya que las variables centrales de análisis corresponden a magnitudes físicas medibles 88
+(tiempos de detección, eventos registrados, ocurrencia de fallos) obtenidas a partir de 89
+registros instrumentales del sistema, que posteriormente se describen y comparan sin 90
+intervenir sobre grupos de participantes humanos. El enfoque metodológico se alineó 91
+con la lógica de laDesign Science Research(DSR), en la que el objetivo central es construir 92
+un artefacto tecnológico y evaluarlo de forma sistemática [ 11], y tomó como referencia 93
+general los procesos de ciclo de vida de sistemas descritos en la norma ISO/IEC 15288 94
+para organizar las fases de requisitos, diseño, implementación, integración y operación del 95
+prototipo [12]. 96
+A partir de este marco se definió que el alcance de la presente investigación se concen- 97
+traría en la evaluación técnica del experimento de movimiento rectilíneo uniformemente 98
+acelerado (MRUA), específicamente en la exactitud y consistencia de las variables físicas 99
+medidas y calculadas por el sistema remoto para dicho experimento frente a un montaje 100
+presencial de referencia equivalente. 101
+2.2. Hardware y software utilizados 102
+Para garantizar una presentación clara y replicable, los materiales utilizados se agru- 103
+pan en dos tablas: componentes de hardware (Tabla 1) y herramientas de software (Tabla 2). 104
+La Figura 1 resume cómo se integran estos elementos en la arquitectura general del sistema. 105
+Table 1.Componentes de hardware del prototipo de laboratorio híbrido de física basado en tec-
+nologías IoT.
+Categoría del dispositivo Especificación técnica consolidada Referencias
+Sistema experimental mecánicoPista tipo Hot Wheels®utilizada como riel de movimiento rectilíneo y carrito de
+baja fricción adaptado para prácticas de cinemática[13,14]
+Sistema de sensado y
+adquisición de datosCuatro sensores infrarrojos para detección de paso y medición de tiempo [15]
+Unidad de control y
+procesamiento IoTMódulo de control DevKit (30 pines, USB-C, conectividad WiFi y Bluetooth
+integrada)[16]
+Estructura mecánica y soporte
+físicoSoportes, refuerzos y conjuntos mecánicos impresos en 3D para montaje de
+sensores, actuadores y elementos estructurales[17–20]
+Actuadores y control de
+movimientoServomotor SG90 (180°), motor paso a paso bipolar NEMA 17 y módulo puente
+H L298N para control de movimiento[21–23]
+Interfaz de usuario local Pantalla LCD 20x4 con interfaz I2C y pulsador mecánico para interacción local [24,25]
+Comunicación y conectividadEstándar inalámbrico IEEE 802.11 (WiFi), cable USB tipo C y cables Dupont para
+interconexión eléctrica[26–28]
+Sistema de alimentación y
+protecciónAdaptador AC–DC 12 V / 1 A y caja plástica de protección para proyectos
+electrónicos (135×75×40 mm)[29,30]
+Sistema de visualización remotaWebcam Insta360 Link con resolución 4K y funciones de seguimiento asistidas
+por IA[31]
+Servidor y gestión del sistema
+IoTRaspberry Pi 4 Model B para gestión de comunicaciones, almacenamiento y
+monitoreo del sistema[32]
+Version February 11, 2026 submitted toJournal Not Specified 4 of 18
+Table 2.Herramientas de software utilizadas en el sistema del laboratorio híbrido de física basado en
+IoT.
+Capa del sistema Herramientas de software Versiones Referencias
+Comunicación IoT EMQX, MQTTX Desktop 5.10.2; 1.12.1 [33,34]
+Backend y servicios Node.js (LTS), Express 24.11.1; 5.1.0 [35,36]
+Persistencia de datos MongoDB Server, MongoDB Driver, Mongoose 8.2.2; 6.3.0; 8.5.1 [37,38]
+Frontend y visualización Next.js, React 16.0; 19.2.0 [39,40]
+Desarrollo embebido Arduino IDE 2.3.4 [41]
+Lenguajes y soporte Python 3.14.1 [42]
+2.3. Arquitectura general del sistema 106
+La arquitectura general del sistema se organiza en tres capas bien diferenciadas [ 10] 107
+(Figura 1). La Capa 1 agrupa los elementos de percepción del experimento, incluyendo 108
+el carrito de laboratorio para MRUA, la pista, los cuatro sensores infrarrojos, la cámara 109
+del experimento y el módulo de control, que se encarga de adquirir las señales de los 110
+sensores y enviarlas mediante MQTT sobre WiFi. La Capa 2 corresponde a la red local y al 111
+servidor, formada por el router WiFi o punto de acceso y la Raspberry Pi, donde se ejecutan 112
+el broker EMQX, el servidor de video y la API web que procesa los datos. Finalmente, la 113
+Capa 3 incluye la interfaz de usuario basada en página web, desde la cual el profesor y el 114
+estudiante pueden visualizar tablas de datos y gráficas de posición, velocidad y aceleración, 115
+así como observar el video del experimento y enviar comandos de control al sistema.116
+Figure 1.Arquitectura basada en tres capas del laboratorio de física conretrofittingIoT. Diagrama
+elaborado siguiendo el modelo fundamental de tres capas [10] con la herramienta Eraser [43].
+Version February 11, 2026 submitted toJournal Not Specified 5 of 18
+Figure 2.Esquema del módulo de control. Imagen generada con la asistencia de ChatGPT [44].
+Table 3.Conexiones detalladas del sistema y asignación de pines del módulo de control.
+Nº Componente Función en el experimento Pin mód. control Tipo de señal Alimentación
+1 Sensor S1 Detección inicio del movimiento GPIO 15 Entrada digital (PULLUP) 5 V / GND
+2 Sensor S2 Detección tramo intermedio 1 GPIO 25 Entrada digital (PULLUP) 5 V / GND
+3 Sensor S3 Detección tramo intermedio 2 GPIO 12 Entrada digital (PULLUP) 5 V / GND
+4 Sensor S4 Detección final del recorrido GPIO 13 Entrada digital (PULLUP) 5 V / GND
+5 Botón manual Inicio / cancelación del experimento GPIO 18 Entrada digital (PULLUP) GND
+6 Servo motorEmpuje / liberación inicial del car-
+ritoGPIO 5 PWM 5 V / GND
+7 L298N – ENAControl de aceleración del motor
+(NRUA)GPIO 14 PWM 5 V / GND
+8 L298N – IN1 Dirección del motor DC GPIO 27 Salida digital —
+9 L298N – IN2 Dirección del motor DC GPIO 26 Salida digital —
+10 LCD 16×2 – SDA Comunicación I2C (datos) GPIO 21 I2C 5 V / GND
+11 LCD 16×2 – SCL Comunicación I2C (reloj) GPIO 22 I2C 5 V / GND
+12 Motor DCGeneración del movimiento aceler-
+adoL298N Potencia 11–12 V
+13 Tierra común Referencia eléctrica del sistema GND — Común
+2.4. Población, muestra y entorno experimental 117
+En este estudio no se trabaja con una población de sujetos humanos ni con unidades 118
+organizacionales, sino con un sistema físico instrumentado cuyo comportamiento se evalúa 119
+desde una perspectiva técnica. Por este motivo, en lugar de definir una población y muestra 120
+en el sentido clásico de la investigación cuantitativa, esta subsección se centra en describir 121
+el entorno experimental del laboratorio y la forma en que se planificaron los ensayos 122
+realizados sobre el montaje. En total, se ejecutaron 70 ensayos, correspondientes a 35 123
+pruebas en modalidad presencial y 35 en modalidad remota.124
+El experimento se llevó a cabo en el laboratorio de física de la Pontificia Universidad 125
+Católica del Ecuador sede Esmeraldas, que dispone de una mesa de trabajo nivelada, 126
+acceso a red eléctrica regulada y conectividad de red local mediante un punto de acceso 127
+WiFi. En este espacio se instaló la pista tipo Hot Wheels®[13], el carrito de laboratorio 128
+de baja fricción [ 14], los cuatro sensores infrarrojos [ 15], el módulo de control [ 16] y la 129
+cámara Insta360 Link [ 31], conformando el montaje físico del experimento de MRUA. La 130
+Version February 11, 2026 submitted toJournal Not Specified 6 of 18
+Raspberry Pi 4 utilizada como servidor IoT [ 32] se ubicó en el mismo laboratorio y se 131
+conectó tanto al punto de acceso WiFi [27] como a la red cableada institucional.132
+2.5. Procedimiento de implementación 133
+El procedimiento seguido para desarrollar y evaluar el prototipo se organizó en cuatro 134
+momentos, coherentes con los objetivos específicos del estudio: diseño del sistema y 135
+definición de la arquitectura IoT del laboratorio remoto, implementación del hardware y 136
+del software, configuración del entorno experimental con ejecución de ensayos en modo 137
+remoto y presencial, y validación técnica del funcionamiento del prototipo.138
+En primer lugar, se realizó un levantamiento de requisitos junto con el docente respon- 139
+sable de la asignatura de Física, considerado experto en el experimento de MRUA. En esta 140
+etapa se identificaron los eventos que debía registrar el sistema (paso del carrito por cada 141
+sensor), la información mínima necesaria para describir el experimento y las condiciones 142
+de montaje aceptables en el laboratorio. A partir de estos insumos se definió la arquitectura 143
+IoT del laboratorio remoto, especificando los componentes de hardware, los servicios de 144
+software y el flujo de datos entre el ESP32, el servidor MQTT, el backend y la aplicación 145
+web. Las decisiones de diseño se documentaron en los archivos README del repositorio 146
+públicoRemotePhysicsLab[45], en las carpetas defrontendybackend.147
+En una segunda fase se llevó a cabo la implementación del prototipo IoT (Figura 1). Se 148
+construyó el montaje físico de la pista y se instalaron los sensores infrarrojos en posiciones 149
+fijas a lo largo del recorrido del carrito. El módulo de control se programó utilizando el 150
+entorno Arduino IDE para leer el estado de los sensores y enviar mensajes MQTT con 151
+marcas de tiempo hacia el servidor MQTT desplegado en la Raspberry Pi. De manera 152
+paralela se configuró la cámara del experimento y el servidor de video, de modo que la 153
+señal pudiera ser consumida desde el navegador web. Durante esta fase se realizaron 154
+pruebas unitarias para comprobar la lectura correcta de los sensores, la conectividad WiFi, 155
+la publicación en los tópicos MQTT definidos y la recepción continua de la señal de video. 156
+A continuación se configuró el entorno experimental y se procedió a la ejecución 157
+de los ensayos. Se fijaron el punto de partida del carrito, la inclinación de la pista y las 158
+posiciones de los sensores, manteniendo estos parámetros constantes en todas las pruebas. 159
+Con esta configuración se realizaron series de ensayos en dos modalidades: por una parte, 160
+la operación remota mediante la interfaz web del laboratorio, en la que el usuario activaba 161
+el experimento, observaba el movimiento del carrito a través del video en tiempo casi 162
+real y los tiempos de detección quedaban registrados automáticamente en el sistema; y, 163
+por otra, la operación presencial utilizando un montaje de referencia sin el componente 164
+IoT, que sirvió como línea base para comparar las mediciones de tiempo y las magnitudes 165
+cinemáticas derivadas. En ambas modalidades se repitió el experimento varias veces para 166
+obtener un conjunto suficiente de registros. 167
+Finalmente, se realizó la validación técnica del prototipo. Para ello se recopilaron los 168
+datos generados por el sistema remoto y por el montaje presencial, organizándolos en tablas 169
+comparativas por sensor y por repetición. A partir de estas tablas se evaluó la coincidencia 170
+de los tiempos de detección entre ambas modalidades, se verificó si el sistema remoto 171
+registraba todos los eventos esperados en cada recorrido del carrito y se documentaron de 172
+forma cualitativa las incidencias relacionadas con la estabilidad del sistema, tales como 173
+caídas de servicio, desconexiones o necesidad de reinicio durante las sesiones de prueba. 174
+Este procedimiento permitió comprobar en qué medida el prototipo reproduce de manera 175
+consistente el experimento de MRUA en modalidad remota en comparación con el montaje 176
+de referencia presencial. 177
+Version February 11, 2026 submitted toJournal Not Specified 7 of 18
+Figure 3.Flujo de datos durante la operación del laboratorio. Las lecturas de los sensores infrarrojos
+asociadas al paso del carrito son enviadas por el módulo de control al servidor MQTT mediante
+MQTT. El backend procesa los mensajes, los registra en MongoDB y los expone a la aplicación
+web, que a su vez presenta los datos y el video del experimento al usuario. Fue elaborada con la
+herramienta de diagramación asistida por IA Eraser[43]
+2.6. Métricas de evaluación 178
+En la validación técnica del prototipo, el análisis se centra en cuantificar el grado de 179
+asociación y concordancia entre las mediciones obtenidas en la modalidad presencial y las 180
+registradas por el sistema IoT. El objetivo es determinar si la instrumentación tecnológica 181
+basada enretrofittinges capaz de replicar la estabilidad y precisión del montaje tradicional. 182
+Para ello, se realizó una campaña experimental de 70 ensayos totales, divididos en 35 183
+registros manuales (presenciales) y 35 registros automatizados (remotos).184
+Como métrica fundamental de desempeño, se adopta el coeficiente de correlación de 185
+Pearson ( r), el cual permite evaluar la fidelidad con la que el laboratorio remoto reproduce el 186
+comportamiento observado en el montaje físico de referencia. Se calcula el coeficiente para 187
+cada uno de los cuatro sensores (S1 a S4) de forma independiente. Dado que los ensayos 188
+en ambas modalidades se realizaron como eventos físicos independientes, el análisis no 189
+busca una correspondencia puntual ensayo-a-ensayo, sino certificar que ambos sistemas 190
+capturan la dinámica del MRUA de manera consistente.191
+El coeficiente de correlación se define mediante la siguiente ecuación:192
+r=∑n
+i=1(xi−¯x)(y i−¯y)q
+∑n
+i=1(xi−¯x)2q
+∑n
+i=1(yi−¯y)2(1)
+Donde xirepresenta los tiempos medidos en la modalidad presencial (referencia 193
+manual) y yilos tiempos medidos en la modalidad remota (IoT) para una serie de n= 35 194
+ensayos por modalidad, con sus respectivos promedios ¯xy¯y. Un valor de rpróximo a 1 195
+valida que la instrumentación IoT captura la variabilidad natural del fenómeno cinemático 196
+con una fidelidad equivalente al cronometraje presencial.197
+2.7. Métodos de análisis de datos 198
+Los datos registrados por el prototipo IoT (modalidad híbrida) y por el montaje presen- 199
+cial de referencia se exportaron en forma de archivos de texto estructurados, que contienen 200
+las marcas de tiempo asociadas al paso del carrito por cada sensor y la configuración 201
+de cada ensayo. Estos registros se organizaron en hojas de cálculo y posteriormente se 202
+procesaron mediante scripts desarrollados en Python 3.14.1[42].203
+El análisis se centró en la consistencia de los tiempos de paso por sensor y en el cálculo 204
+de la correlación de Pearson entre las modalidades híbrida y presencial. Se generaron 205
+Version February 11, 2026 submitted toJournal Not Specified 8 of 18
+gráficos de dispersión para visualizar la proximidad entre las mediciones obtenidas y 206
+detectar posibles desviaciones del prototipo. Los resultados numéricos y gráficos se pre- 207
+sentan y discuten en la sección de Resultados. En una primera etapa, los datos de ambas 208
+modalidades se integraron en tablas comparativas que agrupan, por ensayo, los tiempos de 209
+paso registrados por el sistema híbrido y por el montaje presencial. En una segunda etapa, 210
+se generaron gráficos de dispersión e histogramas para visualizar la proximidad entre 211
+las mediciones obtenidas en ambas modalidades y validar la consistencia del prototipo 212
+mediante el análisis de correlación. 213
+Los resultados numéricos de estas comparaciones, así como las tablas y gráficos 214
+derivados del procesamiento en Python 3.14.1, se presentan y discuten en la sección de 215
+Resultados, donde se analiza en detalle la concordancia del laboratorio híbrido frente al 216
+montaje presencial de referencia. 217
+2.8. Control de validez y confiabilidad 218
+El control de validez y confiabilidad se enfocó en asegurar que las mediciones re- 219
+alizadas por el prototipo IoT fueran coherentes con el comportamiento físico esperado 220
+del experimento de MRUA y comparables con las obtenidas en el montaje presencial de 221
+referencia. 222
+En primer lugar, se verificó la validez de medición mediante pruebas específicas de 223
+detección del carrito por parte de los sensores infrarrojos. Para ello, se realizaron ensayos 224
+de prueba en los que el carrito se desplazaba de forma controlada a lo largo de la pista, 225
+observando en tiempo real el estado de las entradas digitales del módulo de control y los 226
+mensajes publicados vía MQTT. Se ajustaron la altura y la orientación de cada sensor hasta 227
+garantizar que el paso del carrito generara transiciones limpias de señal (activo/inactivo) 228
+sin disparos espurios por ruido ambiental o reflexiones indeseadas. La pista utilizada 229
+tiene una longitud efectiva de 160 cm, sobre la cual se distribuyeron los cuatro sensores de 230
+detección a intervalos de 53.2 cm, lo que permitió contar con distancias bien definidas para 231
+el cálculo de velocidades y aceleraciones a partir de los tiempos de paso.232
+Adicionalmente, se cuidó la medición de las distancias fijas entre sensores empleando 233
+una cinta métrica convencional con resolución adecuada para el experimento, de modo 234
+que los cálculos cinemáticos derivados (velocidad y aceleración promedio) se basaran en 235
+valores de referencia consistentes. El montaje presencial del laboratorio se utilizó como 236
+línea base para contrastar los tiempos y magnitudes cinemáticas obtenidos con el prototipo 237
+IoT, constituyendo así un punto de referencia para la validez externa de las mediciones.238
+En cuanto a la confiabilidad y repetibilidad, se realizaron un total de 70 ensayos 239
+repetidos (35 presenciales y 35 remotos) bajo la misma configuración del montaje (misma 240
+inclinación de la pista, misma posición inicial del carrito y misma ubicación de los sen- 241
+sores) tanto en la modalidad presencial como en la modalidad híbrida. A partir de estos 242
+ensayos se analizó la variabilidad de los tiempos de paso y de las aceleraciones estimadas, 243
+empleando estadísticas descriptivas básicas (media y desviación estándar) como indicador 244
+de la estabilidad de las mediciones. Los registros que presentaron anomalías evidentes 245
+(por ejemplo, fallos de detección, interrupciones de comunicación o errores manifiestos de 246
+lanzamiento) se descartaron explícitamente del análisis comparativo y se documentaron 247
+como eventos atípicos, con el fin de no sesgar las conclusiones sobre el desempeño normal 248
+del sistema. 249
+Para reducir amenazas a la validez interna, el experimento se desarrolló en condiciones 250
+controladas: la pista y los sensores se mantuvieron fijos sobre una misma mesa de trabajo, se 251
+evitó manipular el montaje entre series de ensayos y se procuró mantener una iluminación 252
+estable en el laboratorio, de manera que no se introdujeran variaciones relevantes en 253
+la respuesta de los sensores ni en la calidad de la señal de video. En el plano de la 254
+Version February 11, 2026 submitted toJournal Not Specified 9 of 18
+instrumentación, el módulo de control registró localmente las marcas de tiempo asociadas 255
+a cada evento de detección, de modo que la latencia de red afectara solo a la visualización 256
+remota y no al sellado temporal de los datos físicos. La comunicación con el servidor MQTT 257
+se supervisó mediante suscripciones de prueba a los tópicos MQTT, verificando que no se 258
+produjeran pérdidas sistemáticas de mensajes durante las sesiones de medición.259
+Finalmente, en términos de validez externa, se reconoce que el estudio se centra en 260
+la evaluación técnica del prototipo de laboratorio híbrido para un experimento concreto 261
+de dinámica (MRUA) y en un entorno específico (laboratorio de física de la PUCE sede 262
+Esmeraldas). No se pretende generalizar los resultados a indicadores de aprendizaje ni a 263
+percepciones de usabilidad por parte de los estudiantes, sino demostrar que la arquitectura 264
+basada enretrofittinge IoT puede reproducir con suficiente precisión y estabilidad las 265
+mediciones de un montaje presencial de referencia bajo condiciones controladas.266
+2.9. Reproducibilidad y ética 267
+Con el fin de facilitar la reproducibilidad del estudio, el código fuente del prototipo de 268
+laboratorio híbrido, así como los archivos de configuración necesarios para desplegar el 269
+backend, el servidor MQTT y la aplicación web, se publicaron en un repositorio público en 270
+GitHub[ 45]. En el archivo README.md se documentan los pasos para clonar el repositorio, 271
+instalar las dependencias, configurar las variables de entorno y ejecutar los servicios 272
+involucrados, junto con indicaciones sobre la versión de hardware y software recomendada. 273
+De este modo, otros equipos pueden replicar la arquitectura propuesta utilizando una 274
+combinación similar de módulo de control, Raspberry Pi, EMQX y aplicación web, o 275
+adaptar el diseño a sus propios laboratorios de física. 276
+En cuanto a las consideraciones éticas e institucionales, el desarrollo y la evaluación del 277
+prototipo se realizaron con la autorización explícita de la Pontificia Universidad Católica 278
+del Ecuador sede Esmeraldas, tanto para el uso del laboratorio de física como para la 279
+mención de la institución en el manuscrito. El estudio no implicó la recolección de datos 280
+personales ni la participación de estudiantes como sujetos de investigación, por lo que no 281
+se requirió la aplicación de protocolos adicionales de consentimientos individuales. Las 282
+actividades se limitaron al uso responsable de la infraestructura del laboratorio y al registro 283
+de variables físicas asociadas al experimento de MRUA.284
+3. Resultados 285
+Esta sección presenta los resultados obtenidos de la validación experimental del 286
+sistema deretrofittingbasado en IoT propuesto. El análisis se centra en la estabilidad de 287
+la captura de datos y en la correlación estadística entre las modalidades remota (IoT) y 288
+presencial (tradicional). El conjunto de datos comprende N= 70ensayos independientes 289
+(35 remotos y 35 presenciales). 290
+3.1. Configuración experimental e implementación del prototipo291
+La implementación física del prototipo integra la estructura mecánica, la capa de 292
+sensado electrónico y la unidad de control IoT. Debido a la longitud de la pista (160 cm), el 293
+montaje se muestra en secciones detalladas para observar la disposición de los componentes. 294
+En la Figura 4 se presentan las cuatro secciones principales del recorrido: (a) inicio del 295
+recorrido, (b) tramo 2, (c) tramo 3 y (d) punto de llegada. Finalmente, una vista general 296
+del prototipo completo se observa en la Figura 5. El sistema de detección consta de cuatro 297
+sensores infrarrojos distribuidos a intervalos precisos de 53.2 cm, integrados a lo largo de la 298
+estructura para capturar el tiempo total desde la liberación automatizada del carrito hasta 299
+el final del recorrido. 300
+Version February 11, 2026 submitted toJournal Not Specified 10 of 18
+(a)
+ (b)
+(c)
+ (d)
+Figure 4.Secciones detalladas del montaje experimental: (a) inicio del recorrido; (b) tramo 2; (c)
+tramo 3; (d) punto de llegada y finalización del experimento.
+Figure 5.Vista general del montaje experimental de MRUA basado en IoT.
+Para facilitar la interacción remota con el experimento, se desarrolló una interfaz web 301
+de usuario que centraliza el control y la visualización del sistema. Como se muestra en la 302
+Figura 6, esta plataforma permite al usuario iniciar y detener la secuencia experimental de 303
+manera controlada. Adicionalmente, la interfaz procesa los datos en tiempo real, generando 304
+Version February 11, 2026 submitted toJournal Not Specified 11 of 18
+automáticamente una gráfica con los resultados cinemáticos obtenidos tras cada ensayo. 305
+Para garantizar la supervisión visual del proceso, se integró una transmisión de video en 306
+vivo mediante una cámara, permitiendo corroborar el movimiento físico del carrito con los 307
+datos telemétricos recibidos. 308
+Figure 6.Interfaz web desarrollada para el control y monitoreo remoto del experimento.
+3.2. Sensor S1: Inicio del movimiento 309
+El Sensor S1 corresponde al punto de partida del movimiento ( t= 0). En ambas 310
+modalidades, este sensor actúa como disparador temporal del experimento; por lo tanto, el 311
+tiempo registrado es sistemáticamente cero o muy cercano a cero.312
+Table 4.Resultados estadísticos para el Sensor S1.
+Modalidad ¯x(s)s(s)n
+Presencial 0.00 0.00 35
+Remota 0.00 0.00 35
+Version February 11, 2026 submitted toJournal Not Specified 12 of 18
+Figure 7.Gráfica de correlación para el Sensor S1 (Remota vs. Presencial).
+Como se muestra en la Figura 7, los puntos de datos se concentran en el origen. El 313
+coeficiente de correlación es técnicamente indefinido o nulo ( r≈ 0) porque la varianza 314
+de los datos es cero ( s= 0). Este comportamiento es físicamente esperado y confirma 315
+que S1 funciona correctamente como punto de referencia de sincronización tanto para el 316
+cronómetro manual como para el módulo de control digital. No hay fluctuaciones ni ruido 317
+experimental que afecten este estado inicial. 318
+3.3. Sensor S2: Primera sección intermedia 319
+El Sensor S2 se encuentra al final de la primera sección de la pista. Los resultados en 320
+la Tabla 5 muestran una alta consistencia entre las medias de ambas modalidades (1.17 s vs 321
+1.19 s), con desviaciones estándar comparables (0.15 s vs 0.16 s).322
+Table 5.Resultados estadísticos para el Sensor S2.
+Modalidad ¯x(s)s(s)n
+Presencial 1.17 0.15 35
+Remota 1.19 0.16 35
+Version February 11, 2026 submitted toJournal Not Specified 13 of 18
+Figure 8.Gráfica de correlación para el Sensor S2 (Remota vs. Presencial).
+La gráfica de la Figura 8 presenta una distribución dispersa de puntos. El coeficiente 323
+de correlación calculado es bajo ( r< 0.3), clasificando la correlación como nula o débil. 324
+Este resultado se interpreta físicamente por la independencia de los ensayos: dado que 325
+el "ensayo presencial 1" y el "ensayo remoto 1" son eventos físicos distintos separados en 326
+el tiempo, están sujetos a diferentes fluctuaciones aleatorias (fricción inicial de liberación, 327
+ligeras variaciones de resistencia del aire). La falta de correlación valida que el error de 328
+medición es aleatorio en lugar de sistemático; el sistema IoT no introduce un sesgo que lo 329
+aproxime o distancie esencialmente de la medición manual, sino que simplemente captura 330
+la variabilidad natural del fenómeno de MRUA. 331
+3.4. Sensor S3: Segunda sección intermedia 332
+El Sensor S3 captura el movimiento a una velocidad mayor. La Tabla 6 muestra 333
+tiempos medios muy similares para ambas modalidades (1.66 s vs 1.69 s), con desviaciones 334
+estándar comparables (0.23 s vs 0.24 s) que indican una precisión de medición consistente 335
+en ambos modos. 336
+Table 6.Resultados estadísticos para el Sensor S3.
+Modalidad ¯x(s)s(s)n
+Presencial 1.66 0.23 35
+Remota 1.69 0.24 35
+Version February 11, 2026 submitted toJournal Not Specified 14 of 18
+Figure 9.Gráfica de correlación para el Sensor S3 (Remota vs. Presencial).
+La Figura 9 muestra nuevamente una nube de puntos con baja correlación. El valor 337
+débil de rse atribuye al ruido experimental acumulado. A medida que el carrito se mueve 338
+más lejos, las pequeñas variaciones iniciales en la aceleración se acumulan en desviaciones 339
+mayores de posición/tiempo. El hecho de que tanto el sistema remoto como el presencial 340
+muestren desviaciones estándar casi idénticas ( s= 0.23s vs s= 0.24s) demuestra que 341
+la detección automatizada del módulo de control se desempeña de manera comparable 342
+al cronometraje manual, capturando la variabilidad natural del fenómeno de MRUA con 343
+precisión similar. 344
+3.5. Sensor S4: Final de la pista 345
+El Sensor S4 representa el punto de medición final, donde la velocidad es máxima. Los 346
+resultados muestran un excelente acuerdo entre ambas modalidades, con tiempos medios 347
+prácticamente idénticos (2.05 s vs 2.04 s) y desviaciones estándar comparables (0.28 s vs 348
+0.29 s). 349
+Table 7.Resultados estadísticos para el Sensor S4.
+Modalidad ¯x(s)s(s)n
+Presencial 2.05 0.28 35
+Remota 2.04 0.29 35
+Version February 11, 2026 submitted toJournal Not Specified 15 of 18
+Figure 10.Gráfica de correlación para el Sensor S4 (Remota vs. Presencial).
+El análisis de la Figura 10 confirma el patrón observado en los sensores anteriores. 350
+Tanto las mediciones presenciales como remotas muestran una dispersión comparable 351
+(s= 0.28s y s= 0.29s respectivamente), con tiempos medios prácticamente idénticos 352
+(2.05 s vs 2.04 s). El coeficiente de correlación bajo es consistente con la independencia de 353
+los ensayos; cada medición captura la variabilidad natural del fenómeno de MRUA bajo 354
+diferentes condiciones iniciales. El notable acuerdo entre ambas modalidades demuestra 355
+que el sistema deretrofittingIoT replica exitosamente las capacidades de medición de la 356
+configuración tradicional, proporcionando datos cinemáticos confiables adecuados para el 357
+análisis cuantitativo del movimiento uniformemente acelerado.358
+4. Discussion 359
+4.1. Interpretation of Temporal and Kinematic Results 360
+Los resultados obtenidos demuestran que el sistema deretrofittingIoT es capaz de 361
+capturar la dinámica del experimento de MRUA con una fidelidad comparable e incluso 362
+superior en estabilidad a la del montaje presencial tradicional. Contrario a lo esperado para 363
+sistemas distribuidos, las mediciones en la modalidad remota presentaron una dispersión 364
+controlada, lo que evidencia la eficiencia del manejo de interrupciones en el módulo de 365
+control. La consistencia de los datos sugiere que la latencia de red, aunque presente, no 366
+degradó la calidad de la recolección de datos cinemáticos gracias al sellado temporal local. 367
+4.2. Implications for IoT-Based Retrofitting of Physics Laboratories368
+La viabilidad técnica del modelo propuesto tiene implicaciones directas para la mod- 369
+ernización de infraestructuras educativas con recursos limitados. El enfoque deretrofitting 370
+demuestra que es posible transformar equipamiento clásico en activos digitales conectados 371
+sin necesidad de sustituir la instrumentación original. La arquitectura modular adoptada 372
+permite una escalabilidad eficiente, donde la capa de sensórica y control se desacopla de 373
+los servicios de visualización y almacenamiento. Los resultados validan que las soluciones 374
+de bajo coste basadas en hardware masivo pueden alcanzar niveles de precisión adecuados 375
+Version February 11, 2026 submitted toJournal Not Specified 16 of 18
+para fines académicos, facilitando la transición hacia entornos de aprendizaje híbridos que 376
+no dependen exclusivamente de la presencia física en el laboratorio.377
+4.3. Comparison with Related Works 378
+Al contrastar los resultados con la literatura previa, se observan similitudes fundamen- 379
+tales con los trabajos de Viswanadhet al.[ 2] y Lustiget al.[ 5] en cuanto a la efectividad de 380
+las arquitecturas modulares para experimentos remotos. Sin embargo, el presente estudio 381
+aporta una validación cuantitativa específica para el caso del MRUA, extendiendo las 382
+propuestas de Guerrero-Osunaet al.[ 4] y Fuerteset al.[ 3], quienes se centraron primor- 383
+dialmente en el control de motores. A diferencia de las soluciones basadas en SmartIPLs 384
+revisadas por Zhao [ 6], que dependen de sensores internos de teléfonos inteligentes, el 385
+sistema implementado ofrece una infraestructura fija y dedicada que garantiza una mayor 386
+repetibilidad en las condiciones de ensayo, manteniendo la accesibilidad económica del 387
+montaje. 388
+4.4. Limitations of the Study 389
+A pesar del desempeño satisfactorio del prototipo, se identifican limitaciones intrínse- 390
+cas en el alcance de la investigación. En primer lugar, aunque la estabilidad fue alta, 391
+el sistema sigue dependiendo de la disponibilidad continua del servidor MQTT para la 392
+transmisión de datos en tiempo real. En segundo lugar, el número de ensayos realizados 393
+(n=35 por modalidad), aunque robusto, se limita a un entorno controlado de laboratorio 394
+universitario. Asimismo, el experimento se desarrolla bajo condiciones mecánicas donde 395
+factores como la fricción residual del carrito y la alineación micrométrica de los sensores 396
+ópticos introducen variaciones físicas que son independientes de la instrumentación IoT.397
+4.5. Future Work 398
+Las futuras líneas de investigación se orientan hacia la optimización de la capa de 399
+percepción y la robustez del sistema. Se propone la integración de sensores de mayor 400
+resolución temporal y el uso de protocolos de comunicación con priorización de tráfico 401
+para minimizar el impacto de la latencia de red. Asimismo, resulta pertinente incrementar 402
+el volumen de ensayos para robustecer el análisis estadístico y realizar mediciones explícitas 403
+de la latencia en cada etapa de la cadena de datos. Desde una perspectiva funcional, el 404
+sistema puede expandirse para instrumentar otros experimentos de dinámica y energía, 405
+integrando los flujos de datos con plataformas educativas de gestión de aprendizaje (LMS) 406
+para automatizar la evaluación de las prácticas experimentales.407
+5. Conclusions 408
+El presente estudio ha validado con éxito la eficacia delretrofitde laboratorios de física 409
+mediante tecnologías IoT de bajo coste. a través de una extensa campaña experimental 410
+con 70 ensayos (35 presenciales y 35 remotos), se demostró que la arquitectura propuesta 411
+basada en el módulo de control y sensores infrarrojos es capaz de replicar la dinámica del 412
+MRUA con una fidelidad comparable, e incluso superior en términos de estabilidad, a la 413
+del montaje tradicional. 414
+Los resultados cuantitativos demuestran que no existe una degradación significativa 415
+de la precisión debido a la operación remota. Por el contrario, la modalidad remota exhibió 416
+una consistencia notable, con desviaciones estándar controladas en las mediciones críticas 417
+de velocidad y aceleración. La implementación de la interfaz web jugó un papel crucial, no 418
+solo como panel de control, sino como herramienta pedagógica que integra la visualización 419
+de datos en tiempo real y la verificación visual mediante video, enriqueciendo la experiencia 420
+de aprendizaje. 421
+Version February 11, 2026 submitted toJournal Not Specified 17 of 18
+En conclusión, este trabajo confirma que la digitalización de experimentos clásicos no 422
+requiere inversiones masivas en equipamiento propietario. La metodología deretrofitting 423
+presentada ofrece una ruta escalable y sostenible para democratizar el acceso a la educación 424
+experimental de alta calidad, permitiendo a las instituciones educativas maximizar la 425
+utilidad de sus recursos existentes en el contexto de modelos híbridos de enseñanza.426
+References 427
+1. Lahme, S.Z.; Klein, P .; Lehtinen, A.; Müller, A.; Pirinen, P .; Ronˇ cevi´ c, L.; Sušac, A. Physics lab 428
+courses under digital transformation: A trinational survey among university lab instructors 429
+about the role of new digital technologies and learning objectives.Phys. Rev. Phys. Educ. Res. 430
+2023,19, 020159. doi:10.1103/PhysRevPhysEducRes.19.020159.431
+2. Viswanadh, K.S.; Gureja, A.; Walchatwar, N.; Agrawal, R.; Sinha, S.; Chaudhari, S.; 432
+Vaidhyanathan, K.; Hussain, A.M. Engineering End-to-End Remote Labs Using IoT-Based 433
+Retrofitting.IEEE Access2024,PP, 1–1. doi:10.1109/ACCESS.2024.3523066.434
+3. Fuertes, J.J.; Martínez, J.M.; Dormido, S.; Vargas, H.; Sánchez, J.; Duro, N. Virtual and Remote 435
+Laboratory of a DC Motor for Learning Control Theory.Int. J. Eng. Educ.2011,27, 1–12.436
+4. Guerrero-Osuna, H.A.; García-Vázquez, F.A.; Ibarra-Delgado, S.; Solís-Sánchez, L.O. Developing 437
+a Cloud and IoT-Integrated Remote Laboratory to Enhance Education 4.0: An Approach for 438
+FPGA-Based Motor Control.Appl. Sci.2024,14, 10115. 439
+5. Lustig, F.; Kurišˇ cák, P .; Brom, P .; Dvoˇ rák, J. Open Modular Hardware and Software Kit for 440
+Creations of Remote Experiments Accessible from PC and Mobile Devices.Int. J. Online Eng. 441
+(iJOE)2016,12, 30–36. doi:10.3991/ijoe.v12i07.5833. 442
+6. Zhao, Y. Smartphone-Based Undergraduate Physics Labs: A Comprehensive Review.IEEE 443
+Access2024,13, 1106–1132. doi:10.1109/ACCESS.2024.3523066.444
+7. Dizdarevic, J.; Jukan, A. Engineering an IoT–Edge–Cloud Computing System Architec- 445
+ture: Lessons Learnt from an Undergraduate Laboratory Course.IoT2022,3, 145–163. 446
+doi:10.3390/iot3010010. 447
+8. Azad, A.K.M. Use of Internet of Things for Remote Laboratory Settings.IoT2021,2, 203–232. 448
+doi:10.3390/iot2020011. 449
+9. Palmer, C.; Roullier, B.; Aamir, M.; McQuade, F.; Stella, L.; Anjum, A. Digital Twinning Remote 450
+Laboratories for Online Practical Learning.Sensors2022,22, 2351. doi:10.3390/s22062351.451
+10. Atzori, L.; Iera, A.; Morabito, G. The Internet of Things: A survey.Comput. Netw.2010,54, 452
+2787–2805. doi:10.1016/j.comnet.2010.05.010. 453
+11. Hevner, A.R.; March, S.T.; Park, J.; Ram, S. Design Science in Information Systems Research. 454
+MIS Q.2004,28, 75–105. 455
+12. ISO/IEC.ISO/IEC 15288:2015 Systems and Software Engineering—System Life Cycle Processes; 456
+International Organization for Standardization: Geneva, Switzerland, 2015.457
+13. Mattel, Inc.Hot Wheels Track Sets. Available online: https://shop.mattel.com/pages/hot-wheels 458
+(accessed on 5 December 2025). 459
+14. Mattel, Inc.Hot Wheels Cars. Available online: https://shop.mattel.com/collections/hot- 460
+wheels-cars (accessed on 5 December 2025). 461
+15. Vishay Intertechnology, Inc.TCRT5000 Reflective Optical Sensor. Available online: https://www. 462
+vishay.com/docs/83751/tcrt5000.pdf (accessed on 5 December 2025).463
+16. Espressif Systems.ESP32-WROOM-32 Datasheet. Available online: https://www.espressif. 464
+com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf (accessed on 5 465
+December 2025). 466
+17. Thingiverse.Mechanical Support for Track-Based Experiments (Thing 3630616). Available online: 467
+https://www.thingiverse.com/thing:3630616 (accessed on 5 December 2025).468
+18. Thingiverse.3D Printed Modular Track Components (Thing 3485484). Available online: https: 469
+//www.thingiverse.com/thing:3485484 (accessed on 5 December 2025).470
+19. Thingiverse.3D Printed Structural Reinforcement Parts (Thing 4381935). Available online: https: 471
+//www.thingiverse.com/thing:4381935 (accessed on 5 December 2025).472
+20. Thingiverse.3D Printed Mechanical Pusher Mechanism (Thing 2806324). Available online: https: 473
+//www.thingiverse.com/thing:2806324 (accessed on 5 December 2025).474
+Version February 11, 2026 submitted toJournal Not Specified 18 of 18
+21. Tower Pro.SG90 Micro Servo Motor Datasheet. Available online: http://www.ee.ic.ac.uk/pjs99/ 475
+projects/servo/sg90_datasheet.pdf (accessed on 5 December 2025).476
+22. StepperOnline.NEMA 17 Stepper Motor Bipolar Datasheet. Available online: https://www.omc- 477
+stepperonline.com/download/17HS19-2004S1.pdf (accessed on 5 December 2025).478
+23. STMicroelectronics.L298N Dual H-Bridge Motor Driver Datasheet. Available online: https: 479
+//www.st.com/resource/en/datasheet/l298.pdf (accessed on 5 December 2025).480
+24. Generic Electronics Suppliers.LCD 20x4 Display with I2C Interface Datasheet. Available online: 481
+https://www.sparkfun.com/datasheets/LCD/HD44780.pdf (accessed on 5 December 2025).482
+25. Generic Electronics Suppliers.Tactile Push Button Switch for Breadboard. Available online: 483
+https://www.adafruit.com/product/367 (accessed on 5 December 2025).484
+26. USB Implementers Forum.USB Type-C Cable Specification. Available online: https://www. 485
+usb.org/sites/default/files/USB%20Type-C%20Spec%20R2.0%20-%20August%202019.pdf (ac- 486
+cessed on 5 December 2025). 487
+27. IEEE.IEEE Standard for Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) 488
+Specifications. Available online: https://ieeexplore.ieee.org/document/9363693 (accessed on 5 489
+December 2025). 490
+28. Generic Electronics Suppliers.Dupont Jumper Wires (Male-Female and Female-Female). Available 491
+online: https://www.adafruit.com/category/289 (accessed on 5 December 2025).492
+29. Generic Electronics Suppliers.Plastic Project Enclosure Box (135x75x40 mm). Available online: 493
+https://www.digikey.com/en/products/filter/enclosures/287 (accessed on 5 December 2025). 494
+30. Generic Electronics Suppliers.AC-DC Power Adapter 12V/1A. Available online: https://www. 495
+digikey.com/en/products/filter/power-supplies-external-internal-off-board/171 (accessed 496
+on 5 December 2025). 497
+31. Insta360.Insta360 Link—4K AI Webcam Technical Specifications. Available online: https:// 498
+onlinemanual.insta360.com/link/en-us/introduction (accessed on 5 December 2025).499
+32. Raspberry Pi Ltd.Raspberry Pi 4 Model B Product Brief. Available online: https://datasheets. 500
+raspberrypi.com/rpi4/raspberry-pi-4-product-brief.pdf (accessed on 5 December 2025).501
+33. EMQ Technologies Co., Ltd.EMQX—MQTT Platform for IoT Data Streaming Documentation. 502
+Available online: https://docs.emqx.com/en/emqx/v5.0/ (accessed on 5 December 2025).503
+34. EMQ Technologies Co., Ltd.MQTTX: Your All-in-One MQTT Client Toolbox Documentation. 504
+Available online: https://mqttx.app/docs (accessed on 5 December 2025).505
+35. OpenJS Foundation.Node.js API Documentation. Available online: https://nodejs.org/api/ 506
+(accessed on 5 December 2025). 507
+36. OpenJS Foundation.Express API Reference. Available online: https://expressjs.com/en/4x/api. 508
+html (accessed on 5 December 2025). 509
+37. MongoDB, Inc.MongoDB Documentation. Available online: https://www.mongodb.com/docs/ 510
+manual/ (accessed on 5 December 2025). 511
+38. Mongoose.Mongoose ODM API Documentation. Available online: https://mongoosejs.com/ 512
+docs/api.html (accessed on 5 December 2025). 513
+39. Vercel, Inc.Next.js Documentation. Available online: https://nextjs.org/docs (accessed on 5 514
+December 2025). 515
+40. Meta Platforms, Inc.React Reference Documentation. Available online: https://react.dev/ 516
+reference/react (accessed on 5 December 2025). 517
+41. Arduino AG.Arduino IDE 2.x Documentation. Available online: https://www.arduino.cc/en/ 518
+software (accessed on 5 December 2025). 519
+42. Python Software Foundation.Python 3 Documentation. Available online: https://docs.python. 520
+org/3/ (accessed on 5 December 2025). 521
+43. Eraser Labs, Inc.Eraser—AI Co-Pilot for Technical Design and Documentation. Available online: 522
+https://www.eraser.io (accessed on 5 December 2025). 523
+44. OpenAI.ChatGPT. Available online: https://chat.openai.com (accessed on 23 January 2026). 524
+Content generated with the assistance of ChatGPT. 525
+45. Santiago Sosa Mejía.RemotePhysicsLab: Prototipo de laboratorio de física híbrido basado en IoT. 526
+Repositorio GitHub. Available online: https://github.com/waltersosa/RemotePhysicsLab.git 527
+(accessed on 5 December 2025). 528
