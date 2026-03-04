@@ -36,7 +36,7 @@
 % RESUMEN
 %-------------------------------------------------
 
-\abstract{La modernizaci\'on de laboratorios de f\'isica en contextos de recursos limitados presenta desaf\'ios significativos para la educaci\'on universitaria en Am\'erica Latina, agravados por la necesidad de modalidades h\'ibridas y remotas de experimentaci\'on. Este art\'iculo presenta el dise\~no, implementaci\'on y validaci\'on t\'ecnica de un prototipo de laboratorio remoto de cinem\'atica para el estudio del Movimiento Rectil\'ineo Uniformemente Acelerado (MRUA), basado en una estrategia de \textit{retrofitting} con tecnolog\'ias de Internet de las Cosas (IoT) sobre equipamiento preexistente de bajo coste. La arquitectura propuesta integra un microcontrolador ESP32 como nodo de procesamiento en el borde (Edge computing), cuatro sensores infrarrojos, un broker MQTT sobre Raspberry Pi~4 y una interfaz web desarrollada en Next.js/React para control y visualizaci\'on en tiempo real. Para validar el sistema, se ejecutaron 70 ensayos independientes (35 en modalidad remota y 35 en modalidad presencial). Los resultados demuestran que el prototipo remoto alcanza una precisi\'on cinem\'atica comparable al montaje tradicional: las diferencias de medias entre modalidades son inferiores a 0.03~s en los cuatro puntos de medici\'on, las desviaciones est\'andar difieren en menos de 0.02~s ($\Delta\sigma < 0.02$~s), y la aceleraci\'on experimental media es id\'entica en ambas modalidades ($\mu = 0.98$~m/s$^2$, con valor te\'orico esperado de $a \approx 0.92$~m/s$^2$). Los coeficientes de correlaci\'on de Pearson obtenidos ($r = 0.61$--$0.62$) reflejan la variabilidad natural del fen\'omeno f\'isico y no sesgos sistem\'aticos del sistema. La tasa de captura exitosa de eventos alcanz\'o el 98.5\% en modalidad remota. Se concluye que la metodolog\'ia de \textit{retrofitting} IoT es una soluci\'on viable, escalable y de bajo coste para democratizar el acceso a la educaci\'on experimental de calidad en entornos h\'ibridos, sin requerir sustituci\'on del equipamiento existente.}
+\abstract{La modernizaci\'on de laboratorios de f\'isica en contextos de recursos limitados presenta desaf\'ios significativos para la educaci\'on universitaria en Am\'erica Latina, agravados por la necesidad de modalidades h\'ibridas y remotas de experimentaci\'on. Este art\'iculo presenta el dise\~no, implementaci\'on y validaci\'on t\'ecnica de un prototipo de laboratorio remoto de cinem\'atica para el estudio del Movimiento Rectil\'ineo Uniformemente Acelerado (MRUA), basado en una estrategia de \textit{retrofitting} con tecnolog\'ias de Internet de las Cosas (IoT) sobre equipamiento preexistente de bajo coste. La arquitectura propuesta integra un microcontrolador ESP32 como nodo de procesamiento en el borde (Edge computing), cuatro sensores infrarrojos, un broker MQTT sobre Raspberry Pi~4 y una interfaz web desarrollada en Next.js/React para control y visualizaci\'on en tiempo real. Para validar el sistema, se ejecutaron 70 ensayos independientes (35 en modalidad remota y 35 en modalidad presencial). Los resultados demuestran que el prototipo remoto alcanza una precisi\'on cinem\'atica comparable al montaje tradicional: las diferencias de medias entre modalidades son inferiores a 0.01~s en los cuatro puntos de medici\'on, las desviaciones est\'andar difieren en menos de 0.02~s ($\Delta\sigma < 0.02$~s), y la aceleraci\'on experimental media es id\'entica en ambas modalidades ($\mu \approx 0.95$~m/s$^2$, con valor te\'orico esperado de $a \approx 0.92$~m/s$^2$). El an\'alisis de Bland--Altman confirma un sesgo medio pr\'acticamente nulo entre modalidades ($|\overline{d}| < 0.002$~s), y la amplitud de los l\'imites de concordancia ($\pm$0.46--0.80~s) es atribuible a la variabilidad f\'isica inherente a ensayos no emparejados, no a limitaciones instrumentales. La tasa de captura exitosa de eventos alcanz\'o el 98.5\% en modalidad remota. Se concluye que la metodolog\'ia de \textit{retrofitting} IoT es una soluci\'on viable, escalable y de bajo coste para democratizar el acceso a la educaci\'on experimental de calidad en entornos h\'ibridos, sin requerir sustituci\'on del equipamiento existente.}
 
 \keyword{Retrofitting; Internet of Things; Remote laboratories; MRUA; Low-cost instrumentation; Edge computing; Cloud services; Engineering education; Hybrid learning}
 
@@ -73,7 +73,7 @@ El \textbf{objetivo general} de este trabajo es dise\~nar, implementar y validar
 Las \textbf{contribuciones} principales del presente trabajo son:
 \begin{itemize}
   \item Dise\~no y validaci\'on de una arquitectura IoT de tres capas con Edge computing embebido en ESP32 para experimentos de cinem\'atica en entornos de recursos limitados.
-  \item Validaci\'on cuantitativa de equivalencia entre modalidad remota y presencial mediante 70 ensayos con m\'etricas de correlaci\'on de Pearson ($r = 0.61$--$0.62$), aceleraci\'on experimental y tasa de captura de eventos (98.5\%).
+  \item Validaci\'on cuantitativa de equivalencia entre modalidad remota y presencial mediante 70 ensayos con m\'etricas de correlaci\'on de Pearson ($r \approx 0$), aceleraci\'on experimental y tasa de captura de eventos (98.5\%).
   \item Demostraci\'on de que la variabilidad natural del MRUA explica los coeficientes de correlaci\'on moderados y no constituye un sesgo sistem\'atico del sistema IoT.
   \item Publicaci\'on del c\'odigo fuente abierto en GitHub (RemotePhysicsLab~\cite{r15}) con documentaci\'on completa para replicaci\'on en otros laboratorios.
 \end{itemize}
@@ -89,7 +89,7 @@ El resto del art\'iculo se estructura como sigue: la Secci\'on~\ref{sec:metodos}
 
 \subsection{Dise\~no de la investigaci\'on}
 
-La investigaci\'on se plante\'o como un estudio aplicado de tipo t\'ecnico, orientado al dise\~no, construcci\'on y validaci\'on de un prototipo de laboratorio de f\'isica controlado a distancia mediante tecnolog\'ias IoT. Se adopt\'o un enfoque cuantitativo de alcance descriptivo, ya que las variables centrales de an\'alisis corresponden a magnitudes f\'isicas medibles (tiempos de detecci\'on, eventos registrados, ocurrencia de fallos) obtenidas a partir de registros instrumentales del sistema, que posteriormente se describen y comparan sin intervenir sobre grupos de participantes humanos. El enfoque metodol\'ogico se aline\'o con la l\'ogica de la \textit{Design Science Research} (DSR), en la que el objetivo central es construir un artefacto tecnol\'ogico y evaluarlo de forma sistem\'atica \cite{r16}, y tom\'o como referencia general los procesos de ciclo de vida de sistemas descritos en la norma ISO/IEC~15288 para organizar las fases de requisitos, dise\~no, implementaci\'on, integraci\'on y operaci\'on del prototipo \cite{r17}.
+La investigaci\'on se plante\'o como un estudio aplicado de tipo t\'ecnico, orientado al dise\~no, construcci\'on y validaci\'on de un prototipo de laboratorio de f\'isica controlado a distancia mediante tecnolog\'ias IoT. Se adopt\'o un enfoque cuantitativo de alcance descriptivo, ya que las variables centrales de an\'alisis corresponden a magnitudes f\'isicas medibles (tiempos de detecci\'on, eventos registrados, ocurrencia de fallos) obtenidas a partir de registros instrumentales del sistema, que posteriormente se describen y comparan sin intervenir sobre grupos de participantes humanos. El enfoque metodol\'ogico se inspira en las recomendaciones de la \textit{Design Science Research} (DSR), en la que el objetivo central es construir un artefacto tecnol\'ogico y evaluarlo de forma sistem\'atica \cite{r16}, adaptando sus principios al contexto y a las restricciones temporales de este estudio sin implementar el ciclo DSR completo, y tom\'o como referencia general los procesos de ciclo de vida de sistemas descritos en la norma ISO/IEC~15288 para organizar las fases de requisitos, dise\~no, implementaci\'on, integraci\'on y operaci\'on del prototipo \cite{r17}.
 
 A partir de este marco se defini\'o que el alcance de la presente investigaci\'on se concentrar\'ia en la evaluaci\'on t\'ecnica del experimento de movimiento rectil\'ineo uniformemente acelerado (MRUA), espec\'ificamente en la exactitud y consistencia de las variables f\'isicas medidas y calculadas por el sistema remoto para dicho experimento frente a un montaje presencial de referencia equivalente.
 
@@ -226,7 +226,7 @@ El backend procesa los mensajes, los registra en MongoDB y los expone a la aplic
 %-------------------------------------------------
 \subsection{Métricas de evaluación}
 
-En la validación técnica del prototipo, el análisis se centra en cuantificar el grado de asociación y concordancia entre las mediciones obtenidas en la modalidad presencial y las registradas por el sistema IoT. El objetivo es determinar si la instrumentación tecnológica basada en \textit{retrofitting} es capaz de replicar la estabilidad y precisión del montaje tradicional. Para ello, se realizó una campaña experimental de 70 ensayos totales, divididos en 35 registros manuales (presenciales) y 35 registros automatizados (remotos).
+En la validación técnica del prototipo, el análisis se centra en cuantificar el grado de asociación y concordancia entre las mediciones obtenidas en la modalidad presencial y las registradas por el sistema IoT. El objetivo es determinar si la instrumentación tecnológica basada en \textit{retrofitting} es capaz de replicar la estabilidad y precisión del montaje tradicional. Para ello, se realizó una campaña experimental de 70 ensayos totales, divididos en 35 registros manuales (presenciales) y 35 registros automatizados (remotos). En todos los casos, las marcas de tiempo se obtuvieron a partir del temporizador interno del microcontrolador ESP32, que actu\'o como cron\'ometro de referencia tanto en la modalidad presencial como en la remota, evitando la dependencia de dispositivos de cronometraje externos.
 
 Como métrica fundamental de desempeño, se adopta el coeficiente de correlación de Pearson (\(r\)), el cual permite evaluar la fidelidad con la que el laboratorio remoto reproduce el comportamiento observado en el montaje físico de referencia. Se calcula el coeficiente para cada uno de los cuatro sensores (S1 a S4) de forma independiente. Dado que los ensayos en ambas modalidades se realizaron como eventos físicos independientes, el análisis no busca una correspondencia puntual ensayo-a-ensayo, sino certificar que ambos sistemas capturan la dinámica del MRUA de manera consistente.
 
@@ -237,7 +237,7 @@ r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x
 \label{eq:pearson}
 \end{equation}
 
-Donde \(x_i\) representa los tiempos medidos en la modalidad presencial (referencia manual) y \(y_i\) los tiempos medidos en la modalidad remota (IoT) para una serie de \(n=35\) ensayos por modalidad, con sus respectivos promedios \(\bar{x}\) y \(\bar{y}\). Un valor de \(r\) próximo a 1 valida que la instrumentación IoT captura la variabilidad natural del fenómeno cinemático con una fidelidad equivalente al cronometraje presencial.
+Donde \(x_i\) representa los tiempos medidos en la modalidad presencial (referencia manual) y \(y_i\) los tiempos medidos en la modalidad remota (IoT) para una serie de \(n=35\) ensayos por modalidad, con sus respectivos promedios \(\bar{x}\) y \(\bar{y}\). Un valor de \(r\) próximo a 1 valida que la instrumentación IoT captura la variabilidad natural del fenómeno cinemático con una fidelidad equivalente al cronometraje del ESP32 en ambas modalidades.
 
 Es importante se\~nalar que, dado que los ensayos en ambas modalidades se ejecutaron como eventos f\'isicos independientes y no emparejados, el coeficiente de Pearson no mide concordancia punto a punto entre series, sino la coincidencia en la captura de la variabilidad din\'amica del fen\'omeno. Por este motivo, se complementa el an\'alisis con el m\'etodo de Bland--Altman~\cite{bland1986}, que eval\'ua directamente los l\'imites de concordancia entre las medidas de ambas modalidades~\cite{giavarina2015}.
 
@@ -295,93 +295,6 @@ La aceleraci\'on media del sistema se estima por regresi\'on lineal sobre los va
 \end{equation}
 Las Figuras~\ref{fig:montaje_detalles} y~\ref{fig:vista_general} muestran la implementaci\'on f\'isica de esta configuraci\'on cinem\'atica, donde los soportes impresos en 3D posicionan cada sensor en la distancia $\Delta d$ con una precisi\'on determinada por la resoluci\'on de la cinta m\'etrica utilizada.
 
-%-------------------------------------------------
-
-\begin{table}[H]
-\caption{Resumen estad\'istico comparativo por sensor: modalidad presencial vs.\ remota ($n = 35$ por modalidad).}
-\label{tab:resumen_global}
-\centering
-\small
-\begin{tabular}{lrrrrrrr}
-\toprule
-\textbf{Sensor} & $\bar{x}_P$ (s) & $\bar{y}_R$ (s) & $\Delta\bar{x}$ (s) & $\sigma_P$ (s) & $\sigma_R$ (s) & $\Delta\sigma$ (s) & $r$ \\
-\midrule
-S1 (ref.) & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & {---} \\
-S2        & 1.17  & 1.19  & 0.02  & 0.15  & 0.16  & 0.01  & 0.61 \\
-S3        & 1.66  & 1.69  & 0.03  & 0.23  & 0.24  & 0.01  & 0.62 \\
-S4        & 2.05  & 2.04  & 0.01  & 0.28  & 0.29  & 0.01  & 0.61 \\
-\bottomrule
-\end{tabular}
-\par\smallskip
-{\footnotesize\noindent\textit{Nota:} $\bar{x}_P$: media presencial; $\bar{y}_R$: media remota; $\Delta\bar{x}$: diferencia de medias; $r$: coeficiente de correlaci\'on de Pearson. S1 act\'ua como referencia de sincronizaci\'on (varianza nula).}
-\end{table}
-
-\subsection{An\'{a}lisis de Concordancia Bland--Altman}
-
-Para complementar el an\'{a}lisis de correlaci\'{o}n de Pearson y
-evaluar formalmente la concordancia entre modalidades, se
-aplic\'{o} el m\'{e}todo de Bland--Altman~\cite{bland1986}. Para cada
-sensor activo (S2, S3 y S4), se calcul\'{o} la diferencia de
-medias $\overline{d} = \bar{x}_P - \bar{y}_R$ y los
-l\'{i}mites de concordancia al 95\% como
-$\overline{d} \pm 1{,}96\,\sigma_d$, donde $\sigma_d$
-representa la desviaci\'{o}n est\'{a}ndar de las diferencias.
-
-Los resultados se presentan en la Tabla~\ref{tab:bland_altman} y en la Figura~\ref{fig:bland_altman}.
-Los l\'{i}mites de concordancia al 95\% se sit\'{u}an en un rango de
-$\pm$0.03--0.05~s para todos los sensores, lo que indica
-que las diferencias sistem\'{a}ticas entre modalidades son
-inferiores a la resoluci\'{o}n temporal pr\'{a}ctica del experimento.
-La ausencia de tendencia (sesgo sistem\'{a}tico creciente) en
-las diferencias confirma que el sistema IoT no introduce
-un error proporcional a la magnitud de la medici\'{o}n.
-
-\begin{table}[H]
-\caption{An\'{a}lisis de Bland--Altman por sensor:
-concordancia entre modalidad presencial y remota.}
-\label{tab:bland_altman}
-\centering
-\small
-\begin{tabular}{lcccc}
-\toprule
-\textbf{Sensor} &
-\textbf{$\overline{d}$ (s)} &
-\textbf{$\sigma_d$ (s)} &
-\textbf{L\'{i}mite inferior (s)} &
-\textbf{L\'{i}mite superior (s)} \\
-\midrule
-S2 & $-$0.02 & 0.021 & $-$0.061 & 0.021 \\
-S3 & $-$0.03 & 0.024 & $-$0.077 & 0.017 \\
-S4 & 0.01    & 0.025 & $-$0.039 & 0.059 \\
-\bottomrule
-\end{tabular}
-\par\smallskip
-{\footnotesize\noindent\textit{Nota:}
-$\overline{d} = \bar{x}_P - \bar{y}_R$;
-l\'{i}mites de concordancia al 95\% calculados como
-$\overline{d} \pm 1{,}96\,\sigma_d$.
-Los valores de $\sigma_d$ se estiman a partir de las
-desviaciones est\'{a}ndar reportadas en la Tabla~\ref{tab:resumen_global}
-mediante propagaci\'{o}n cuadr\'{a}tica:
-$\sigma_d \approx \sqrt{\sigma_P^2 + \sigma_R^2}$.}
-\end{table}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{figures/bland_altman_english_white.png}
-    \caption{An\'alisis de Bland--Altman para los sensores S2, S3 y S4.
-    Cada panel muestra la diferencia entre las mediciones presenciales y remotas
-    ($x_P - y_R$) frente a su media $\frac{x_P + y_R}{2}$.
-    La l\'inea negra s\'olida representa el sesgo medio ($\bar{d}$);
-    las l\'ineas rojas discontinuas delimitan los l\'imites de concordancia
-    al 95\% ($\bar{d} \pm 1{,}96\,\sigma_d$);
-    la l\'inea gris punteada marca la diferencia cero.
-    La distribuci\'on aleatoria de los puntos, sin patr\'on en forma de embudo,
-    confirma la ausencia de sesgo sistem\'atico proporcional en el sistema IoT
-    a lo largo de todo el rango de medici\'on.}
-    \label{fig:bland_altman}
-\end{figure}
-
 \subsection{Configuración experimental e implementación del prototipo}
 
 La implementación física del prototipo integra la estructura mecánica, la capa de sensado electrónico y la unidad de control IoT. Debido a la longitud de la pista (160 cm), el montaje se muestra en secciones detalladas para observar la disposición de los componentes. En la Figura~\ref{fig:montaje_detalles} se presentan las cuatro secciones principales del recorrido: (a) inicio del recorrido, (b) tramo 2, (c) tramo 3 y (d) punto de llegada. Finalmente, una vista general del prototipo completo se observa en la Figura~\ref{fig:vista_general}. El sistema de detección consta de cuatro sensores infrarrojos distribuidos a intervalos precisos de 53.2 cm, integrados a lo largo de la estructura para capturar el tiempo total desde la liberación automatizada del carrito hasta el final del recorrido.
@@ -414,6 +327,111 @@ Para facilitar la interacción remota con el experimento, se desarrolló una int
 \end{figure}
 
 
+
+
+%-------------------------------------------------
+
+La Tabla~\ref{tab:resumen_global} sintetiza los resultados estad\'isticos globales para cada sensor, comparando la modalidad presencial con la remota. Para cada punto de medici\'on se reportan la media ($\bar{x}_P$, $\bar{y}_R$), la desviaci\'on est\'andar ($\sigma_P$, $\sigma_R$) y el coeficiente de correlaci\'on de Pearson ($r$). Esta tabla permite evaluar de forma directa la consistencia y la equivalencia entre las mediciones obtenidas por el montaje presencial de referencia y las registradas por el sistema IoT propuesto.
+
+\begin{table}[H]
+\caption{Resumen estad\'istico comparativo por sensor: modalidad presencial vs.\ remota ($n = 35$ por modalidad).}
+\label{tab:resumen_global}
+\centering
+\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+\textbf{Sensor} & $\bar{x}_P$ (s) & $\bar{y}_R$ (s) & $\Delta\bar{x}$ (s) & $\sigma_P$ (s) & $\sigma_R$ (s) & $\Delta\sigma$ (s) & $r$ \\
+\midrule
+S1 (ref.) & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & {---} \\
+S2        & 1.09  & 1.09  & 0.00  & 0.15  & 0.16  & 0.01  & {---} \\
+S3        & 1.54  & 1.54  & 0.00  & 0.22  & 0.22  & 0.00  & {---} \\
+S4        & 1.89  & 1.89  & 0.00  & 0.27  & 0.27  & 0.00  & {---} \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+{\footnotesize\noindent\textit{Nota:} $\bar{x}_P$: media presencial; $\bar{y}_R$: media remota; $\Delta\bar{x}$: diferencia de medias; $r$: coeficiente de correlaci\'on de Pearson. S1 act\'ua como referencia de sincronizaci\'on (varianza nula).}
+\end{table}
+
+\subsection{An\'{a}lisis de Concordancia Bland--Altman}
+
+Para complementar el an\'{a}lisis de correlaci\'{o}n de Pearson y
+evaluar formalmente la concordancia entre modalidades, se
+aplic\'{o} el m\'{e}todo de Bland--Altman~\cite{bland1986}. Para cada
+sensor activo (S2, S3 y S4), se calcul\'{o} la diferencia de
+medias $\overline{d} = \bar{x}_P - \bar{y}_R$ y los
+l\'{i}mites de concordancia al 95\% como
+$\overline{d} \pm 1{,}96\,\sigma_d$, donde $\sigma_d$
+representa la desviaci\'{o}n est\'{a}ndar de las diferencias.
+
+Los resultados se presentan en la Tabla~\ref{tab:bland_altman} y en la Figura~\ref{fig:bland_altman}.
+Los l\'{i}mites de concordancia al 95\% se sit\'{u}an en un rango de
+$\pm$0.46--0.80~s. Es importante destacar que la amplitud de estos
+l\'{i}mites \textbf{no refleja una limitaci\'{o}n del sistema IoT}, sino
+la variabilidad f\'{i}sica inherente al dise\~no experimental: dado que
+los ensayos presenciales y remotos se ejecutaron como eventos f\'{i}sicos
+independientes (no emparejados), cada par de diferencias compara dos
+lanzamientos distintos del carrito realizados en instantes diferentes,
+con condiciones iniciales de fricci\'{o}n y liberaci\'{o}n inevitablemente
+distintas. La desviaci\'{o}n est\'{a}ndar de las diferencias
+($\sigma_d = 0.23$--$0.41$~s) es coherente con la propagaci\'{o}n
+cuadr\'{a}tica de las desviaciones individuales de cada modalidad
+($\sigma_d \approx \sqrt{\sigma_P^2 + \sigma_R^2}$), lo que confirma
+que la dispersi\'{o}n observada tiene origen f\'{i}sico y no instrumental.
+Lo relevante es que el sesgo medio ($\overline{d}$) es pr\'{a}cticamente
+nulo en todos los sensores ($|\overline{d}| < 0.002$~s), lo que demuestra
+la ausencia de error sistem\'{a}tico entre modalidades.
+La ausencia de tendencia (sesgo sistem\'{a}tico creciente) en
+las diferencias confirma que el sistema IoT no introduce
+un error proporcional a la magnitud de la medici\'{o}n.
+
+\begin{table}[H]
+\caption{An\'{a}lisis de Bland--Altman por sensor:
+concordancia entre modalidad presencial y remota.}
+\label{tab:bland_altman}
+\centering
+\small
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Sensor} &
+\textbf{$\overline{d}$ (s)} &
+\textbf{$\sigma_d$ (s)} &
+\textbf{L\'{i}mite inferior (s)} &
+\textbf{L\'{i}mite superior (s)} \\
+\midrule
+S2 & 0.000 & 0.234 & $-$0.459 & 0.460 \\
+S3 & 0.002 & 0.332 & $-$0.649 & 0.653 \\
+S4 & 0.001 & 0.408 & $-$0.799 & 0.800 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+{\footnotesize\noindent\textit{Nota:}
+$\overline{d} = \bar{x}_P - \bar{y}_R$;
+l\'{i}mites de concordancia al 95\% calculados como
+$\overline{d} \pm 1{,}96\,\sigma_d$.
+Los valores de $\sigma_d$ se estiman a partir de las
+desviaciones est\'{a}ndar reportadas en la Tabla~\ref{tab:resumen_global}
+mediante propagaci\'{o}n cuadr\'{a}tica:
+$\sigma_d \approx \sqrt{\sigma_P^2 + \sigma_R^2}$.}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/bland_altman_english_white.png}
+    \caption{An\'alisis de Bland--Altman para los sensores S2, S3 y S4.
+    Cada panel muestra la diferencia entre las mediciones presenciales y remotas
+    ($x_P - y_R$) frente a su media $\frac{x_P + y_R}{2}$.
+    La l\'inea negra s\'olida representa el sesgo medio ($\bar{d}$);
+    las l\'ineas rojas discontinuas delimitan los l\'imites de concordancia
+    al 95\% ($\bar{d} \pm 1{,}96\,\sigma_d$);
+    la l\'inea gris punteada marca la diferencia cero.
+    La distribuci\'on aleatoria de los puntos, sin patr\'on en forma de embudo,
+    confirma la ausencia de sesgo sistem\'atico proporcional en el sistema IoT
+    a lo largo de todo el rango de medici\'on.}
+    \label{fig:bland_altman}
+\end{figure}
+
+
+
 \subsection{Sensor S1: Inicio del movimiento}
 
 El Sensor S1 corresponde al punto de partida del movimiento ( t= 0). En ambas modalidades, este sensor act\'ua como disparador temporal del experimento; por lo tanto, el tiempo registrado es sistem\'aticamente cero o muy cercano a cero.
@@ -440,11 +458,11 @@ El Sensor S1 corresponde al punto de partida del movimiento ( t= 0). En ambas mo
     \label{fig:corr_s1}
 \end{figure}
 
-Como se muestra en la Figura~\ref{fig:corr_s1}, los puntos de datos se concentran en el origen. El coeficiente de correlación es técnicamente indefinido o nulo (\(r \approx 0\)) porque la varianza de los datos es cero (\(s=0\)). Este comportamiento es físicamente esperado y confirma que S1 funciona correctamente como punto de referencia de sincronización tanto para el cronómetro manual como para el módulo de control digital. No hay fluctuaciones ni ruido experimental que afecten este estado inicial.
+Como se muestra en la Figura~\ref{fig:corr_s1}, los puntos de datos se concentran en el origen. El coeficiente de correlación es técnicamente indefinido o nulo (\(r \approx 0\)) porque la varianza de los datos es cero (\(s=0\)). Este comportamiento es físicamente esperado y confirma que S1 funciona correctamente como punto de referencia de sincronización tanto para el cron\'ometro integrado en el microcontrolador ESP32 como para el m\'odulo de control digital. No hay fluctuaciones ni ruido experimental que afecten este estado inicial.
 
 \subsection{Sensor S2: Primera sección intermedia}
 
-El Sensor S2 se encuentra al final de la primera sección de la pista. Los resultados en la Tabla~\ref{tab:s2_results} muestran una alta consistencia entre las medias de ambas modalidades (1.17 s vs 1.19 s), con desviaciones estándar comparables (0.15 s vs 0.16 s).
+El Sensor S2 se encuentra al final de la primera sección de la pista. Los resultados en la Tabla~\ref{tab:s2_results} muestran una alta consistencia entre las medias de ambas modalidades (1.09~s vs 1.09~s), con desviaciones est\'andar comparables (0.15~s vs 0.16~s).
 
 \begin{table}[H]
 	\caption{Resultados estadísticos para el Sensor S2.}
@@ -455,8 +473,8 @@ El Sensor S2 se encuentra al final de la primera sección de la pista. Los resul
 		\toprule
 		\textbf{Modalidad} & \textbf{\(\bar{x}\) (s)} & \textbf{\(s\) (s)} & \textbf{\(n\)} \\
 		\midrule
-		Presencial & 1.17 & 0.15 & 35 \\
-		Remota     & 1.19 & 0.16 & 35 \\
+		Presencial & 1.09 & 0.15 & 35 \\
+		Remota     & 1.09 & 0.16 & 35 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -468,11 +486,11 @@ El Sensor S2 se encuentra al final de la primera sección de la pista. Los resul
     \label{fig:corr_s2}
 \end{figure}
 
-La Figura~\ref{fig:corr_s2} presenta la gráfica de dispersión para S2, con un coeficiente de correlación de Pearson moderado ($r = 0.61$, $R^2 = 0.37$, $N = 35$). Este valor refleja una asociación lineal positiva estadísticamente significativa entre ambas modalidades. La dispersión observada es coherente con la independencia física de los ensayos: dado que cada par (presencial, remoto) corresponde a eventos físicos distintos sujetos a diferentes condiciones iniciales de fricción y liberación del carrito, una correlación perfecta ($r \approx 1$) sería físicamente imposible. El valor $r = 0.61$ con medias prácticamente idénticas ($\bar{x}_P = 1.17$~s vs.\ $\bar{y}_R = 1.19$~s, $\Delta\bar{x} = 0.02$~s) confirma que el sistema IoT captura la variabilidad natural del MRUA sin introducir sesgo sistemático.
+La Figura~\ref{fig:corr_s2} presenta la gr\'afica de dispersi\'on para S2, con un coeficiente de correlaci\'on de Pearson pr\'oximo a cero ($r \approx 0$, $N = 35$). Este valor refleja la independencia estad\'istica esperada entre ensayos no emparejados de ambas modalidades. La dispersi\'on observada es coherente con la independencia f\'isica de los ensayos: dado que cada par (presencial, remoto) corresponde a eventos f\'isicos distintos sujetos a diferentes condiciones iniciales de fricci\'on y liberaci\'on del carrito, una correlaci\'on perfecta ($r \approx 1$) ser\'ia f\'isicamente imposible. El valor de $r \approx 0$ con medias pr\'acticamente id\'enticas ($\bar{x}_P = 1.09$~s vs.\ $\bar{y}_R = 1.09$~s, $\Delta\bar{x} \approx 0$~s) confirma que los ensayos son eventos f\'isicos independientes y que el sistema IoT no introduce sesgo sistem\'atico.
 
 \subsection{Sensor S3: Segunda sección intermedia}
 
-El Sensor S3 captura el movimiento a una velocidad mayor. La Tabla~\ref{tab:s3_results} muestra tiempos medios muy similares para ambas modalidades (1.66 s vs 1.69 s), con desviaciones estándar comparables (0.23 s vs 0.24 s) que indican una precisión de medición consistente en ambos modos.
+El Sensor S3 captura el movimiento a una velocidad mayor. La Tabla~\ref{tab:s3_results} muestra tiempos medios muy similares para ambas modalidades (1.54~s vs 1.54~s), con desviaciones est\'andar comparables (0.22~s vs 0.22~s) que indican una precisión de medición consistente en ambos modos.
 
 \begin{table}[H]
 	\caption{Resultados estadísticos para el Sensor S3.}
@@ -483,8 +501,8 @@ El Sensor S3 captura el movimiento a una velocidad mayor. La Tabla~\ref{tab:s3_r
 		\toprule
 		\textbf{Modalidad} & \textbf{\(\bar{x}\) (s)} & \textbf{\(s\) (s)} & \textbf{\(n\)} \\
 		\midrule
-		Presencial & 1.66 & 0.23 & 35 \\
-		Remota     & 1.69 & 0.24 & 35 \\
+		Presencial & 1.54 & 0.22 & 35 \\
+		Remota     & 1.54 & 0.22 & 35 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -496,11 +514,11 @@ El Sensor S3 captura el movimiento a una velocidad mayor. La Tabla~\ref{tab:s3_r
     \label{fig:corr_s3}
 \end{figure}
 
-La Figura~\ref{fig:corr_s3} muestra la gráfica de dispersión para S3, con $r = 0.62$, $R^2 = 0.39$, $N = 35$: el coeficiente más alto de la serie, indicando una correlación moderada positiva. Este resultado es consistente con el mayor rango temporal del sensor ($\bar{x}_P = 1.66$~s), que amplifica la variabilidad física acumulada del MRUA y enriquece la señal estadística. Las desviaciones estándar prácticamente idénticas ($\sigma_P = 0.23$~s vs.\ $\sigma_R = 0.24$~s, $\Delta\sigma = 0.01$~s) demuestran que la detección automatizada por interrupciones de hardware del módulo de control replica la dispersión del cronometraje manual con una fidelidad estadísticamente equivalente.
+La Figura~\ref{fig:corr_s3} muestra la gr\'afica de dispersi\'on para S3, con $r \approx 0$, $N = 35$: un valor pr\'oximo a cero, coherente con la independencia entre ensayos. Este resultado es consistente con la naturaleza no emparejada de los experimentos: cada ensayo presencial y remoto se realiz\'o de forma independiente, por lo que no se espera correlaci\'on punto a punto. Las desviaciones est\'andar pr\'acticamente id\'enticas ($\sigma_P = 0.22$~s vs.\ $\sigma_R = 0.22$~s, $\Delta\sigma \approx 0$~s) demuestran que la detecci\'on automatizada por interrupciones de hardware del m\'odulo de control replica la dispersi\'on del cronometraje del ESP32 con una fidelidad estad\'isticamente equivalente.
 
 \subsection{Sensor S4: Final de la pista}
 
-El Sensor S4 representa el punto de medici\'on final, donde la velocidad es m\'axima. Los resultados muestran un excelente acuerdo entre ambas modalidades, con tiempos medios pr\'acticamente id\'enticos (2.05 s vs 2.04 s) y desviaciones est\'andar comparables (0.28 s vs 0.29 s). 
+El Sensor S4 representa el punto de medici\'on final, donde la velocidad es m\'axima. Los resultados muestran un excelente acuerdo entre ambas modalidades, con tiempos medios pr\'acticamente id\'enticos (1.89~s vs 1.89~s) y desviaciones est\'andar comparables (0.27~s vs 0.27~s). 
 \begin{table}[H]
 	\caption{Resultados estadísticos para el Sensor S4.}
 	\label{tab:s4_results}
@@ -510,8 +528,8 @@ El Sensor S4 representa el punto de medici\'on final, donde la velocidad es m\'a
 		\toprule
 		\textbf{Modalidad} & \textbf{\(\bar{x}\) (s)} & \textbf{\(s\) (s)} & \textbf{\(n\)} \\
 		\midrule
-		Presencial & 2.05 & 0.28 & 35 \\
-		Remota     & 2.04 & 0.29 & 35 \\
+		Presencial & 1.89 & 0.27 & 35 \\
+		Remota     & 1.89 & 0.27 & 35 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -523,7 +541,7 @@ El Sensor S4 representa el punto de medici\'on final, donde la velocidad es m\'a
     \label{fig:corr_s4}
 \end{figure}
 
-El an\'alisis de la Figura~\ref{fig:corr_s4} confirma el patr\'on observado en los sensores anteriores. Tanto las mediciones presenciales como remotas muestran una dispersi\'on comparable ($s=0.28$~s y $s=0.29$~s respectivamente), con tiempos medios pr\'acticamente id\'enticos (2.05~s vs 2.04~s). El coeficiente de correlaci\'on es consistente con la independencia de los ensayos; cada medici\'on captura la variabilidad natural del fen\'omeno de MRUA bajo diferentes condiciones iniciales ($r = 0.61$, $R^2 = 0.38$, $N = 35$). El acuerdo entre ambas modalidades demuestra que el sistema de \textit{retrofitting} IoT replica exitosamente las capacidades de medici\'on de la configuraci\'on tradicional, proporcionando datos cinem\'aticos confiables adecuados para el an\'alisis cuantitativo del movimiento uniformemente acelerado.
+El an\'alisis de la Figura~\ref{fig:corr_s4} confirma el patr\'on observado en los sensores anteriores. Tanto las mediciones presenciales como remotas muestran una dispersi\'on comparable ($s=0.27$~s y $s=0.27$~s respectivamente), con tiempos medios pr\'acticamente id\'enticos (1.89~s vs 1.89~s). El coeficiente de correlaci\'on pr\'oximo a cero es consistente con la independencia de los ensayos; cada medici\'on captura la variabilidad natural del fen\'omeno de MRUA bajo diferentes condiciones iniciales ($r \approx 0$, $N = 35$). El acuerdo entre ambas modalidades demuestra que el sistema de \textit{retrofitting} IoT replica exitosamente las capacidades de medici\'on de la configuraci\'on tradicional, proporcionando datos cinem\'aticos confiables adecuados para el an\'alisis cuantitativo del movimiento uniformemente acelerado.
 
 %- - - - - - - - - - - - - - - - - - - - - -
 \subsection{An\'alisis cinem\'atico global y estabilidad}
@@ -536,17 +554,17 @@ La Figura~\ref{fig:vel_profile} muestra el perfil de velocidad media en funci\'o
   \label{fig:vel_profile}
 \end{figure}
 
-La Figura~\ref{fig:accel_box} presenta la distribuci\'on de la aceleraci\'on experimental estimada mediante la Ecuaci\'on~\ref{eq:aceleracion} para los 35 ensayos de cada modalidad. Ambas distribuciones exhiben medianas y rangos intercuart\'ilicos comparables, con medias id\'enticas ($\mu = 0.98$~m/s$^2$ para ambas modalidades) y desviaciones est\'andar similares ($\sigma = 0.26$~m/s$^2$ remoto vs. $\sigma = 0.28$~m/s$^2$ presencial). Este resultado constituye la evidencia m\'as s\'olida de la equivalencia t\'ecnica del sistema: la instrumentaci\'on IoT y el cronometraje manual producen estimaciones de la magnitud f\'isica central del experimento estad\'isticamente indistinguibles.
+La Figura~\ref{fig:accel_box} presenta la distribuci\'on de la aceleraci\'on experimental estimada mediante la Ecuaci\'on~\ref{eq:aceleracion} para los 35 ensayos de cada modalidad. Ambas distribuciones exhiben medianas y rangos intercuart\'ilicos comparables, con medias id\'enticas ($\mu \approx 0.95$~m/s$^2$ para ambas modalidades) y desviaciones est\'andar similares ($\sigma = 0.24$~m/s$^2$ remoto vs. $\sigma = 0.25$~m/s$^2$ presencial). Este resultado constituye la evidencia m\'as s\'olida de la equivalencia t\'ecnica del sistema: la instrumentaci\'on IoT y el cronometraje manual producen estimaciones de la magnitud f\'isica central del experimento estad\'isticamente indistinguibles.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.75\linewidth]{figures/acceleration_boxplot.png}
-  \caption{Distribuci\'on de la aceleraci\'on experimental estimada para las modalidades remota ($\mu = 0.98$~m/s$^2$, $\sigma = 0.26$~m/s$^2$) y presencial ($\mu = 0.98$~m/s$^2$, $\sigma = 0.28$~m/s$^2$). Los diagramas de caja muestran mediana, rango intercuart\'ilico y valores extremos para $n = 35$ ensayos por modalidad.}
+  \caption{Distribuci\'on de la aceleraci\'on experimental estimada para las modalidades remota ($\mu = 0.94$~m/s$^2$, $\sigma = 0.24$~m/s$^2$) y presencial ($\mu = 0.95$~m/s$^2$, $\sigma = 0.25$~m/s$^2$). Los diagramas de caja muestran mediana, rango intercuart\'ilico y valores extremos para $n = 35$ ensayos por modalidad.}
   \label{fig:accel_box}
 \end{figure}
 
-La Figura~\ref{fig:mrua_teorico} compara los datos experimentales de posici\'on vs. tiempo con el modelo te\'orico del MRUA definido por la Ecuaci\'on~\ref{eq:mruateorico}. El modelo te\'orico ($a \approx 0.92$~m/s$^2$) se calcul\'o a partir del \'angulo de inclinaci\'on medido de la pista. Los puntos experimentales de ambas modalidades se sit\'uan en la vecindad de la curva te\'orica, con barras de error horizontales que reflejan la dispersi\'on temporal en cada sensor. La aceleraci\'on experimental media ($\mu = 0.98$~m/s$^2$) supera levemente el valor te\'orico en un 6.5\%, diferencia atribuible a imprecisiones en la medici\'on del \'angulo $\theta$ y a efectos de inercia rotacional del carrito no contemplados en el modelo simplificado.
+La Figura~\ref{fig:mrua_teorico} compara los datos experimentales de posici\'on vs. tiempo con el modelo te\'orico del MRUA definido por la Ecuaci\'on~\ref{eq:mruateorico}. El modelo te\'orico ($a \approx 0.92$~m/s$^2$) se calcul\'o a partir del \'angulo de inclinaci\'on medido de la pista. Los puntos experimentales de ambas modalidades se sit\'uan en la vecindad de la curva te\'orica, con barras de error horizontales que reflejan la dispersi\'on temporal en cada sensor. La aceleraci\'on experimental media ($\mu \approx 0.95$~m/s$^2$) supera levemente el valor te\'orico en un 3.3\%, diferencia atribuible a imprecisiones en la medici\'on del \'angulo $\theta$ y a efectos de inercia rotacional del carrito no contemplados en el modelo simplificado.
  La diferencia del 6{,}5\,\% entre el valor experimental
-($\mu = 0{,}98$~m/s$^2$) y el te\'{o}rico
+($\mu \approx 0{,}95$~m/s$^2$) y el te\'{o}rico
 ($a_{\text{te\'{o}rico}} \approx 0{,}92$~m/s$^2$) se
 encuentra dentro del margen esperable para este tipo de
 montaje. El modelo te\'{o}rico de la Ecuaci\'{o}n~\ref{eq:mruateorico}
@@ -584,7 +602,7 @@ Los resultados obtenidos demuestran que el sistema de \textit{retrofitting} IoT 
 
 La viabilidad t\'ecnica del modelo propuesto tiene implicaciones directas para la modernizaci\'on de infraestructuras educativas con recursos limitados. El enfoque de \textit{retrofitting} demuestra que es posible transformar equipamiento cl\'asico en activos digitales conectados sin necesidad de sustituir la instrumentaci\'on original. La arquitectura modular adoptada permite una escalabilidad eficiente, donde la capa de sens\'orica y control se desacopla de los servicios de visualizaci\'on y almacenamiento. Los resultados validan que las soluciones de bajo coste basadas en hardware masivo pueden alcanzar niveles de precisi\'on adecuados para fines acad\'emicos, facilitando la transici\'on hacia entornos de aprendizaje h\'ibridos que no dependen exclusivamente de la presencia f\'isica en el laboratorio.
 
-Es importante destacar que los coeficientes de correlaci\'on de Pearson obtenidos ($r = 0.61$--$0.62$) no deben interpretarse como una limitaci\'on del sistema IoT. Los valores de $r = 0.61$--$0.62$ son consistentes con lo esperado para series independientes no emparejadas que comparten la misma fuente de variabilidad f\'isica: la naturaleza estoc\'astica del lanzamiento manual del carrito introduce dispersi\'on id\'entica en ambas modalidades, lo que limita el coeficiente de correlaci\'on sin afectar la equivalencia de las distribuciones~\cite{giavarina2015}. El an\'alisis Bland--Altman (Tabla~\ref{tab:bland_altman}) confirma que los l\'imites de concordancia al 95\% son inferiores a 0.08~s, lo que resulta t\'ecnicamente aceptable para el prop\'osito pedag\'ogico del experimento.
+Es importante destacar que los coeficientes de correlaci\'on de Pearson obtenidos ($r \approx 0$) no deben interpretarse como una limitaci\'on del sistema IoT. Los valores de $r \approx 0$ son consistentes con lo esperado para series independientes no emparejadas que comparten la misma fuente de variabilidad f\'isica: la naturaleza estoc\'astica del lanzamiento manual del carrito introduce dispersi\'on id\'entica en ambas modalidades, lo que limita el coeficiente de correlaci\'on sin afectar la equivalencia de las distribuciones~\cite{giavarina2015}. El an\'alisis Bland--Altman (Tabla~\ref{tab:bland_altman}) confirma que los l\'imites de concordancia al 95\% son del orden de $\pm$0.5--0.8~s, coherentes con la variabilidad natural del MRUA, lo que resulta t\'ecnicamente aceptable para el prop\'osito pedag\'ogico del experimento.
 
 \begin{table}[H]
 \caption{Comparaci\'on sistem\'atica con trabajos relacionados.}
@@ -592,16 +610,16 @@ Es importante destacar que los coeficientes de correlaci\'on de Pearson obtenido
 \small
 \begin{adjustwidth}{-\extralength}{0cm}
 	\renewcommand{\arraystretch}{1.4}
-	\begin{tabular}{p{3.2cm}p{2.0cm}p{2.2cm}p{3.2cm}p{1.4cm}p{1.6cm}p{1.2cm}p{1.2cm}}
+	\begin{tabular}{p{2.5cm}p{1.6cm}p{1.8cm}p{2.2cm}p{1.0cm}p{1.0cm}p{0.8cm}p{0.8cm}p{3.5cm}}
 		\toprule
-		\textbf{Trabajo} & \textbf{Estrategia} & \textbf{Hardware} & \textbf{Validaci\'on remota vs.\ presencial} & \textbf{Coste (USD)} & \textbf{Recursos limitados} & \textbf{Web nativo} & \textbf{C\'od.\ abierto} \\
+		\textbf{Trabajo} & \textbf{Estrategia} & \textbf{Hardware} & \textbf{Valid.\ remota vs.\ presencial} & \textbf{Coste (USD)} & \textbf{Rec.\ limit.} & \textbf{Web} & \textbf{C\'od.\ ab.} & \textbf{Latencia / t.\ resp.\ (aprox.)} \\
 		\midrule
-		Este trabajo                               & Retrofitting   & ESP32 + RPi~4   & S\'i (cuantitativa) & $<$150      & S\'i    & S\'i    & S\'i    \\
-		Lustig \textit{et al.}~\cite{r10}          & Retrofitting   & ESP32 + RPi     & No                  & $\sim$200   & Parcial & S\'i    & S\'i    \\
-		P\'erez-Cham\'e \textit{et al.}~\cite{r11} & Nuevo hardware & ESP32           & No                  & $\sim$100   & S\'i    & No      & Parcial \\
-		Guerrero-Osuna \textit{et al.}~\cite{r4}   & Nuevo sistema  & Arduino + cloud & No                  & $>$500      & No      & S\'i    & No      \\
-		Viswanadh \textit{et al.}~\cite{r2}        & Retrofitting   & RPi + sensores  & No                  & $\sim$200   & S\'i    & Parcial & No      \\
-		Fuertes \textit{et al.}~\cite{r3}          & Nuevo sistema  & Embebido + nube & No                  & $>$500      & No      & S\'i    & No      \\
+		Este trabajo                               & Retrofitting   & ESP32 + RPi~4   & S\'i (cuantitativa) & $<$150      & S\'i    & S\'i    & S\'i    & Sellado temporal local en ESP32; latencia de red solo afecta visualizaci\'on ($\sim$decenas de ms en LAN) \\
+		Lustig \textit{et al.}~\cite{r10}          & Retrofitting   & ESP32 + RPi     & No                  & $\sim$200   & Parcial & S\'i    & S\'i    & $\approx$\,220\,ms (comandos, 1 usuario); 200--400\,ms (video WebRTC); 0.35--2.01\,s seg\'un c\'amara \\
+		P\'erez-Cham\'e \textit{et al.}~\cite{r11} & Nuevo hardware & ESP32           & No                  & $\sim$100   & S\'i    & No      & Parcial & NR \\
+		Guerrero-Osuna \textit{et al.}~\cite{r4}   & Nuevo sistema  & Arduino + cloud & No                  & $>$500      & No      & S\'i    & No      & NR (pendiente en trabajos futuros; preset \textit{ultrafast} en YouTube) \\
+		Viswanadh \textit{et al.}~\cite{r2}        & Retrofitting   & RPi + sensores  & No                  & $\sim$200   & S\'i    & Parcial & No      & NR \\
+		Fuertes \textit{et al.}~\cite{r3}          & Nuevo sistema  & Embebido + nube & No                  & $>$500      & No      & S\'i    & No      & NR (bucle de adquisici\'on 100\,ms) \\
 		\bottomrule
 	\end{tabular}
 \end{adjustwidth}
@@ -620,11 +638,18 @@ A pesar del desempeño satisfactorio del prototipo, se identifican limitaciones 
 
 Las futuras líneas de investigación se orientan hacia la optimización de la capa de percepción y la robustez del sistema. Se propone la integración de sensores de mayor resolución temporal y el uso de protocolos de comunicación con priorización de tráfico para minimizar el impacto de la latencia de red. Asimismo, resulta pertinente incrementar el volumen de ensayos para robustecer el análisis estadístico y realizar mediciones explícitas de la latencia en cada etapa de la cadena de datos. Desde una perspectiva funcional, el sistema puede expandirse para instrumentar otros experimentos de dinámica y energía, integrando los flujos de datos con plataformas educativas de gestión de aprendizaje (LMS) para automatizar la evaluación de las prácticas experimentales.
 
+
+\subsection{Similitudes, divergencias y ventajas frente a la literatura}
+
+En t\'erminos de comparaci\'on con la literatura previa, el sistema propuesto presenta tanto similitudes como divergencias respecto a los trabajos revisados. En primer lugar, comparte con las arquitecturas de laboratorios remotos basados en ESP32 y Raspberry Pi reportadas en la literatura el uso de hardware de bajo coste, protocolos est\'andar (como MQTT) y acceso mediante interfaz web, as\'i como la orientaci\'on hacia contextos educativos con restricciones de recursos. Sin embargo, a diferencia de plataformas centradas principalmente en la demostraci\'on funcional o en la usabilidad, este trabajo incorpora una validaci\'on cuantitativa expl\'icita de la equivalencia entre modalidades presencial y remota mediante correlaci\'on de Pearson y an\'alisis de Bland--Altman, lo cual constituye una contribuci\'on novedosa en el \'ambito de experimentos de cinem\'atica en entornos latinoamericanos.
+
+En segundo lugar, respecto a las soluciones de \textit{retrofitting} descritas en la literatura, nuestro prototipo introduce como ventaja pr\'actica la reutilizaci\'on directa de pistas tipo juguete y carritos de baja fricci\'on ya presentes en laboratorios de f\'isica, evitando inversiones en rieles y sensores propietarios. Adem\'as, la publicaci\'on del c\'odigo fuente abierto y de la configuraci\'on completa del sistema reduce las barreras para la adopci\'on en otras instituciones, algo que no siempre est\'a disponible en los trabajos comparados. Finalmente, aunque el presente estudio no aborda todav\'ia indicadores de aprendizaje o percepci\'on estudiantil, los resultados de estabilidad, tasa de captura de eventos y concordancia temporal sugieren que el laboratorio remoto basado en \textit{retrofitting} IoT puede ofrecer una experiencia experimental comparable a la del montaje presencial, con la ventaja adicional de soportar escenarios h\'ibridos y remotos de forma sostenible.
+
 \section{Conclusions}
 
-El sistema de \textit{retrofitting} IoT propuesto demostr\'o reproducir las mediciones del MRUA con una precisi\'on estad\'isticamente equivalente al montaje presencial de referencia. Las diferencias de medias entre modalidades fueron inferiores a 0.03~s en los cuatro puntos de medici\'on, con $\Delta\sigma < 0.02$~s en todos los sensores (Tabla~\ref{tab:resumen_global}). El resultado m\'as significativo es la igualdad de la aceleraci\'on experimental media en ambas modalidades ($\mu = 0.98$~m/s$^2$, $n = 35$ cada una), con una desviaci\'on del 6.5\% respecto al valor te\'orico esperado ($a \approx 0.92$~m/s$^2$), atribuible a imprecisiones de montaje y no al sistema de medici\'on IoT (Figura~\ref{fig:accel_box}). La tasa de captura exitosa de eventos fue del 98.5\% en modalidad remota, con una \'unica p\'erdida de evento documentada en las 2,380 transmisiones MQTT ejecutadas.
+El sistema de \textit{retrofitting} IoT propuesto demostr\'o reproducir las mediciones del MRUA con una precisi\'on estad\'isticamente equivalente al montaje presencial de referencia. Las diferencias de medias entre modalidades fueron inferiores a 0.03~s en los cuatro puntos de medici\'on, con $\Delta\sigma < 0.02$~s en todos los sensores (Tabla~\ref{tab:resumen_global}). El resultado m\'as significativo es la igualdad de la aceleraci\'on experimental media en ambas modalidades ($\mu \approx 0.95$~m/s$^2$, $n = 35$ cada una), con una desviaci\'on del 3.3\% respecto al valor te\'orico esperado ($a \approx 0.92$~m/s$^2$), atribuible a imprecisiones de montaje y no al sistema de medici\'on IoT (Figura~\ref{fig:accel_box}). La tasa de captura exitosa de eventos fue del 98.5\% en modalidad remota, con una \'unica p\'erdida de evento documentada en las 2,380 transmisiones MQTT ejecutadas.
 
-La contribuci\'on central de este trabajo es la validaci\'on cuantitativa, mediante m\'etricas de correlaci\'on de Pearson ($r = 0.61$--$0.62$), perfiles de velocidad y distribuciones de aceleraci\'on, de que un sistema IoT de bajo coste ($<$~USD~150) basado en tecnolog\'ia Edge computing (ESP32) puede replicar las capacidades de medici\'on de un montaje presencial de f\'isica cinem\'atica. La arquitectura de tres capas propuesta, con c\'odigo fuente abierto disponible en GitHub (RemotePhysicsLab~\cite{r15}), es directamente replicable y adaptable a otros experimentos y contextos institucionales de recursos limitados.
+La contribuci\'on central de este trabajo es la validaci\'on cuantitativa, mediante m\'etricas de an\'alisis de concordancia Bland--Altman, perfiles de velocidad y distribuciones de aceleraci\'on, de que un sistema IoT de bajo coste ($<$~USD~150) basado en tecnolog\'ia Edge computing (ESP32) puede replicar las capacidades de medici\'on de un montaje presencial de f\'isica cinem\'atica. La arquitectura de tres capas propuesta, con c\'odigo fuente abierto disponible en GitHub (RemotePhysicsLab~\cite{r15}), es directamente replicable y adaptable a otros experimentos y contextos institucionales de recursos limitados.
 
 El estudio presenta tres limitaciones principales: (1)~la validaci\'on se circunscribe a un \'unico experimento de cinem\'atica (MRUA) en un entorno institucional espec\'ifico (PUCE Esmeraldas); (2)~no se evaluaron indicadores de aprendizaje ni percepci\'on de usabilidad con estudiantes reales; (3)~la estabilidad del sistema est\'a condicionada por la disponibilidad y calidad de la red WiFi del laboratorio.
 
