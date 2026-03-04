@@ -1,5 +1,0 @@
-experiment_id,mode,failed,timestamp,sensor_id,distance_cm,time_s
-sim_presential_20,presential,False,2026-02-05 15:08:00.000000,1,0.0,0.0
-sim_presential_20,presential,False,2026-02-05 15:08:00.000000,2,50.0,1.3325
-sim_presential_20,presential,False,2026-02-05 15:08:00.000000,3,100.0,1.8875
-sim_presential_20,presential,False,2026-02-05 15:08:00.000000,4,150.0,2.3105

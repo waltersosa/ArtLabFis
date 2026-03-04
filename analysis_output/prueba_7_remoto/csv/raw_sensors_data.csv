@@ -1,5 +1,0 @@
-experiment_id,mode,failed,timestamp,sensor_id,distance_cm,time_s
-sim_remote_7,remote,False,2026-02-08 07:42:00.000000,1,0.0,0.0
-sim_remote_7,remote,False,2026-02-08 07:42:00.000000,2,50.0,1.018
-sim_remote_7,remote,False,2026-02-08 07:42:00.000000,3,100.0,1.4342
-sim_remote_7,remote,False,2026-02-08 07:42:00.000000,4,150.0,1.7635
