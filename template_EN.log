@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.28)  19 MAR 2026 15:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.28)  19 MAR 2026 16:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1845,7 +1845,7 @@ Package rerunfilecheck Info: File `template_EN.out' has not changed.
 Here is how much of TeX's memory you used:
  34989 strings out of 467871
  653073 string characters out of 5418376
- 1153109 words of memory out of 5000000
+ 1153119 words of memory out of 5000000
  62467 multiletter control sequences out of 15000+600000
  722366 words of font info for 570 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1863,7 +1863,7 @@ Data/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/santi/
 AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/sa
 nti/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users
 /santi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on template_EN.pdf (26 pages, 36452891 bytes).
+Output written on template_EN.pdf (26 pages, 36452929 bytes).
 PDF statistics:
  764 PDF objects out of 1000 (max. 8388607)
  151 named destinations out of 1000 (max. 500000)
