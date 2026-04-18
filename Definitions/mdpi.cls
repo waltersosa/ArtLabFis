@@ -883,6 +883,8 @@
 				\vspace{-2pt}%
 				\ifthenelse{\equal{\@status}{submit}}{%	
 				\vspace{5pt}%
+					\href{https://www.mdpi.com/journal/\@journal}{%
+					\includegraphics[height=1.2cm]{Definitions/sensors-logo.png}}%
 					\hfill \href{https://www.mdpi.com}{%
 					\includegraphics[height=1cm]{Definitions/logo-mdpi.eps}}%
 					}{

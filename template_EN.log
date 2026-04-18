@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.28)  19 MAR 2026 16:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.28)  18 APR 2026 17:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -921,13 +921,6 @@ Package caption Info: float package is loaded.
 \sf@top=\skip139
 \sf@bottom=\skip140
 ) (Definitions/journalnames.tex)
-
-Class mdpi Warning: You used an invalid journal name or you have not specified 
-the journal. The first option of the documentclass command specifies the journa
-l. The word 'journal' should be replaced by one of the journal names specified 
-in template.tex (in the comment 'Choose between the following MDPI journal'). o
-n input line 155.
-
 (C:\Users\santi\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks56
@@ -1027,31 +1020,31 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (C:\Users\santi\AppData\Local\Programs\MiKTeX\tex/latex/newfloat\newfloat.sty
 Package: newfloat 2023/10/01 v1.2 Defining new floating environments (AR)
 )
-Package newfloat Info: New float `listing' with options `' on input line 1634.
+Package newfloat Info: New float `listing' with options `' on input line 1636.
 \c@listing=\count385
-Package newfloat Info: float type `listing'=4 on input line 1634.
+Package newfloat Info: float type `listing'=4 on input line 1636.
 \c@lolistingdepth=\count386
 Package newfloat Info: New float `boxenv' with options `name=Box' on input line
- 1635.
+ 1637.
 \c@boxenv=\count387
-Package newfloat Info: float type `boxenv'=8 on input line 1635.
+Package newfloat Info: float type `boxenv'=8 on input line 1637.
 \c@loboxenvdepth=\count388
-Package newfloat Info: New float `chart' with options `' on input line 1636.
+Package newfloat Info: New float `chart' with options `' on input line 1638.
 \c@chart=\count389
-Package newfloat Info: float type `chart'=16 on input line 1636.
+Package newfloat Info: float type `chart'=16 on input line 1638.
 \c@lochartdepth=\count390
-Package newfloat Info: New float `scheme' with options `' on input line 1637.
+Package newfloat Info: New float `scheme' with options `' on input line 1639.
 \c@scheme=\count391
-Package newfloat Info: float type `scheme'=32 on input line 1637.
+Package newfloat Info: float type `scheme'=32 on input line 1639.
 \c@loschemedepth=\count392
-Package newfloat Info: New float `figurewide' with options `' on input line 163
-8.
+Package newfloat Info: New float `figurewide' with options `' on input line 164
+0.
 \c@figurewide=\count393
-Package newfloat Info: float type `figurewide'=64 on input line 1638.
+Package newfloat Info: float type `figurewide'=64 on input line 1640.
 \c@lofigurewidedepth=\count394
-Package newfloat Info: New float `graph' with options `' on input line 1639.
+Package newfloat Info: New float `graph' with options `' on input line 1641.
 \c@graph=\count395
-Package newfloat Info: float type `graph'=128 on input line 1639.
+Package newfloat Info: float type `graph'=128 on input line 1641.
 \c@lographdepth=\count396
 \@justcentbox=\box77
 
@@ -1532,6 +1525,11 @@ Package marginnote Info: Margin note 1.1 is on absolute page 1 on input line 54
 Package marginnote Info: right page because not two side mode on input line 54.
 
 Package marginnote Info: xpos seems to be 167.01753pt on input line 54.
+<Definitions/sensors-logo.png, id=131, 393.47pt x 142.5325pt>
+File: Definitions/sensors-logo.png Graphic file (type png)
+<use Definitions/sensors-logo.png>
+Package pdftex.def Info: Definitions/sensors-logo.png  used on input line 54.
+(pdftex.def)             Requested size: 94.25461pt x 34.14322pt.
 Package epstopdf Info: Source file: <Definitions/logo-mdpi.eps>
 (epstopdf)                    date: 2026-02-28 18:13:22
 (epstopdf)                    size: 563678 bytes
@@ -1543,13 +1541,13 @@ Package epstopdf Info: Source file: <Definitions/logo-mdpi.eps>
 i-eps-converted-to.pdf Definitions/logo-mdpi.eps>
 (epstopdf)             \includegraphics on input line 54.
 Package epstopdf Info: Output file is already uptodate.
-<Definitions/logo-mdpi-eps-converted-to.pdf, id=131, 74.2775pt x 49.18375pt>
+<Definitions/logo-mdpi-eps-converted-to.pdf, id=133, 74.2775pt x 49.18375pt>
 File: Definitions/logo-mdpi-eps-converted-to.pdf Graphic file (type pdf)
 <use Definitions/logo-mdpi-eps-converted-to.pdf>
 Package pdftex.def Info: Definitions/logo-mdpi-eps-converted-to.pdf  used on in
 put line 54.
 (pdftex.def)             Requested size: 42.96877pt x 28.45274pt.
-<Definitions/logo-orcid.pdf, id=133, 102.3825pt x 102.3825pt>
+<Definitions/logo-orcid.pdf, id=135, 102.3825pt x 102.3825pt>
 File: Definitions/logo-orcid.pdf Graphic file (type pdf)
 <use Definitions/logo-orcid.pdf>
 Package pdftex.def Info: Definitions/logo-orcid.pdf  used on input line 54.
@@ -1569,17 +1567,17 @@ Package microtype Info: Loading generic protrusion settings for font family
 [1
 
 {C:/Users/santi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/sant
-i/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./Definitions/log
-o-mdpi-eps-converted-to.pdf> <./Definitions/logo-orcid.pdf>] [2] [3] [4]
-<figures/fig1_arquitectura_labfisica.png, id=296, 1691.31876pt x 870.25125pt>
+i/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./Definitions/sen
+sors-logo.png> <./Definitions/logo-mdpi-eps-converted-to.pdf> <./Definitions/lo
+go-orcid.pdf>] [2] [3] [4]
+<figures/fig1_arquitectura_labfisica.png, id=299, 1691.31876pt x 870.25125pt>
 File: figures/fig1_arquitectura_labfisica.png Graphic file (type png)
 <use figures/fig1_arquitectura_labfisica.png>
 Package pdftex.def Info: figures/fig1_arquitectura_labfisica.png  used on input
  line 164.
 (pdftex.def)             Requested size: 394.35522pt x 202.90231pt.
-
-[5]
-<figures/Hardware connection diagram of the proposed prototype.png.jpg, id=336,
+ [5]
+<figures/Hardware connection diagram of the proposed prototype.png.jpg, id=339,
  1027.84pt x 561.09625pt>
 File: figures/Hardware connection diagram of the proposed prototype.png.jpg Gra
 phic file (type jpg)
@@ -1594,7 +1592,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 207--207
 
 [6 <./figures/fig1_arquitectura_labfisica.png> <./figures/Hardware connection d
 iagram of the proposed prototype.png.jpg>] [7]
-<figures/Experimental procedure flowchart.png, id=370, 1156.32pt x 499.11469pt>
+<figures/Experimental procedure flowchart.png, id=373, 1156.32pt x 499.11469pt>
 
 File: figures/Experimental procedure flowchart.png Graphic file (type png)
 <use figures/Experimental procedure flowchart.png>
@@ -1602,32 +1600,32 @@ Package pdftex.def Info: figures/Experimental procedure flowchart.png  used on
 input line 230.
 (pdftex.def)             Requested size: 394.35522pt x 170.21461pt.
  [8 <./figures/Experimental procedure flowchart.png>] [9] [10]
-<figures/setup_overview_inicio.jpg, id=400, 4095.3pt x 3071.475pt>
+<figures/setup_overview_inicio.jpg, id=403, 4095.3pt x 3071.475pt>
 File: figures/setup_overview_inicio.jpg Graphic file (type jpg)
 <use figures/setup_overview_inicio.jpg>
 Package pdftex.def Info: figures/setup_overview_inicio.jpg  used on input line 
 314.
 (pdftex.def)             Requested size: 177.45863pt x 133.05505pt.
-<figures/setup_overviewl_tramo2.jpg, id=401, 4095.3pt x 3071.475pt>
+<figures/setup_overviewl_tramo2.jpg, id=404, 4095.3pt x 3071.475pt>
 File: figures/setup_overviewl_tramo2.jpg Graphic file (type jpg)
 <use figures/setup_overviewl_tramo2.jpg>
 Package pdftex.def Info: figures/setup_overviewl_tramo2.jpg  used on input line
  316.
 (pdftex.def)             Requested size: 177.45863pt x 133.05505pt.
-<figures/setup_overview_tramo3.jpg, id=402, 4095.3pt x 3071.475pt>
+<figures/setup_overview_tramo3.jpg, id=405, 4095.3pt x 3071.475pt>
 File: figures/setup_overview_tramo3.jpg Graphic file (type jpg)
 <use figures/setup_overview_tramo3.jpg>
 Package pdftex.def Info: figures/setup_overview_tramo3.jpg  used on input line 
 317.
 (pdftex.def)             Requested size: 177.45863pt x 133.05505pt.
-<figures/setup_overview_final.jpg, id=403, 4095.3pt x 3071.475pt>
+<figures/setup_overview_final.jpg, id=406, 4095.3pt x 3071.475pt>
 File: figures/setup_overview_final.jpg Graphic file (type jpg)
 <use figures/setup_overview_final.jpg>
 Package pdftex.def Info: figures/setup_overview_final.jpg  used on input line 3
 19.
 (pdftex.def)             Requested size: 177.45863pt x 133.05505pt.
  [11]
-<figures/setup_overview_completo.jpg, id=413, 3071.475pt x 2670.97874pt>
+<figures/setup_overview_completo.jpg, id=416, 3071.475pt x 2670.97874pt>
 File: figures/setup_overview_completo.jpg Graphic file (type jpg)
 <use figures/setup_overview_completo.jpg>
 Package pdftex.def Info: figures/setup_overview_completo.jpg  used on input lin
@@ -1636,67 +1634,67 @@ e 326.
  [12 <./figures/setup_overview_inicio.jpg> <./figures/setup_overviewl_tramo2.jp
 g> <./figures/setup_overview_tramo3.jpg> <./figures/setup_overview_final.jpg> <
 ./figures/setup_overview_completo.jpg>]
-<figures/InterfazWeb.jpg, id=424, 1184.92688pt x 677.53125pt>
+<figures/InterfazWeb.jpg, id=427, 1184.92688pt x 677.53125pt>
 File: figures/InterfazWeb.jpg Graphic file (type jpg)
 <use figures/InterfazWeb.jpg>
 Package pdftex.def Info: figures/InterfazWeb.jpg  used on input line 335.
 (pdftex.def)             Requested size: 276.04744pt x 157.83453pt.
 
 [13 <./figures/InterfazWeb.jpg>]
-<figures/bland_altman_english_white.png, id=438, 1070.8005pt x 333.4056pt>
+<figures/bland_altman_english_white.png, id=441, 1070.8005pt x 333.4056pt>
 File: figures/bland_altman_english_white.png Graphic file (type png)
 <use figures/bland_altman_english_white.png>
 Package pdftex.def Info: figures/bland_altman_english_white.png  used on input 
 line 430.
 (pdftex.def)             Requested size: 394.35522pt x 122.78835pt.
-<figures/correlation_sensor_S1.png, id=439, 412.4208pt x 418.4433pt>
+<figures/correlation_sensor_S1.png, id=442, 412.4208pt x 418.4433pt>
 File: figures/correlation_sensor_S1.png Graphic file (type png)
 <use figures/correlation_sensor_S1.png>
 Package pdftex.def Info: figures/correlation_sensor_S1.png  used on input line 
 467.
 (pdftex.def)             Requested size: 276.04744pt x 280.08739pt.
  [14 <./figures/bland_altman_english_white.png>]
-<figures/correlation_sensor_S2.png, id=448, 394.5942pt x 420.1296pt>
+<figures/correlation_sensor_S2.png, id=451, 394.5942pt x 420.1296pt>
 File: figures/correlation_sensor_S2.png Graphic file (type png)
 <use figures/correlation_sensor_S2.png>
 Package pdftex.def Info: figures/correlation_sensor_S2.png  used on input line 
 495.
 (pdftex.def)             Requested size: 276.04744pt x 293.92844pt.
  [15 <./figures/correlation_sensor_S1.png>]
-<figures/correlation_sensor_S3.png, id=458, 396.2805pt x 420.1296pt>
+<figures/correlation_sensor_S3.png, id=461, 396.2805pt x 420.1296pt>
 File: figures/correlation_sensor_S3.png Graphic file (type png)
 <use figures/correlation_sensor_S3.png>
 Package pdftex.def Info: figures/correlation_sensor_S3.png  used on input line 
 523.
 (pdftex.def)             Requested size: 276.04744pt x 292.67836pt.
  [16 <./figures/correlation_sensor_S2.png>]
-<figures/correlation_sensor_S4.png, id=467, 394.5942pt x 420.1296pt>
+<figures/correlation_sensor_S4.png, id=470, 394.5942pt x 420.1296pt>
 File: figures/correlation_sensor_S4.png Graphic file (type png)
 <use figures/correlation_sensor_S4.png>
 Package pdftex.def Info: figures/correlation_sensor_S4.png  used on input line 
 550.
 (pdftex.def)             Requested size: 276.04744pt x 293.92844pt.
  [17 <./figures/correlation_sensor_S3.png>]
-<figures/velocity_profile.png, id=478, 566.115pt x 385.6809pt>
+<figures/velocity_profile.png, id=481, 566.115pt x 385.6809pt>
 File: figures/velocity_profile.png Graphic file (type png)
 <use figures/velocity_profile.png>
 Package pdftex.def Info: figures/velocity_profile.png  used on input line 563.
 (pdftex.def)             Requested size: 315.48538pt x 214.93817pt.
  [18 <./figures/correlation_sensor_S4.png>]
-<figures/acceleration_boxplot.png, id=488, 492.1587pt x 383.9946pt>
+<figures/acceleration_boxplot.png, id=491, 492.1587pt x 383.9946pt>
 File: figures/acceleration_boxplot.png Graphic file (type png)
 <use figures/acceleration_boxplot.png>
 Package pdftex.def Info: figures/acceleration_boxplot.png  used on input line 5
 71.
 (pdftex.def)             Requested size: 295.76642pt x 230.76181pt.
-<figures/experimental_vs_theoretical_mrua.png, id=493, 561.297pt x 385.44pt>
+<figures/experimental_vs_theoretical_mrua.png, id=496, 561.297pt x 385.44pt>
 File: figures/experimental_vs_theoretical_mrua.png Graphic file (type png)
 <use figures/experimental_vs_theoretical_mrua.png>
 Package pdftex.def Info: figures/experimental_vs_theoretical_mrua.png  used on 
 input line 589.
 (pdftex.def)             Requested size: 315.48538pt x 216.64479pt.
  [19 <./figures/velocity_profile.png> <./figures/acceleration_boxplot.png>]
-<figures/stability_success_rate.png, id=504, 421.3341pt x 349.7868pt>
+<figures/stability_success_rate.png, id=507, 421.3341pt x 349.7868pt>
 File: figures/stability_success_rate.png Graphic file (type png)
 <use figures/stability_success_rate.png>
 Package pdftex.def Info: figures/stability_success_rate.png  used on input line
@@ -1843,11 +1841,11 @@ Package rerunfilecheck Info: File `template_EN.out' has not changed.
 (rerunfilecheck)             Checksum: DF478D9779B61E30F7515D5907CCFBC2;6193.
  ) 
 Here is how much of TeX's memory you used:
- 34989 strings out of 467871
- 653073 string characters out of 5418376
- 1153119 words of memory out of 5000000
- 62467 multiletter control sequences out of 15000+600000
- 722366 words of font info for 570 fonts, out of 8000000 for 9000
+ 34993 strings out of 467871
+ 653290 string characters out of 5418376
+ 1153176 words of memory out of 5000000
+ 62474 multiletter control sequences out of 15000+600000
+ 722207 words of font info for 568 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,15n,121p,2213b,835s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\santi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
@@ -1863,9 +1861,9 @@ Data/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/santi/
 AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/sa
 nti/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users
 /santi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on template_EN.pdf (26 pages, 36452929 bytes).
+Output written on template_EN.pdf (26 pages, 36456203 bytes).
 PDF statistics:
- 764 PDF objects out of 1000 (max. 8388607)
+ 767 PDF objects out of 1000 (max. 8388607)
  151 named destinations out of 1000 (max. 500000)
- 121185 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 121190 words of extra memory for PDF output out of 128383 (max. 10000000)
 
