@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.28)  18 APR 2026 17:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.28)  10 JUN 2026 17:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1106,7 +1106,7 @@ Package: seqsplit 2006/08/07 v0.1 Splitting long sequences (DNA, RNA, proteins,
 \cellWidthZ=\skip257
 )
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 54.
+h' as default language. on input line 56.
 (C:\Users\santi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
 
@@ -1230,7 +1230,7 @@ Package cleveref Info: always capitalise cross-reference names on input line 78
 Package cleveref Info: no abbreviation of names on input line 7852.
 )
 ==> First Aid for cleveref.sty applied!
-LaTeX Font Info:    Trying to load font information for T1+ppl on input line 54
+LaTeX Font Info:    Trying to load font information for T1+ppl on input line 56
 .
 (C:\Users\santi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
@@ -1238,24 +1238,24 @@ File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 (template_EN.aux)
 \openout1 = `template_EN.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 
 (C:\Users\santi\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -1272,13 +1272,13 @@ ii
 \makeMPintoPDFobject=\count413
 \everyMPtoPDFconversion=\toks64
 )
-LaTeX Info: Redefining \microtypecontext on input line 54.
-Package microtype Info: Applying patch `item' on input line 54.
-Package microtype Info: Applying patch `toc' on input line 54.
-Package microtype Info: Applying patch `eqnum' on input line 54.
-Package microtype Info: Applying patch `footnote' on input line 54.
-Package microtype Info: Applying patch `verbatim' on input line 54.
-LaTeX Info: Redefining \microtypesetup on input line 54.
+LaTeX Info: Redefining \microtypecontext on input line 56.
+Package microtype Info: Applying patch `item' on input line 56.
+Package microtype Info: Applying patch `toc' on input line 56.
+Package microtype Info: Applying patch `eqnum' on input line 56.
+Package microtype Info: Applying patch `footnote' on input line 56.
+Package microtype Info: Applying patch `verbatim' on input line 56.
+LaTeX Info: Redefining \microtypesetup on input line 56.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1298,7 +1298,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 54.
+or `english'. on input line 56.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
@@ -1341,13 +1341,13 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package newfloat Info: `float' package detected.
-Package hyperref Info: Link coloring ON on input line 54.
+Package hyperref Info: Link coloring ON on input line 56.
 (template_EN.out) (template_EN.out)
 \@outlinefile=\write4
 \openout4 = `template_EN.out'.
 
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 5
-4.
+6.
 
 (C:\Users\santi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
@@ -1357,47 +1357,47 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 5
-4.
+6.
 
 (C:\Users\santi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 LaTeX Font Info:    Trying to load font information for OML+zplm on input line 
-54.
+56.
 
 (C:\Users\santi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 
-54.
+56.
 
 (C:\Users\santi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 
-54.
+56.
 
 (C:\Users\santi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 54.
+(Font)              scaled to size 7.29405pt on input line 56.
 
 (C:\Users\santi\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 54.
+(Font)              scaled to size 5.21004pt on input line 56.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 54.
+(Font)              scaled to size 7.29405pt on input line 56.
 
 (C:\Users\santi\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 54.
+(Font)              scaled to size 5.21004pt on input line 56.
 LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
-54.
+56.
 
 (C:\Users\santi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
@@ -1411,124 +1411,124 @@ Package microtype Info: Loading generic protrusion settings for font family
 File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 54.
+(Font)              scaled to size 10.42007pt on input line 56.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 54.
+(Font)              scaled to size 7.91925pt on input line 56.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 54.
+(Font)              scaled to size 6.25204pt on input line 56.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 54.
+(Font)              scaled to size 10.42007pt on input line 56.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 54.
+(Font)              scaled to size 7.91925pt on input line 56.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 54.
-LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 54.
+(Font)              scaled to size 6.25204pt on input line 56.
+LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 56.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `normal'
-(Font)                  U/msb/m/n --> U/msb/m/n on input line 54.
+(Font)                  U/msb/m/n --> U/msb/m/n on input line 56.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `bold'
-(Font)                  U/msb/m/n --> U/msb/m/n on input line 54.
+(Font)                  U/msb/m/n --> U/msb/m/n on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 54.
+(hyperref)                removing `math shift' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Delta' on input line 54.
+(hyperref)                removing `\Delta' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sigma' on input line 54.
+(hyperref)                removing `\sigma' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 54.
+(hyperref)                removing `math shift' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 54.
+(hyperref)                removing `math shift' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mu' on input line 54.
+(hyperref)                removing `\mu' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\approx' on input line 54.
+(hyperref)                removing `\approx' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 54.
+(hyperref)                removing `math shift' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 54.
+(hyperref)                removing `math shift' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 54.
+(hyperref)                removing `superscript' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 54.
+(hyperref)                removing `math shift' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 54.
+(hyperref)                removing `math shift' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\approx' on input line 54.
+(hyperref)                removing `\approx' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 54.
+(hyperref)                removing `math shift' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 54.
+(hyperref)                removing `math shift' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 54.
+(hyperref)                removing `superscript' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 54.
+(hyperref)                removing `math shift' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 54.
+(hyperref)                removing `math shift' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@@overline' on input line 54.
+(hyperref)                removing `\@@overline' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 54.
+(hyperref)                removing `math shift' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 54.
+(hyperref)                removing `math shift' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\pm' on input line 54.
+(hyperref)                removing `\pm' on input line 56.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 54.
+(hyperref)                removing `math shift' on input line 56.
 
-Package marginnote Info: Margin note 1.1 is on absolute page 1 on input line 54
+Package marginnote Info: Margin note 1.1 is on absolute page 1 on input line 56
 .
-Package marginnote Info: right page because not two side mode on input line 54.
+Package marginnote Info: right page because not two side mode on input line 56.
 
-Package marginnote Info: xpos seems to be 167.01753pt on input line 54.
+Package marginnote Info: xpos seems to be 167.01753pt on input line 56.
 <Definitions/sensors-logo.png, id=131, 393.47pt x 142.5325pt>
 File: Definitions/sensors-logo.png Graphic file (type png)
 <use Definitions/sensors-logo.png>
-Package pdftex.def Info: Definitions/sensors-logo.png  used on input line 54.
+Package pdftex.def Info: Definitions/sensors-logo.png  used on input line 56.
 (pdftex.def)             Requested size: 94.25461pt x 34.14322pt.
 Package epstopdf Info: Source file: <Definitions/logo-mdpi.eps>
 (epstopdf)                    date: 2026-02-28 18:13:22
@@ -1539,27 +1539,27 @@ Package epstopdf Info: Source file: <Definitions/logo-mdpi.eps>
 (epstopdf)                    size: 13253 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=Definitions/logo-mdp
 i-eps-converted-to.pdf Definitions/logo-mdpi.eps>
-(epstopdf)             \includegraphics on input line 54.
+(epstopdf)             \includegraphics on input line 56.
 Package epstopdf Info: Output file is already uptodate.
 <Definitions/logo-mdpi-eps-converted-to.pdf, id=133, 74.2775pt x 49.18375pt>
 File: Definitions/logo-mdpi-eps-converted-to.pdf Graphic file (type pdf)
 <use Definitions/logo-mdpi-eps-converted-to.pdf>
 Package pdftex.def Info: Definitions/logo-mdpi-eps-converted-to.pdf  used on in
-put line 54.
+put line 56.
 (pdftex.def)             Requested size: 42.96877pt x 28.45274pt.
 <Definitions/logo-orcid.pdf, id=135, 102.3825pt x 102.3825pt>
 File: Definitions/logo-orcid.pdf Graphic file (type pdf)
 <use Definitions/logo-orcid.pdf>
-Package pdftex.def Info: Definitions/logo-orcid.pdf  used on input line 54.
+Package pdftex.def Info: Definitions/logo-orcid.pdf  used on input line 56.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 File: Definitions/logo-orcid.pdf Graphic file (type pdf)
 <use Definitions/logo-orcid.pdf>
-Package pdftex.def Info: Definitions/logo-orcid.pdf  used on input line 54.
+Package pdftex.def Info: Definitions/logo-orcid.pdf  used on input line 56.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 54.
+(Font)              scaled to size 8.33606pt on input line 56.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 54.
+(Font)              scaled to size 8.33606pt on input line 56.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1574,7 +1574,7 @@ go-orcid.pdf>] [2] [3] [4]
 File: figures/fig1_arquitectura_labfisica.png Graphic file (type png)
 <use figures/fig1_arquitectura_labfisica.png>
 Package pdftex.def Info: figures/fig1_arquitectura_labfisica.png  used on input
- line 164.
+ line 166.
 (pdftex.def)             Requested size: 394.35522pt x 202.90231pt.
  [5]
 <figures/Hardware connection diagram of the proposed prototype.png.jpg, id=339,
@@ -1583,10 +1583,10 @@ File: figures/Hardware connection diagram of the proposed prototype.png.jpg Gra
 phic file (type jpg)
 <use figures/Hardware connection diagram of the proposed prototype.png.jpg>
 Package pdftex.def Info: figures/Hardware connection diagram of the proposed pr
-ototype.png.jpg  used on input line 173.
+ototype.png.jpg  used on input line 175.
 (pdftex.def)             Requested size: 315.48538pt x 172.22571pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
+Underfull \hbox (badness 10000) in paragraph at lines 209--209
 []|\T1/ppl/m/n/9 (+20) Motor ac-cel-er-a-tion con-trol
  []
 
@@ -1597,39 +1597,39 @@ iagram of the proposed prototype.png.jpg>] [7]
 File: figures/Experimental procedure flowchart.png Graphic file (type png)
 <use figures/Experimental procedure flowchart.png>
 Package pdftex.def Info: figures/Experimental procedure flowchart.png  used on 
-input line 230.
+input line 232.
 (pdftex.def)             Requested size: 394.35522pt x 170.21461pt.
  [8 <./figures/Experimental procedure flowchart.png>] [9] [10]
 <figures/setup_overview_inicio.jpg, id=403, 4095.3pt x 3071.475pt>
 File: figures/setup_overview_inicio.jpg Graphic file (type jpg)
 <use figures/setup_overview_inicio.jpg>
 Package pdftex.def Info: figures/setup_overview_inicio.jpg  used on input line 
-314.
+316.
 (pdftex.def)             Requested size: 177.45863pt x 133.05505pt.
 <figures/setup_overviewl_tramo2.jpg, id=404, 4095.3pt x 3071.475pt>
 File: figures/setup_overviewl_tramo2.jpg Graphic file (type jpg)
 <use figures/setup_overviewl_tramo2.jpg>
 Package pdftex.def Info: figures/setup_overviewl_tramo2.jpg  used on input line
- 316.
+ 318.
 (pdftex.def)             Requested size: 177.45863pt x 133.05505pt.
 <figures/setup_overview_tramo3.jpg, id=405, 4095.3pt x 3071.475pt>
 File: figures/setup_overview_tramo3.jpg Graphic file (type jpg)
 <use figures/setup_overview_tramo3.jpg>
 Package pdftex.def Info: figures/setup_overview_tramo3.jpg  used on input line 
-317.
+319.
 (pdftex.def)             Requested size: 177.45863pt x 133.05505pt.
 <figures/setup_overview_final.jpg, id=406, 4095.3pt x 3071.475pt>
 File: figures/setup_overview_final.jpg Graphic file (type jpg)
 <use figures/setup_overview_final.jpg>
 Package pdftex.def Info: figures/setup_overview_final.jpg  used on input line 3
-19.
+21.
 (pdftex.def)             Requested size: 177.45863pt x 133.05505pt.
  [11]
 <figures/setup_overview_completo.jpg, id=416, 3071.475pt x 2670.97874pt>
 File: figures/setup_overview_completo.jpg Graphic file (type jpg)
 <use figures/setup_overview_completo.jpg>
 Package pdftex.def Info: figures/setup_overview_completo.jpg  used on input lin
-e 326.
+e 328.
 (pdftex.def)             Requested size: 276.04744pt x 240.05167pt.
  [12 <./figures/setup_overview_inicio.jpg> <./figures/setup_overviewl_tramo2.jp
 g> <./figures/setup_overview_tramo3.jpg> <./figures/setup_overview_final.jpg> <
@@ -1637,7 +1637,7 @@ g> <./figures/setup_overview_tramo3.jpg> <./figures/setup_overview_final.jpg> <
 <figures/InterfazWeb.jpg, id=427, 1184.92688pt x 677.53125pt>
 File: figures/InterfazWeb.jpg Graphic file (type jpg)
 <use figures/InterfazWeb.jpg>
-Package pdftex.def Info: figures/InterfazWeb.jpg  used on input line 335.
+Package pdftex.def Info: figures/InterfazWeb.jpg  used on input line 337.
 (pdftex.def)             Requested size: 276.04744pt x 157.83453pt.
 
 [13 <./figures/InterfazWeb.jpg>]
@@ -1645,154 +1645,124 @@ Package pdftex.def Info: figures/InterfazWeb.jpg  used on input line 335.
 File: figures/bland_altman_english_white.png Graphic file (type png)
 <use figures/bland_altman_english_white.png>
 Package pdftex.def Info: figures/bland_altman_english_white.png  used on input 
-line 430.
+line 432.
 (pdftex.def)             Requested size: 394.35522pt x 122.78835pt.
 <figures/correlation_sensor_S1.png, id=442, 412.4208pt x 418.4433pt>
 File: figures/correlation_sensor_S1.png Graphic file (type png)
 <use figures/correlation_sensor_S1.png>
 Package pdftex.def Info: figures/correlation_sensor_S1.png  used on input line 
-467.
+469.
 (pdftex.def)             Requested size: 276.04744pt x 280.08739pt.
  [14 <./figures/bland_altman_english_white.png>]
 <figures/correlation_sensor_S2.png, id=451, 394.5942pt x 420.1296pt>
 File: figures/correlation_sensor_S2.png Graphic file (type png)
 <use figures/correlation_sensor_S2.png>
 Package pdftex.def Info: figures/correlation_sensor_S2.png  used on input line 
-495.
+497.
 (pdftex.def)             Requested size: 276.04744pt x 293.92844pt.
  [15 <./figures/correlation_sensor_S1.png>]
 <figures/correlation_sensor_S3.png, id=461, 396.2805pt x 420.1296pt>
 File: figures/correlation_sensor_S3.png Graphic file (type png)
 <use figures/correlation_sensor_S3.png>
 Package pdftex.def Info: figures/correlation_sensor_S3.png  used on input line 
-523.
+525.
 (pdftex.def)             Requested size: 276.04744pt x 292.67836pt.
  [16 <./figures/correlation_sensor_S2.png>]
 <figures/correlation_sensor_S4.png, id=470, 394.5942pt x 420.1296pt>
 File: figures/correlation_sensor_S4.png Graphic file (type png)
 <use figures/correlation_sensor_S4.png>
 Package pdftex.def Info: figures/correlation_sensor_S4.png  used on input line 
-550.
+552.
 (pdftex.def)             Requested size: 276.04744pt x 293.92844pt.
  [17 <./figures/correlation_sensor_S3.png>]
 <figures/velocity_profile.png, id=481, 566.115pt x 385.6809pt>
 File: figures/velocity_profile.png Graphic file (type png)
 <use figures/velocity_profile.png>
-Package pdftex.def Info: figures/velocity_profile.png  used on input line 563.
+Package pdftex.def Info: figures/velocity_profile.png  used on input line 565.
 (pdftex.def)             Requested size: 315.48538pt x 214.93817pt.
  [18 <./figures/correlation_sensor_S4.png>]
 <figures/acceleration_boxplot.png, id=491, 492.1587pt x 383.9946pt>
 File: figures/acceleration_boxplot.png Graphic file (type png)
 <use figures/acceleration_boxplot.png>
 Package pdftex.def Info: figures/acceleration_boxplot.png  used on input line 5
-71.
+73.
 (pdftex.def)             Requested size: 295.76642pt x 230.76181pt.
 <figures/experimental_vs_theoretical_mrua.png, id=496, 561.297pt x 385.44pt>
 File: figures/experimental_vs_theoretical_mrua.png Graphic file (type png)
 <use figures/experimental_vs_theoretical_mrua.png>
 Package pdftex.def Info: figures/experimental_vs_theoretical_mrua.png  used on 
-input line 589.
+input line 591.
 (pdftex.def)             Requested size: 315.48538pt x 216.64479pt.
  [19 <./figures/velocity_profile.png> <./figures/acceleration_boxplot.png>]
 <figures/stability_success_rate.png, id=507, 421.3341pt x 349.7868pt>
 File: figures/stability_success_rate.png Graphic file (type png)
 <use figures/stability_success_rate.png>
 Package pdftex.def Info: figures/stability_success_rate.png  used on input line
- 597.
+ 599.
 (pdftex.def)             Requested size: 256.32848pt x 212.80922pt.
  [20 <./figures/experimental_vs_theoretical_mrua.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 626--626
+Underfull \hbox (badness 10000) in paragraph at lines 628--628
 []|\T1/ppl/b/n/9 (+20) Cost
  []
 
 
-Overfull \hbox (3.3872pt too wide) in paragraph at lines 626--626
+Overfull \hbox (3.3872pt too wide) in paragraph at lines 628--628
 []|\T1/ppl/b/n/9 (-20) Limited
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 628--628
+Underfull \hbox (badness 10000) in paragraph at lines 630--630
 []|\T1/ppl/m/n/9 (+20) ESP32 +
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 628--628
+Underfull \hbox (badness 10000) in paragraph at lines 630--630
 []|\T1/ppl/m/n/9 (+20) Yes (quan-ti-ta-
  []
 
 
-Underfull \hbox (badness 1320) in paragraph at lines 628--629
+Underfull \hbox (badness 1320) in paragraph at lines 630--631
 []|\T1/ppl/m/n/9 (+20) Local times-tamp-ing on
  []
 
 
-Underfull \hbox (badness 1603) in paragraph at lines 629--630
+Underfull \hbox (badness 1603) in paragraph at lines 631--632
 []|$\OMS/zplm/m/n/9 ^^Y$\T1/ppl/m/n/9 (+20) 220ms (co-man-dos, 1
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--630
+Underfull \hbox (badness 10000) in paragraph at lines 631--632
 \T1/ppl/m/n/9 (+20) usuario); 200--400ms
  []
 
 
-Underfull \hbox (badness 3735) in paragraph at lines 629--630
+Underfull \hbox (badness 3735) in paragraph at lines 631--632
 \T1/ppl/m/n/9 (+20) (video We-bRTC); 0.35--
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--630
+Underfull \hbox (badness 10000) in paragraph at lines 631--632
 \T1/ppl/m/n/9 (+20) 2.01s de-pend-ing on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 630--630
+Underfull \hbox (badness 10000) in paragraph at lines 632--632
 []|\T1/ppl/m/n/9 (+20) Pérez-Chamé \T1/ppl/m/it/9 (+20) et
  []
 
 
-Underfull \hbox (badness 1122) in paragraph at lines 630--630
+Underfull \hbox (badness 1122) in paragraph at lines 632--632
 []|\T1/ppl/m/n/9 (+20) New hard-
  []
 
 
-Overfull \hbox (2.87704pt too wide) in paragraph at lines 630--630
+Overfull \hbox (2.87704pt too wide) in paragraph at lines 632--632
 []|\T1/ppl/m/n/9 (-20) Partial| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 631--631
+Underfull \hbox (badness 10000) in paragraph at lines 633--633
 []|\T1/ppl/m/n/9 (+20) Guerrero-Osuna
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 631--631
-[]|\T1/ppl/m/n/9 (+20) New sys-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 631--631
-[]|\T1/ppl/m/n/9 (+20) Arduino +
- []
-
-
-Underfull \hbox (badness 1107) in paragraph at lines 631--632
-[]|\T1/ppl/m/n/9 (+20) NR (pend-ing in fu-ture
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 632--632
-[]|\T1/ppl/m/n/9 (+20) Viswanadh \T1/ppl/m/it/9 (+20) et
- []
-
-
-Underfull \hbox (badness 7925) in paragraph at lines 632--632
-[]|\T1/ppl/m/n/9 (+20) RPi + sen-
- []
-
-
-Overfull \hbox (3.7559pt too wide) in paragraph at lines 632--632
-[]|\T1/ppl/m/n/9 (-20) Parcial| 
  []
 
 
@@ -1801,30 +1771,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 633--633
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 633--634
+Underfull \hbox (badness 10000) in paragraph at lines 633--633
+[]|\T1/ppl/m/n/9 (+20) Arduino +
+ []
+
+
+Underfull \hbox (badness 1107) in paragraph at lines 633--634
+[]|\T1/ppl/m/n/9 (+20) NR (pend-ing in fu-ture
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 634--634
+[]|\T1/ppl/m/n/9 (+20) Viswanadh \T1/ppl/m/it/9 (+20) et
+ []
+
+
+Underfull \hbox (badness 7925) in paragraph at lines 634--634
+[]|\T1/ppl/m/n/9 (+20) RPi + sen-
+ []
+
+
+Overfull \hbox (3.7559pt too wide) in paragraph at lines 634--634
+[]|\T1/ppl/m/n/9 (-20) Parcial| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 635--635
+[]|\T1/ppl/m/n/9 (+20) New sys-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 635--636
 []|\T1/ppl/m/n/9 (+20) NR (ac-qui-si-tion loop
  []
 
 
-Overfull \hbox (14.95972pt too wide) in paragraph at lines 624--636
+Overfull \hbox (14.95972pt too wide) in paragraph at lines 626--638
 [][] 
  []
 
 [21 <./figures/stability_success_rate.png>] [22] [23]
-Underfull \hbox (badness 3690) in paragraph at lines 730--734
+Underfull \hbox (badness 3690) in paragraph at lines 732--736
 \T1/ppl/m/n/9 (+20) ning Re-mote Lab-o-ra-to-ries for On-line Prac-ti-cal Learn
 -ing. \T1/ppl/m/it/9 (+20) Sen-sors \T1/ppl/b/n/9 (+20) 2022\T1/ppl/m/n/9 (+20)
  , \T1/ppl/m/it/9 (+20) 22\T1/ppl/m/n/9 (+20) , 2351.
  []
 
 
-Underfull \hbox (badness 1400) in paragraph at lines 742--746
+Underfull \hbox (badness 1400) in paragraph at lines 744--748
 []\T1/ppl/m/n/9 (+20) Pérez-Chamé, J.H. \T1/ppl/m/it/9 (+20) et al. \T1/ppl/m/n
 /9 (+20) De-vel-op-ment of an ed-u-ca-tional low-cost and ESP32-based
  []
 
 
-Underfull \hbox (badness 1077) in paragraph at lines 742--746
+Underfull \hbox (badness 1077) in paragraph at lines 744--748
 \T1/ppl/m/n/9 (+20) plat-form for fun-da-men-tal physics ex-per-i-ments. \T1/pp
 l/m/it/9 (+20) Com-put. Appl. Eng. Educ. \T1/ppl/b/n/9 (+20) 2023\T1/ppl/m/n/9 
 (+20) .
@@ -1841,11 +1841,11 @@ Package rerunfilecheck Info: File `template_EN.out' has not changed.
 (rerunfilecheck)             Checksum: DF478D9779B61E30F7515D5907CCFBC2;6193.
  ) 
 Here is how much of TeX's memory you used:
- 34993 strings out of 467871
- 653290 string characters out of 5418376
- 1153176 words of memory out of 5000000
+ 35005 strings out of 467871
+ 653392 string characters out of 5418376
+ 1153874 words of memory out of 5000000
  62474 multiletter control sequences out of 15000+600000
- 722207 words of font info for 568 fonts, out of 8000000 for 9000
+ 722765 words of font info for 576 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,15n,121p,2213b,835s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\santi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
@@ -1861,7 +1861,7 @@ Data/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/santi/
 AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/sa
 nti/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users
 /santi/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on template_EN.pdf (26 pages, 36456203 bytes).
+Output written on template_EN.pdf (26 pages, 36458429 bytes).
 PDF statistics:
  767 PDF objects out of 1000 (max. 8388607)
  151 named destinations out of 1000 (max. 500000)

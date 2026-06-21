@@ -1,0 +1,19 @@
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is 'articulo_espol.blg'
+[95] biber-MSWIN64:342> INFO - === 
+[125] Biber.pm:421> INFO - Reading 'articulo_espol.bcf'
+[246] Biber.pm:1002> INFO - Found 48 citekeys in bib section 0
+[265] Biber.pm:4487> INFO - Processing section 0
+[276] Biber.pm:4678> INFO - Looking for bibtex file 'referencias_espol.bib' for section 0
+[320] bibtex.pm:1713> INFO - LaTeX decoding ...
+[365] bibtex.pm:1519> INFO - Found BibTeX data source 'referencias_espol.bib'
+[613] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[613] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[613] Biber.pm:4307> INFO - Sorting list 'nyt/apasortcite//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[613] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[692] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[692] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[692] Biber.pm:4307> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[693] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[731] bbl.pm:676> INFO - Writing 'articulo_espol.bbl' with encoding 'UTF-8'
+[777] bbl.pm:779> INFO - Output to articulo_espol.bbl
